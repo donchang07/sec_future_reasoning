@@ -1,0 +1,107 @@
+{
+  "feature": "reasoning-vertical-slice",
+  "checked_commit": "1f38e7fad801b4bc7e1d65b09becf7eba2ec1de4",
+  "run_id": "f7a47f5a-af4b-5681-b12a-185da7aa619d",
+  "journal_sha256": "43c01ba07a8755f6357e7dac026ba555bb4e96ed3d4bbb538dbdab30574c6067",
+  "source_sha256": "68b25e43c06d4a49a2431ad4576cdb5cad93b94b03eea9aa45911c589471e1e7",
+  "fixture_sha256": "1f0c06192c66cb65e60d78df15da64bd29aed9993a5db2f8e92067e401c504f5",
+  "engine_executions": 114,
+  "success_count": 114,
+  "pytest_total_passed": 89,
+  "core_cases_passed": 15,
+  "original_80_release_ready": false,
+  "replay_verified": true,
+  "ci_url": "https://github.com/donchang07/sec_future_reasoning/actions/runs/34315461362",
+  "horizons": [
+    {
+      "horizon": "1w",
+      "initial": {
+        "up": 0.740598443266811,
+        "down": 0.12253084765128358,
+        "flat": 0.1368707090819054
+      },
+      "final": {
+        "up": 0.7901165130706987,
+        "down": 0.09204212293782021,
+        "flat": 0.11784136399148092
+      },
+      "confidence": 0.9818686006825939,
+      "ledger_rows": 25,
+      "bottom_score": 0.9,
+      "alignment_score": 1.0,
+      "liquidity_score": 1.0,
+      "decision": "WAIT",
+      "positive_paths": [
+        "hyperscaler_capex_to_ai_demand/ai_demand_to_price",
+        "hbm_demand_to_memory/memory_to_price",
+        "foreign_net_buy_to_capital_flow/capital_flow_to_price",
+        "preferred_volume_z_to_market_regime/market_regime_to_price",
+        "gpu_demand_growth_to_ai_demand/ai_demand_to_price"
+      ],
+      "negative_paths": [
+        "cxmt_memory_capacity_to_supply/supply_to_price",
+        "samsung_forward_per_to_valuation/valuation_to_price"
+      ]
+    },
+    {
+      "horizon": "1m",
+      "initial": {
+        "up": 0.7203903748743333,
+        "down": 0.13787203703168135,
+        "flat": 0.1417375880939853
+      },
+      "final": {
+        "up": 0.7546527624252866,
+        "down": 0.11496441103104495,
+        "flat": 0.1303828265436685
+      },
+      "confidence": 0.9653967500084812,
+      "ledger_rows": 25,
+      "bottom_score": 0.9,
+      "alignment_score": 1.0,
+      "liquidity_score": 1.0,
+      "decision": "WAIT",
+      "positive_paths": [
+        "hyperscaler_capex_to_ai_demand/ai_demand_to_price",
+        "hbm_demand_to_memory/memory_to_price",
+        "foreign_net_buy_to_capital_flow/capital_flow_to_price",
+        "preferred_volume_z_to_market_regime/market_regime_to_price",
+        "gpu_demand_growth_to_ai_demand/ai_demand_to_price"
+      ],
+      "negative_paths": [
+        "cxmt_memory_capacity_to_supply/supply_to_price",
+        "samsung_forward_per_to_valuation/valuation_to_price"
+      ]
+    },
+    {
+      "horizon": "1y",
+      "initial": {
+        "up": 0.6595996249527792,
+        "down": 0.17887328424118695,
+        "flat": 0.1615270908060339
+      },
+      "final": {
+        "up": 0.6907773726362606,
+        "down": 0.1560451891339848,
+        "flat": 0.15317743822975455
+      },
+      "confidence": 0.9414924556061176,
+      "ledger_rows": 25,
+      "bottom_score": 0.9,
+      "alignment_score": 1.0,
+      "liquidity_score": 1.0,
+      "decision": "WAIT",
+      "positive_paths": [
+        "hyperscaler_capex_to_ai_demand/ai_demand_to_price",
+        "hbm_demand_to_memory/memory_to_price",
+        "foreign_net_buy_to_capital_flow/capital_flow_to_price",
+        "preferred_volume_z_to_market_regime/market_regime_to_price",
+        "gpu_demand_growth_to_ai_demand/ai_demand_to_price"
+      ],
+      "negative_paths": [
+        "cxmt_memory_capacity_to_supply/supply_to_price",
+        "samsung_forward_per_to_valuation/valuation_to_price"
+      ]
+    }
+  ]
+}
