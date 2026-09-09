@@ -1,0 +1,3 @@
+[submodule ".bkit-codex"]
+	path = .bkit-codex
+	url = https://github.com/ww-w-ai/bkit-codex.git

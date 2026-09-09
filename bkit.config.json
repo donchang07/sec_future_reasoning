@@ -1,0 +1,21 @@
+{
+  "version": "1.0.1",
+  "project": {
+    "name": "sec_future_reasoning",
+    "level": "enterprise"
+  },
+  "pdca": {
+    "matchRateThreshold": 90,
+    "maxIterations": 5,
+    "statusFile": "docs/.pdca-status.json",
+    "memoryFile": "docs/.bkit-memory.json"
+  },
+  "conventions": {
+    "naming": {
+      "components": "PascalCase",
+      "functions": "camelCase",
+      "constants": "UPPER_SNAKE_CASE",
+      "files": "kebab-case"
+    }
+  }
+}
