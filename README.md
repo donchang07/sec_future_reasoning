@@ -19,3 +19,13 @@ v1.1의 핵심은 19개 Future Reasoning Engine이 방향과 확률을 판단하
 ## 개발 원칙
 
 bkit-codex PDCA를 사용합니다. Plan과 Design은 반드시 canonical PRD v1.1을 먼저 읽고 작성합니다. 첫 구현 목표는 전체 기능 완성이 아니라 하나의 실제 입력이 전체 reasoning pipeline을 통과하여 horizon별 forecast, timing, decision, explanation, Prediction Journal을 생성하는 End-to-End Vertical Slice입니다.
+
+## PDCA 문서
+
+- [전체 구현 Plan](docs/01-plan/features/sec-future-reasoning-v1-1.plan.md)
+- [통합 Design](docs/02-design/features/sec-future-reasoning-v1-1.design.md)
+- [19개 Engine·추론 모델·Timing](docs/02-design/features/sec-future-reasoning-v1-1/engines-and-model.md)
+- [49 Factor Registry 설계](docs/02-design/features/sec-future-reasoning-v1-1/factor-registry.md)
+- [Golden 80개 사례](docs/02-design/features/sec-future-reasoning-v1-1/golden-cases.md)
+
+문서의 설계 가정과 테스트 명세는 실제 구현·실데이터 검증 결과와 구분합니다. 다음 구현은 `reasoning-foundation`의 기능별 Plan/Design부터 시작합니다.
