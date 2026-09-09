@@ -1,0 +1,370 @@
+{
+  "$defs": {
+    "FactorDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "auxiliary_inputs": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Auxiliary Inputs",
+          "type": "array"
+        },
+        "cadence": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Cadence",
+          "type": "string"
+        },
+        "comparison_period": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Comparison Period",
+          "type": "string"
+        },
+        "critical_for_horizons": {
+          "items": {
+            "enum": [
+              "1d",
+              "1w",
+              "1m",
+              "3m",
+              "1y"
+            ],
+            "type": "string"
+          },
+          "title": "Critical For Horizons",
+          "type": "array"
+        },
+        "derived_from": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Derived From",
+          "type": "array"
+        },
+        "economic_sign_by_regime": {
+          "const": "graph_defined",
+          "title": "Economic Sign By Regime",
+          "type": "string"
+        },
+        "expected_release_at": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Release At"
+        },
+        "factor_id": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "freshness_sla": {
+          "$ref": "#/$defs/Freshness"
+        },
+        "module_id": {
+          "enum": [
+            "macro",
+            "ai_demand",
+            "memory",
+            "supply",
+            "earnings",
+            "capital_flow",
+            "valuation",
+            "preferred",
+            "market_regime"
+          ],
+          "title": "Module Id",
+          "type": "string"
+        },
+        "name_ko": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Name Ko",
+          "type": "string"
+        },
+        "ontology_version": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Ontology Version",
+          "type": "string"
+        },
+        "prd_reference": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Prd Reference",
+          "type": "string"
+        },
+        "provenance_class": {
+          "enum": [
+            "E",
+            "D",
+            "P"
+          ],
+          "title": "Provenance Class",
+          "type": "string"
+        },
+        "quality_tolerance_rule": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Quality Tolerance Rule",
+          "type": "string"
+        },
+        "series_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Series Id"
+        },
+        "source_candidates": {
+          "items": {
+            "enum": [
+              "OFF",
+              "MKT",
+              "FIL",
+              "IND",
+              "DER"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Candidates",
+          "type": "array"
+        },
+        "source_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Source Id"
+        },
+        "source_status": {
+          "enum": [
+            "not_connected",
+            "connected"
+          ],
+          "title": "Source Status",
+          "type": "string"
+        },
+        "timezone": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Timezone"
+        },
+        "transform": {
+          "enum": [
+            "level",
+            "diff",
+            "pct_change",
+            "log_return",
+            "yoy",
+            "ratio"
+          ],
+          "title": "Transform",
+          "type": "string"
+        },
+        "unit": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Unit",
+          "type": "string"
+        },
+        "unresolved_fields": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Unresolved Fields",
+          "type": "array"
+        },
+        "value_definition": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Value Definition",
+          "type": "string"
+        },
+        "value_type": {
+          "const": "number",
+          "default": "number",
+          "title": "Value Type",
+          "type": "string"
+        },
+        "warmup": {
+          "minimum": 0,
+          "title": "Warmup",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "factor_id",
+        "module_id",
+        "name_ko",
+        "value_definition",
+        "unit",
+        "transform",
+        "comparison_period",
+        "warmup",
+        "cadence",
+        "expected_release_at",
+        "freshness_sla",
+        "critical_for_horizons",
+        "source_candidates",
+        "source_status",
+        "source_id",
+        "series_id",
+        "timezone",
+        "provenance_class",
+        "prd_reference",
+        "derived_from",
+        "auxiliary_inputs",
+        "economic_sign_by_regime",
+        "quality_tolerance_rule",
+        "ontology_version",
+        "unresolved_fields"
+      ],
+      "title": "FactorDefinition",
+      "type": "object"
+    },
+    "Freshness": {
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "enum": [
+            "trading_days",
+            "calendar_days",
+            "bars",
+            "event"
+          ],
+          "title": "Basis",
+          "type": "string"
+        },
+        "maximum_age": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Maximum Age"
+        },
+        "source_definition": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Source Definition",
+          "type": "string"
+        }
+      },
+      "required": [
+        "basis",
+        "maximum_age",
+        "source_definition"
+      ],
+      "title": "Freshness",
+      "type": "object"
+    },
+    "ModuleDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "module_id": {
+          "enum": [
+            "macro",
+            "ai_demand",
+            "memory",
+            "supply",
+            "earnings",
+            "capital_flow",
+            "valuation",
+            "preferred",
+            "market_regime"
+          ],
+          "title": "Module Id",
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "module_id",
+        "name"
+      ],
+      "title": "ModuleDefinition",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "factors": {
+      "items": {
+        "$ref": "#/$defs/FactorDefinition"
+      },
+      "maxItems": 49,
+      "minItems": 49,
+      "title": "Factors",
+      "type": "array"
+    },
+    "modules": {
+      "items": {
+        "$ref": "#/$defs/ModuleDefinition"
+      },
+      "maxItems": 9,
+      "minItems": 9,
+      "title": "Modules",
+      "type": "array"
+    },
+    "ontology_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Ontology Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ontology_version",
+    "modules",
+    "factors"
+  ],
+  "title": "Registry",
+  "type": "object"
+}

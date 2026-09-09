@@ -1,0 +1,443 @@
+{
+  "$defs": {
+    "Contribution": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "$ref": "#/$defs/ProbabilityVector"
+        },
+        "before": {
+          "$ref": "#/$defs/ProbabilityVector"
+        },
+        "delta_pp": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Delta Pp",
+          "type": "array"
+        },
+        "edge_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Edge Ids",
+          "type": "array"
+        },
+        "engine_id": {
+          "enum": [
+            "E01",
+            "E02",
+            "E03",
+            "E04",
+            "E05",
+            "E06",
+            "E07",
+            "E08",
+            "E09",
+            "E10",
+            "E11",
+            "E12",
+            "E13",
+            "E14",
+            "E15",
+            "E16",
+            "E17",
+            "E18",
+            "E19"
+          ],
+          "title": "Engine Id",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "sequence": {
+          "minimum": 0,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "stage": {
+          "enum": [
+            "causal",
+            "scenario",
+            "challenge",
+            "history",
+            "calibration",
+            "history_cap"
+          ],
+          "title": "Stage",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sequence",
+        "stage",
+        "engine_id",
+        "version",
+        "evidence_refs",
+        "before",
+        "after",
+        "delta_pp"
+      ],
+      "title": "Contribution",
+      "type": "object"
+    },
+    "EngineVersion": {
+      "additionalProperties": false,
+      "properties": {
+        "engine_id": {
+          "enum": [
+            "E01",
+            "E02",
+            "E03",
+            "E04",
+            "E05",
+            "E06",
+            "E07",
+            "E08",
+            "E09",
+            "E10",
+            "E11",
+            "E12",
+            "E13",
+            "E14",
+            "E15",
+            "E16",
+            "E17",
+            "E18",
+            "E19"
+          ],
+          "title": "Engine Id",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "engine_id",
+        "version"
+      ],
+      "title": "EngineVersion",
+      "type": "object"
+    },
+    "Falsifier": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "factor_id": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "horizon": {
+          "enum": [
+            "1d",
+            "1w",
+            "1m",
+            "3m",
+            "1y"
+          ],
+          "title": "Horizon",
+          "type": "string"
+        },
+        "operator": {
+          "enum": [
+            "gt",
+            "ge",
+            "lt",
+            "le",
+            "eq"
+          ],
+          "title": "Operator",
+          "type": "string"
+        },
+        "threshold": {
+          "title": "Threshold",
+          "type": "number"
+        },
+        "unit": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factor_id",
+        "operator",
+        "threshold",
+        "unit",
+        "horizon",
+        "evidence_refs"
+      ],
+      "title": "Falsifier",
+      "type": "object"
+    },
+    "ProbabilityVector": {
+      "additionalProperties": false,
+      "properties": {
+        "down": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Down",
+          "type": "number"
+        },
+        "flat": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Flat",
+          "type": "number"
+        },
+        "up": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Up",
+          "type": "number"
+        }
+      },
+      "required": [
+        "up",
+        "down",
+        "flat"
+      ],
+      "title": "ProbabilityVector",
+      "type": "object"
+    },
+    "VersionBundle": {
+      "additionalProperties": false,
+      "properties": {
+        "calendar": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Calendar",
+          "type": "string"
+        },
+        "calibration": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Calibration",
+          "type": "string"
+        },
+        "code_commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Code Commit",
+          "type": "string"
+        },
+        "engines": {
+          "items": {
+            "$ref": "#/$defs/EngineVersion"
+          },
+          "title": "Engines",
+          "type": "array"
+        },
+        "graph": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Graph",
+          "type": "string"
+        },
+        "model": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Model",
+          "type": "string"
+        },
+        "ontology": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Ontology",
+          "type": "string"
+        },
+        "policy": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Policy",
+          "type": "string"
+        },
+        "prompt": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Prompt",
+          "type": "string"
+        },
+        "source_registry": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Source Registry",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ontology",
+        "graph",
+        "model",
+        "prompt",
+        "calibration",
+        "policy",
+        "source_registry",
+        "calendar",
+        "code_commit",
+        "engines"
+      ],
+      "title": "VersionBundle",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "calibration_status": {
+      "enum": [
+        "unvalidated",
+        "validated"
+      ],
+      "title": "Calibration Status",
+      "type": "string"
+    },
+    "confidence": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "data_cutoff": {
+      "format": "date-time",
+      "title": "Data Cutoff",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "minLength": 1,
+        "pattern": "\\S",
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "falsifiers": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Falsifier"
+      },
+      "title": "Falsifiers",
+      "type": "array"
+    },
+    "forecast_id": {
+      "format": "uuid",
+      "title": "Forecast Id",
+      "type": "string"
+    },
+    "horizon": {
+      "enum": [
+        "1d",
+        "1w",
+        "1m",
+        "3m",
+        "1y"
+      ],
+      "title": "Horizon",
+      "type": "string"
+    },
+    "ledger": {
+      "items": {
+        "$ref": "#/$defs/Contribution"
+      },
+      "title": "Ledger",
+      "type": "array"
+    },
+    "price_high": {
+      "minimum": 0,
+      "title": "Price High",
+      "type": "number"
+    },
+    "price_low": {
+      "minimum": 0,
+      "title": "Price Low",
+      "type": "number"
+    },
+    "prior": {
+      "$ref": "#/$defs/ProbabilityVector"
+    },
+    "probabilities": {
+      "$ref": "#/$defs/ProbabilityVector"
+    },
+    "run_id": {
+      "format": "uuid",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "target_at": {
+      "format": "date-time",
+      "title": "Target At",
+      "type": "string"
+    },
+    "versions": {
+      "$ref": "#/$defs/VersionBundle"
+    },
+    "without_history_probabilities": {
+      "$ref": "#/$defs/ProbabilityVector"
+    }
+  },
+  "required": [
+    "forecast_id",
+    "run_id",
+    "horizon",
+    "data_cutoff",
+    "target_at",
+    "versions",
+    "prior",
+    "probabilities",
+    "without_history_probabilities",
+    "ledger",
+    "confidence",
+    "price_low",
+    "price_high",
+    "calibration_status",
+    "evidence_refs"
+  ],
+  "title": "Forecast",
+  "type": "object"
+}

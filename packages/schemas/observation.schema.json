@@ -1,0 +1,64 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "factor_id": {
+      "pattern": "^[a-z][a-z0-9_-]*$",
+      "title": "Factor Id",
+      "type": "string"
+    },
+    "observation_id": {
+      "format": "uuid",
+      "title": "Observation Id",
+      "type": "string"
+    },
+    "observed_at": {
+      "format": "date-time",
+      "title": "Observed At",
+      "type": "string"
+    },
+    "published_at": {
+      "format": "date-time",
+      "title": "Published At",
+      "type": "string"
+    },
+    "revision_id": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Revision Id",
+      "type": "string"
+    },
+    "source_id": {
+      "pattern": "^[a-z][a-z0-9_-]*$",
+      "title": "Source Id",
+      "type": "string"
+    },
+    "unit": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Unit",
+      "type": "string"
+    },
+    "value": {
+      "title": "Value",
+      "type": "number"
+    }
+  },
+  "required": [
+    "observation_id",
+    "factor_id",
+    "source_id",
+    "revision_id",
+    "unit",
+    "value",
+    "observed_at",
+    "published_at",
+    "available_at"
+  ],
+  "title": "Observation",
+  "type": "object"
+}

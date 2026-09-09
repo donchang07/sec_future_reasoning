@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sec-future-reasoning"
+version = "0.1.0"
+description = "Typed, evidence-aware future reasoning foundation"
+requires-python = ">=3.11"
+dependencies = ["pydantic==2.12.5"]
+
+[project.optional-dependencies]
+test = ["pytest==9.0.2"]
+
+[tool.setuptools.packages.find]
+include = ["reasoning*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"

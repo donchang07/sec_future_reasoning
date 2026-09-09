@@ -28,4 +28,10 @@ bkit-codex PDCA를 사용합니다. Plan과 Design은 반드시 canonical PRD v1
 - [49 Factor Registry 설계](docs/02-design/features/sec-future-reasoning-v1-1/factor-registry.md)
 - [Golden 80개 사례](docs/02-design/features/sec-future-reasoning-v1-1/golden-cases.md)
 
-문서의 설계 가정과 테스트 명세는 실제 구현·실데이터 검증 결과와 구분합니다. 다음 구현은 `reasoning-foundation`의 기능별 Plan/Design부터 시작합니다.
+문서의 설계 가정과 테스트 명세는 실제 구현·실데이터 검증 결과와 구분합니다.
+
+## 현재 구현
+
+P1 `reasoning-foundation`: typed Engine 계약, 버전·cutoff·확률/ledger·Journal 검증, 49 Factor Registry, Golden 80개 카탈로그와 schema 검사 CLI를 구현했습니다. [설치와 실행 안내](docs/FOUNDATION.md)를 참고하세요.
+
+전체 제품 Do는 진행 중입니다. 실제 추론 엔진 실행·DB·API/UI는 다음 기능이며, 미실행 Golden 카탈로그는 release gate를 통과하지 않습니다.

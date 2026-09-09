@@ -1,0 +1,2086 @@
+{
+  "factors": [
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "us_2y_yield",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 2,
+        "source_definition": "2 trading days"
+      },
+      "module_id": "macro",
+      "name_ko": "미국2년금리",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: §2 US2Y",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "OFF",
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "연 수익률 % / diff pp",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [
+        "1d",
+        "1w",
+        "1m",
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "us_10y_yield",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 2,
+        "source_definition": "2 trading days"
+      },
+      "module_id": "macro",
+      "name_ko": "미국10년금리",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: §2, Scenario",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "OFF",
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "연 수익률 % / diff pp",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "event",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "fed_policy_rate",
+      "freshness_sla": {
+        "basis": "event",
+        "maximum_age": null,
+        "source_definition": "next meeting"
+      },
+      "module_id": "macro",
+      "name_ko": "연준정책금리",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: Fed",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "OFF"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "목표범위 상단 % / diff pp",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "monthly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "us_cpi_yoy",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 45,
+        "source_definition": "45d"
+      },
+      "module_id": "macro",
+      "name_ko": "미국CPI",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: CPI",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "OFF"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "전년비 % / diff pp",
+      "value_type": "number",
+      "warmup": 12
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "monthly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "us_payroll_change",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 45,
+        "source_definition": "45d"
+      },
+      "module_id": "macro",
+      "name_ko": "미국고용증감",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: Employment",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "OFF"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "thousand_persons",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "월간 순증 천명 / diff",
+      "value_type": "number",
+      "warmup": 12
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "dxy",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 2,
+        "source_definition": "2 trading days"
+      },
+      "module_id": "macro",
+      "name_ko": "달러지수",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: DXY",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "log_return",
+      "unit": "index",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "index points / log_return",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [
+        "1d",
+        "1w",
+        "1m",
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "usdkrw",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 2,
+        "source_definition": "2 trading days"
+      },
+      "module_id": "macro",
+      "name_ko": "원달러환율",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: USDKRW",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "OFF",
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "log_return",
+      "unit": "krw_per_usd",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "KRW per USD / log_return",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "wti_oil",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 2,
+        "source_definition": "2 trading days"
+      },
+      "module_id": "macro",
+      "name_ko": "WTI유가",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: Oil/T06",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "log_return",
+      "unit": "usd_per_barrel",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "USD/barrel / log_return",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "quarterly",
+      "comparison_period": "year",
+      "critical_for_horizons": [
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "hyperscaler_capex",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "ai_demand",
+      "name_ko": "하이퍼스케일러투자",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: CAPEX",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "yoy",
+      "unit": "usd_million",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "고정 기업군 분기합계 USD million / yoy",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "quarterly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "gpu_demand_growth",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "ai_demand",
+      "name_ko": "GPU수요증가",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: GPU demand",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "IND",
+        "FIL"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "고정 표본 출하 YoY % / level",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "quarterly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "ai_revenue_growth",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "ai_demand",
+      "name_ko": "AI매출증가",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: AI revenue",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "고정 기업군 AI revenue YoY % / level",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "monthly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "ai_usage_growth",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 45,
+        "source_definition": "45d"
+      },
+      "module_id": "ai_demand",
+      "name_ko": "AI사용량증가",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: usage",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL",
+        "IND"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "정의된 사용량 지수 YoY % / level",
+      "value_type": "number",
+      "warmup": 12
+    },
+    {
+      "auxiliary_inputs": [
+        "incremental_ai_gross_profit",
+        "lagged_capex"
+      ],
+      "cadence": "quarterly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "ai_capex_roi_proxy",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "ai_demand",
+      "name_ko": "AI투자수익대용지표",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "P: T16 ROI 정량화 제안",
+      "provenance_class": "P",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "DER",
+        "FIL"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "ratio",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "incremental AI gross profit / lagged CAPEX 비율",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "monthly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [
+        "1m",
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "dram_contract_asp",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 45,
+        "source_definition": "45d"
+      },
+      "module_id": "memory",
+      "name_ko": "DRAM계약가격",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: DRAM ASP",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "IND"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "pct_change",
+      "unit": "index",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "고정 DRAM basket 지수 / pct_change MoM",
+      "value_type": "number",
+      "warmup": 12
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "dram_spot_price",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 5,
+        "source_definition": "5 trading days"
+      },
+      "module_id": "memory",
+      "name_ko": "DRAM현물가격",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: T11 spot",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "IND"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "pct_change",
+      "unit": "usd_per_unit",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "고정 DRAM SKU USD/unit / pct_change",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "monthly",
+      "comparison_period": "year",
+      "critical_for_horizons": [
+        "1m",
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "hbm_demand",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 45,
+        "source_definition": "45d"
+      },
+      "module_id": "memory",
+      "name_ko": "HBM수요",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: HBM Demand",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "IND",
+        "FIL"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "yoy",
+      "unit": "index",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "HBM 수요 지수 / yoy",
+      "value_type": "number",
+      "warmup": 12
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "quarterly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "memory_inventory_days",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "memory",
+      "name_ko": "메모리재고일수",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: Inventory",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL",
+        "IND"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "days",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "표본기업 재고 days / diff",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "quarterly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "memory_bit_growth",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "memory",
+      "name_ko": "메모리비트증가",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: bit growth",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL",
+        "IND"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "공급 bit YoY % / level",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "quarterly/event",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "hbm_order_growth",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "memory",
+      "name_ko": "HBM주문증가",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: T13/T14 orders",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL",
+        "IND"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "확인된 주문 bit YoY % / level",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "monthly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "samsung_memory_capacity",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 45,
+        "source_definition": "45d"
+      },
+      "module_id": "supply",
+      "name_ko": "삼성생산능력",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: Samsung capacity",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL",
+        "IND"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "pct_change",
+      "unit": "wafers_per_month",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "DRAM-equivalent wafer/month / pct_change",
+      "value_type": "number",
+      "warmup": 12
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "monthly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "skhynix_memory_capacity",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 45,
+        "source_definition": "45d"
+      },
+      "module_id": "supply",
+      "name_ko": "SK하이닉스생산능력",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: SKH capacity",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL",
+        "IND"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "pct_change",
+      "unit": "wafers_per_month",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "같은 기준 wafer/month / pct_change",
+      "value_type": "number",
+      "warmup": 12
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "monthly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "micron_memory_capacity",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 45,
+        "source_definition": "45d"
+      },
+      "module_id": "supply",
+      "name_ko": "마이크론생산능력",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: Micron capacity",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL",
+        "IND"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "pct_change",
+      "unit": "wafers_per_month",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "같은 기준 wafer/month / pct_change",
+      "value_type": "number",
+      "warmup": 12
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "monthly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "cxmt_memory_capacity",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 45,
+        "source_definition": "45d"
+      },
+      "module_id": "supply",
+      "name_ko": "CXMT생산능력",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: CXMT capacity",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL",
+        "IND"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "pct_change",
+      "unit": "wafers_per_month",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "같은 기준 wafer/month / pct_change",
+      "value_type": "number",
+      "warmup": 12
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "event",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "fab_ramp_lead_months",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 90,
+        "source_definition": "90d"
+      },
+      "module_id": "supply",
+      "name_ko": "팹가동소요기간",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: fab schedule/T19",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL",
+        "IND"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "months",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "다음 증설의 생산까지 months / level",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "quarterly",
+      "comparison_period": "year",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "samsung_revenue",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "earnings",
+      "name_ko": "삼성매출",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: revenue",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "yoy",
+      "unit": "krw_billion",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "연결 분기 KRW billion / yoy",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "quarterly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "samsung_operating_margin",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "earnings",
+      "name_ko": "삼성영업이익률",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: margin",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "연결 영업이익률 % / diff pp",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "quarterly",
+      "comparison_period": "year",
+      "critical_for_horizons": [
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "samsung_eps",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "earnings",
+      "name_ko": "삼성EPS",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: EPS",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "yoy",
+      "unit": "krw_per_share",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "보통주 귀속 EPS KRW/share / yoy",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [
+        "operating_cash_flow",
+        "capex_cash_flow"
+      ],
+      "cadence": "quarterly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "samsung_fcf",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "earnings",
+      "name_ko": "삼성FCF",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: FCF",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL",
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "krw_billion",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "operating CF−CAPEX KRW billion / diff",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [
+        "1m",
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "samsung_eps_revision",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 5,
+        "source_definition": "5 trading days"
+      },
+      "module_id": "earnings",
+      "name_ko": "삼성EPS수정",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: revisions",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "IND",
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "고정 consensus FY EPS 30d revision %",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "quarterly",
+      "comparison_period": "year",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "samsung_capex",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 120,
+        "source_definition": "120d"
+      },
+      "module_id": "earnings",
+      "name_ko": "삼성설비투자",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: T20 CAPEX",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "yoy",
+      "unit": "krw_billion",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "분기 KRW billion / yoy",
+      "value_type": "number",
+      "warmup": 8
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [
+        "1d",
+        "1w",
+        "1m",
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "foreign_net_buy",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 1,
+        "source_definition": "1 trading day"
+      },
+      "module_id": "capital_flow",
+      "name_ko": "외국인순매수",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: foreign flow",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "krw_million",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "삼성 우선주 순매수 KRW million / level",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "institution_net_buy",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 1,
+        "source_definition": "1 trading day"
+      },
+      "module_id": "capital_flow",
+      "name_ko": "기관순매수",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: institution flow",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "krw_million",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "삼성 우선주 순매수 KRW million / level",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "program_net_buy",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 1,
+        "source_definition": "1 trading day"
+      },
+      "module_id": "capital_flow",
+      "name_ko": "프로그램순매수",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: program flow",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "krw_million",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "삼성 우선주 순매수 KRW million / level",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [
+        "sector_net_flow",
+        "sector_turnover",
+        "market_flow_ratio"
+      ],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "semiconductor_relative_flow",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 1,
+        "source_definition": "1 trading day"
+      },
+      "module_id": "capital_flow",
+      "name_ko": "반도체상대자금흐름",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: sector relative flow",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT",
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "ratio",
+      "unit": "ratio",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "sector net buy / turnover−market ratio",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "foreign_ownership_change",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 2,
+        "source_definition": "2 trading days"
+      },
+      "module_id": "capital_flow",
+      "name_ko": "외국인지분변화",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "P: 누적 자금 검증 보조",
+      "provenance_class": "P",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "percentage_points",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "삼성 우선주 지분율 변화 pp / diff",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [
+        "forward_eps_consensus"
+      ],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [
+        "3m",
+        "1y"
+      ],
+      "derived_from": [
+        "samsung_common_price"
+      ],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "samsung_forward_per",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 2,
+        "source_definition": "2 trading days"
+      },
+      "module_id": "valuation",
+      "name_ko": "삼성선행PER",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: PER",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT",
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "ratio",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "common price / forward EPS 배",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [
+        "book_value_per_share"
+      ],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [
+        "samsung_common_price"
+      ],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "samsung_pbr",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 2,
+        "source_definition": "2 trading days"
+      },
+      "module_id": "valuation",
+      "name_ko": "삼성PBR",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: PBR",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT",
+        "FIL",
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "ratio",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "common price / latest known BPS 배",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "monthly",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "equity_risk_premium",
+      "freshness_sla": {
+        "basis": "calendar_days",
+        "maximum_age": 45,
+        "source_definition": "45d"
+      },
+      "module_id": "valuation",
+      "name_ko": "주식위험프리미엄",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: ERP",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "IND",
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "정의된 implied ERP % / diff pp",
+      "value_type": "number",
+      "warmup": 12
+    },
+    {
+      "auxiliary_inputs": [
+        "risk_free_rate",
+        "equity_beta"
+      ],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [
+        "3m",
+        "1y"
+      ],
+      "derived_from": [
+        "equity_risk_premium"
+      ],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "equity_discount_rate",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 2,
+        "source_definition": "2 trading days"
+      },
+      "module_id": "valuation",
+      "name_ko": "주식할인율",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: discount rate",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "percent",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "risk-free + beta×ERP % / diff pp",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "30m/daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "samsung_common_price",
+      "freshness_sla": {
+        "basis": "bars",
+        "maximum_age": 1,
+        "source_definition": "1 bar"
+      },
+      "module_id": "preferred",
+      "name_ko": "삼성보통주가격",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: Samsung common",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "log_return",
+      "unit": "krw_per_share",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "unadjusted KRW/share / log_return",
+      "value_type": "number",
+      "warmup": 150
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "30m/daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [
+        "1d",
+        "1w",
+        "1m",
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "samsung_preferred_price",
+      "freshness_sla": {
+        "basis": "bars",
+        "maximum_age": 1,
+        "source_definition": "1 bar"
+      },
+      "module_id": "preferred",
+      "name_ko": "삼성우선주가격",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: Samsung preferred",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "log_return",
+      "unit": "krw_per_share",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "unadjusted KRW/share / log_return",
+      "value_type": "number",
+      "warmup": 150
+    },
+    {
+      "auxiliary_inputs": [],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [
+        "samsung_preferred_price",
+        "samsung_common_price"
+      ],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "preferred_discount",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 1,
+        "source_definition": "1 trading day"
+      },
+      "module_id": "preferred",
+      "name_ko": "우선주할인율",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: common/preferred spread",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "diff",
+      "unit": "ratio",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "1−preferred/common 비율 / diff",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [
+        "cash_dividends"
+      ],
+      "cadence": "daily/event",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [
+        "samsung_preferred_price"
+      ],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "preferred_dividend_yield",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 2,
+        "source_definition": "2 trading days"
+      },
+      "module_id": "preferred",
+      "name_ko": "우선주배당수익률",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: dividend",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "FIL",
+        "MKT",
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "ratio",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "trailing known cash dividends/price 비율",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [
+        "market_bars",
+        "free_float_shares"
+      ],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "preferred_turnover_ratio",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 1,
+        "source_definition": "1 trading day"
+      },
+      "module_id": "preferred",
+      "name_ko": "우선주회전율",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: liquidity",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "MKT",
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "ratio",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "traded shares/free-float shares 비율",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [
+        "market_bars"
+      ],
+      "cadence": "30m/daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "preferred_rsi_14",
+      "freshness_sla": {
+        "basis": "bars",
+        "maximum_age": 1,
+        "source_definition": "1 bar"
+      },
+      "module_id": "market_regime",
+      "name_ko": "우선주RSI",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "E: RSI",
+      "provenance_class": "E",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "rsi",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "Wilder RSI14 0..100 / level",
+      "value_type": "number",
+      "warmup": 150
+    },
+    {
+      "auxiliary_inputs": [
+        "market_bars"
+      ],
+      "cadence": "30m/daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [
+        "1d",
+        "1w",
+        "1m",
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "preferred_trend_alignment",
+      "freshness_sla": {
+        "basis": "bars",
+        "maximum_age": 1,
+        "source_definition": "1 bar"
+      },
+      "module_id": "market_regime",
+      "name_ko": "우선주추세정렬",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: trend",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "score",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "price와 SMA20/60/120 정렬 -1..1",
+      "value_type": "number",
+      "warmup": 150
+    },
+    {
+      "auxiliary_inputs": [
+        "market_bars"
+      ],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "preferred_realized_volatility",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 1,
+        "source_definition": "1 trading day"
+      },
+      "module_id": "market_regime",
+      "name_ko": "우선주실현변동성",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: volatility",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "ratio",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "trailing20 daily return 연율 std 비율",
+      "value_type": "number",
+      "warmup": 60
+    },
+    {
+      "auxiliary_inputs": [
+        "market_bars"
+      ],
+      "cadence": "30m/daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [
+        "1d",
+        "1w",
+        "1m",
+        "3m",
+        "1y"
+      ],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "preferred_volume_z",
+      "freshness_sla": {
+        "basis": "bars",
+        "maximum_age": 1,
+        "source_definition": "1 bar"
+      },
+      "module_id": "market_regime",
+      "name_ko": "우선주거래량Z",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "D: volume",
+      "provenance_class": "D",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "z_score",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "trailing20 volume z-score / level",
+      "value_type": "number",
+      "warmup": 150
+    },
+    {
+      "auxiliary_inputs": [
+        "market_bars"
+      ],
+      "cadence": "daily",
+      "comparison_period": "previous_observation",
+      "critical_for_horizons": [],
+      "derived_from": [],
+      "economic_sign_by_regime": "graph_defined",
+      "expected_release_at": null,
+      "factor_id": "preferred_overheat_percentile",
+      "freshness_sla": {
+        "basis": "trading_days",
+        "maximum_age": 1,
+        "source_definition": "1 trading day"
+      },
+      "module_id": "market_regime",
+      "name_ko": "우선주과열백분위",
+      "ontology_version": "ontology-design-v1",
+      "prd_reference": "P: overheat 정량화 제안",
+      "provenance_class": "P",
+      "quality_tolerance_rule": "quality-rule-experimental-v1",
+      "series_id": null,
+      "source_candidates": [
+        "DER"
+      ],
+      "source_id": null,
+      "source_status": "not_connected",
+      "timezone": null,
+      "transform": "level",
+      "unit": "percentile",
+      "unresolved_fields": [
+        "provider",
+        "series_id",
+        "release_schedule",
+        "timezone"
+      ],
+      "value_definition": "price−SMA20 거리의 trailing252 percentile",
+      "value_type": "number",
+      "warmup": 252
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "macro",
+      "name": "macro"
+    },
+    {
+      "module_id": "ai_demand",
+      "name": "ai demand"
+    },
+    {
+      "module_id": "memory",
+      "name": "memory"
+    },
+    {
+      "module_id": "supply",
+      "name": "supply"
+    },
+    {
+      "module_id": "earnings",
+      "name": "earnings"
+    },
+    {
+      "module_id": "capital_flow",
+      "name": "capital flow"
+    },
+    {
+      "module_id": "valuation",
+      "name": "valuation"
+    },
+    {
+      "module_id": "preferred",
+      "name": "preferred"
+    },
+    {
+      "module_id": "market_regime",
+      "name": "market regime"
+    }
+  ],
+  "ontology_version": "ontology-design-v1",
+  "schema_version": "1.0.0"
+}

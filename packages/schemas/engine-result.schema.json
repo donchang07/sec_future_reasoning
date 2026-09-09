@@ -1,0 +1,3022 @@
+{
+  "$defs": {
+    "ActorReflexivity": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/ActorResponse"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E10",
+          "default": "E10",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "ActorReflexivity",
+      "type": "object"
+    },
+    "ActorResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "action_code": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Action Code",
+          "type": "string"
+        },
+        "actor_id": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Actor Id",
+          "type": "string"
+        },
+        "constraint_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Constraint Refs",
+          "type": "array"
+        },
+        "feedback_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Feedback Refs",
+          "type": "array"
+        },
+        "response_range": {
+          "$ref": "#/$defs/NumericRange"
+        },
+        "trigger_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Trigger Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "actor_id",
+        "trigger_refs",
+        "action_code",
+        "response_range",
+        "constraint_refs",
+        "feedback_refs"
+      ],
+      "title": "ActorResponse",
+      "type": "object"
+    },
+    "AdjustedPath": {
+      "additionalProperties": false,
+      "properties": {
+        "adjusted_effect": {
+          "title": "Adjusted Effect",
+          "type": "number"
+        },
+        "adjustment_codes": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Adjustment Codes",
+          "type": "array"
+        },
+        "competing_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Competing Refs",
+          "type": "array"
+        },
+        "original_effect": {
+          "title": "Original Effect",
+          "type": "number"
+        },
+        "path_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Path Id",
+          "type": "string"
+        },
+        "root_group": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Root Group",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path_id",
+        "original_effect",
+        "adjusted_effect",
+        "adjustment_codes",
+        "competing_refs",
+        "root_group"
+      ],
+      "title": "AdjustedPath",
+      "type": "object"
+    },
+    "Artifact": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "data_cutoff": {
+          "format": "date-time",
+          "title": "Data Cutoff",
+          "type": "string"
+        },
+        "engine_id": {
+          "enum": [
+            "E01",
+            "E02",
+            "E03",
+            "E04",
+            "E05",
+            "E06",
+            "E07",
+            "E08",
+            "E09",
+            "E10",
+            "E11",
+            "E12",
+            "E13",
+            "E14",
+            "E15",
+            "E16",
+            "E17",
+            "E18",
+            "E19"
+          ],
+          "title": "Engine Id",
+          "type": "string"
+        },
+        "engine_version": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Engine Version",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "input_artifact_ids": {
+          "default": [],
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "title": "Input Artifact Ids",
+          "type": "array"
+        },
+        "payload": {
+          "discriminator": {
+            "mapping": {
+              "E01": "#/$defs/DataInterpretation",
+              "E02": "#/$defs/EventUnderstanding",
+              "E03": "#/$defs/ExpectationSurprise",
+              "E04": "#/$defs/PricedIn",
+              "E05": "#/$defs/SituationState",
+              "E06": "#/$defs/StateEstimation",
+              "E07": "#/$defs/HypothesisGeneration",
+              "E08": "#/$defs/CausalExpansion",
+              "E09": "#/$defs/Interaction",
+              "E10": "#/$defs/ActorReflexivity",
+              "E11": "#/$defs/ConstraintIdentity",
+              "E12": "#/$defs/TemporalReasoning",
+              "E13": "#/$defs/HistoricalEvidence",
+              "E14": "#/$defs/ChallengeReport",
+              "E15": "#/$defs/ScenarioGeneration",
+              "E16": "#/$defs/ConsistencyValidation",
+              "E17": "#/$defs/Simulation",
+              "E18": "#/$defs/ProbabilityCalibration",
+              "E19": "#/$defs/MetaCheck"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/DataInterpretation"
+            },
+            {
+              "$ref": "#/$defs/EventUnderstanding"
+            },
+            {
+              "$ref": "#/$defs/ExpectationSurprise"
+            },
+            {
+              "$ref": "#/$defs/PricedIn"
+            },
+            {
+              "$ref": "#/$defs/SituationState"
+            },
+            {
+              "$ref": "#/$defs/StateEstimation"
+            },
+            {
+              "$ref": "#/$defs/HypothesisGeneration"
+            },
+            {
+              "$ref": "#/$defs/CausalExpansion"
+            },
+            {
+              "$ref": "#/$defs/Interaction"
+            },
+            {
+              "$ref": "#/$defs/ActorReflexivity"
+            },
+            {
+              "$ref": "#/$defs/ConstraintIdentity"
+            },
+            {
+              "$ref": "#/$defs/TemporalReasoning"
+            },
+            {
+              "$ref": "#/$defs/HistoricalEvidence"
+            },
+            {
+              "$ref": "#/$defs/ChallengeReport"
+            },
+            {
+              "$ref": "#/$defs/ScenarioGeneration"
+            },
+            {
+              "$ref": "#/$defs/ConsistencyValidation"
+            },
+            {
+              "$ref": "#/$defs/Simulation"
+            },
+            {
+              "$ref": "#/$defs/ProbabilityCalibration"
+            },
+            {
+              "$ref": "#/$defs/MetaCheck"
+            }
+          ],
+          "title": "Payload"
+        },
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "default": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "run_id",
+        "engine_id",
+        "engine_version",
+        "created_at",
+        "data_cutoff",
+        "payload"
+      ],
+      "title": "Artifact",
+      "type": "object"
+    },
+    "CausalExpansion": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/CausalPath"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E08",
+          "default": "E08",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "CausalExpansion",
+      "type": "object"
+    },
+    "CausalPath": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "edge_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "maxItems": 6,
+          "minItems": 1,
+          "title": "Edge Ids",
+          "type": "array"
+        },
+        "graph_version": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Graph Version",
+          "type": "string"
+        },
+        "hypothesis_id": {
+          "format": "uuid",
+          "title": "Hypothesis Id",
+          "type": "string"
+        },
+        "node_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "maxItems": 7,
+          "minItems": 2,
+          "title": "Node Ids",
+          "type": "array"
+        },
+        "path_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Path Id",
+          "type": "string"
+        },
+        "root_evidence_group": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Root Evidence Group",
+          "type": "string"
+        },
+        "sign": {
+          "enum": [
+            -1,
+            1
+          ],
+          "title": "Sign",
+          "type": "integer"
+        },
+        "strength": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Strength",
+          "type": "number"
+        }
+      },
+      "required": [
+        "path_id",
+        "hypothesis_id",
+        "node_ids",
+        "edge_ids",
+        "root_evidence_group",
+        "sign",
+        "strength",
+        "confidence",
+        "graph_version"
+      ],
+      "title": "CausalPath",
+      "type": "object"
+    },
+    "ChallengeClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_code": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Claim Code",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "evidence_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "claim_code",
+        "evidence_refs",
+        "confidence"
+      ],
+      "title": "ChallengeClaim",
+      "type": "object"
+    },
+    "ChallengeReport": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/ChallengeClaim"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "fatal": {
+          "title": "Fatal",
+          "type": "boolean"
+        },
+        "kind": {
+          "const": "E14",
+          "default": "E14",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "refutation_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Refutation Refs",
+          "type": "array"
+        },
+        "replacement_hypothesis_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Replacement Hypothesis Id"
+        },
+        "severity": {
+          "enum": [
+            "none",
+            "warning",
+            "fatal"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "claims",
+        "refutation_refs",
+        "severity",
+        "fatal",
+        "replacement_hypothesis_id",
+        "confidence"
+      ],
+      "title": "ChallengeReport",
+      "type": "object"
+    },
+    "ConsistencyValidation": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/ValidatedScenario"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E16",
+          "default": "E16",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "ConsistencyValidation",
+      "type": "object"
+    },
+    "ConstraintIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/ConstraintResult"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E11",
+          "default": "E11",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "ConstraintIdentity",
+      "type": "object"
+    },
+    "ConstraintResult": {
+      "additionalProperties": false,
+      "properties": {
+        "constraint_id": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Constraint Id",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "lhs": {
+          "title": "Lhs",
+          "type": "number"
+        },
+        "rhs": {
+          "title": "Rhs",
+          "type": "number"
+        },
+        "target_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Target Id",
+          "type": "string"
+        },
+        "tolerance": {
+          "minimum": 0,
+          "title": "Tolerance",
+          "type": "number"
+        },
+        "valid": {
+          "title": "Valid",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "target_id",
+        "constraint_id",
+        "lhs",
+        "rhs",
+        "tolerance",
+        "valid",
+        "evidence_refs"
+      ],
+      "title": "ConstraintResult",
+      "type": "object"
+    },
+    "Contribution": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "$ref": "#/$defs/ProbabilityVector"
+        },
+        "before": {
+          "$ref": "#/$defs/ProbabilityVector"
+        },
+        "delta_pp": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Delta Pp",
+          "type": "array"
+        },
+        "edge_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Edge Ids",
+          "type": "array"
+        },
+        "engine_id": {
+          "enum": [
+            "E01",
+            "E02",
+            "E03",
+            "E04",
+            "E05",
+            "E06",
+            "E07",
+            "E08",
+            "E09",
+            "E10",
+            "E11",
+            "E12",
+            "E13",
+            "E14",
+            "E15",
+            "E16",
+            "E17",
+            "E18",
+            "E19"
+          ],
+          "title": "Engine Id",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "sequence": {
+          "minimum": 0,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "stage": {
+          "enum": [
+            "causal",
+            "scenario",
+            "challenge",
+            "history",
+            "calibration",
+            "history_cap"
+          ],
+          "title": "Stage",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sequence",
+        "stage",
+        "engine_id",
+        "version",
+        "evidence_refs",
+        "before",
+        "after",
+        "delta_pp"
+      ],
+      "title": "Contribution",
+      "type": "object"
+    },
+    "DataInterpretation": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/FactorSignal"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E01",
+          "default": "E01",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "DataInterpretation",
+      "type": "object"
+    },
+    "EngineVersion": {
+      "additionalProperties": false,
+      "properties": {
+        "engine_id": {
+          "enum": [
+            "E01",
+            "E02",
+            "E03",
+            "E04",
+            "E05",
+            "E06",
+            "E07",
+            "E08",
+            "E09",
+            "E10",
+            "E11",
+            "E12",
+            "E13",
+            "E14",
+            "E15",
+            "E16",
+            "E17",
+            "E18",
+            "E19"
+          ],
+          "title": "Engine Id",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "engine_id",
+        "version"
+      ],
+      "title": "EngineVersion",
+      "type": "object"
+    },
+    "EventUnderstanding": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/StructuredEvent"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E02",
+          "default": "E02",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "EventUnderstanding",
+      "type": "object"
+    },
+    "EvidenceSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "minimum": 0,
+          "title": "End",
+          "type": "integer"
+        },
+        "evidence_ref": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Evidence Ref",
+          "type": "string"
+        },
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "evidence_ref",
+        "start",
+        "end"
+      ],
+      "title": "EvidenceSpan",
+      "type": "object"
+    },
+    "ExpectationSurprise": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/SurpriseObject"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E03",
+          "default": "E03",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "ExpectationSurprise",
+      "type": "object"
+    },
+    "FactorContribution": {
+      "additionalProperties": false,
+      "properties": {
+        "contribution": {
+          "title": "Contribution",
+          "type": "number"
+        },
+        "factor_id": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Factor Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factor_id",
+        "contribution"
+      ],
+      "title": "FactorContribution",
+      "type": "object"
+    },
+    "FactorSignal": {
+      "additionalProperties": false,
+      "properties": {
+        "acceleration": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Acceleration"
+        },
+        "change": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Change"
+        },
+        "factor_id": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "level": {
+          "title": "Level",
+          "type": "number"
+        },
+        "normalized": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": -1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Normalized"
+        },
+        "observation_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Observation Ids",
+          "type": "array"
+        },
+        "percentile": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Percentile"
+        },
+        "quality": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Quality",
+          "type": "number"
+        },
+        "unit": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Unit",
+          "type": "string"
+        },
+        "velocity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Velocity"
+        }
+      },
+      "required": [
+        "factor_id",
+        "observation_ids",
+        "unit",
+        "level",
+        "change",
+        "velocity",
+        "acceleration",
+        "percentile",
+        "normalized",
+        "quality"
+      ],
+      "title": "FactorSignal",
+      "type": "object"
+    },
+    "Falsifier": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "factor_id": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "horizon": {
+          "enum": [
+            "1d",
+            "1w",
+            "1m",
+            "3m",
+            "1y"
+          ],
+          "title": "Horizon",
+          "type": "string"
+        },
+        "operator": {
+          "enum": [
+            "gt",
+            "ge",
+            "lt",
+            "le",
+            "eq"
+          ],
+          "title": "Operator",
+          "type": "string"
+        },
+        "threshold": {
+          "title": "Threshold",
+          "type": "number"
+        },
+        "unit": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "factor_id",
+        "operator",
+        "threshold",
+        "unit",
+        "horizon",
+        "evidence_refs"
+      ],
+      "title": "Falsifier",
+      "type": "object"
+    },
+    "Forecast": {
+      "additionalProperties": false,
+      "properties": {
+        "calibration_status": {
+          "enum": [
+            "unvalidated",
+            "validated"
+          ],
+          "title": "Calibration Status",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "data_cutoff": {
+          "format": "date-time",
+          "title": "Data Cutoff",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "falsifiers": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Falsifier"
+          },
+          "title": "Falsifiers",
+          "type": "array"
+        },
+        "forecast_id": {
+          "format": "uuid",
+          "title": "Forecast Id",
+          "type": "string"
+        },
+        "horizon": {
+          "enum": [
+            "1d",
+            "1w",
+            "1m",
+            "3m",
+            "1y"
+          ],
+          "title": "Horizon",
+          "type": "string"
+        },
+        "ledger": {
+          "items": {
+            "$ref": "#/$defs/Contribution"
+          },
+          "title": "Ledger",
+          "type": "array"
+        },
+        "price_high": {
+          "minimum": 0,
+          "title": "Price High",
+          "type": "number"
+        },
+        "price_low": {
+          "minimum": 0,
+          "title": "Price Low",
+          "type": "number"
+        },
+        "prior": {
+          "$ref": "#/$defs/ProbabilityVector"
+        },
+        "probabilities": {
+          "$ref": "#/$defs/ProbabilityVector"
+        },
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "1.0.0",
+          "default": "1.0.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "target_at": {
+          "format": "date-time",
+          "title": "Target At",
+          "type": "string"
+        },
+        "versions": {
+          "$ref": "#/$defs/VersionBundle"
+        },
+        "without_history_probabilities": {
+          "$ref": "#/$defs/ProbabilityVector"
+        }
+      },
+      "required": [
+        "forecast_id",
+        "run_id",
+        "horizon",
+        "data_cutoff",
+        "target_at",
+        "versions",
+        "prior",
+        "probabilities",
+        "without_history_probabilities",
+        "ledger",
+        "confidence",
+        "price_low",
+        "price_high",
+        "calibration_status",
+        "evidence_refs"
+      ],
+      "title": "Forecast",
+      "type": "object"
+    },
+    "HistoricalEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "capped_delta": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Capped Delta",
+          "type": "array"
+        },
+        "case_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Case Ids",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E13",
+          "default": "E13",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "recency": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Recency"
+        },
+        "regime_match": {
+          "title": "Regime Match",
+          "type": "boolean"
+        },
+        "relevance": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Relevance",
+          "type": "number"
+        },
+        "sample_count": {
+          "minimum": 0,
+          "title": "Sample Count",
+          "type": "integer"
+        },
+        "similarity": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Similarity"
+        }
+      },
+      "required": [
+        "case_ids",
+        "similarity",
+        "recency",
+        "sample_count",
+        "regime_match",
+        "relevance",
+        "capped_delta"
+      ],
+      "title": "HistoricalEvidence",
+      "type": "object"
+    },
+    "Hypothesis": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_codes": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Claim Codes",
+          "type": "array"
+        },
+        "contradict_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Contradict Refs",
+          "type": "array"
+        },
+        "direction": {
+          "enum": [
+            "up",
+            "down",
+            "flat"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "falsifiers": {
+          "items": {
+            "$ref": "#/$defs/Falsifier"
+          },
+          "title": "Falsifiers",
+          "type": "array"
+        },
+        "horizon": {
+          "enum": [
+            "1d",
+            "1w",
+            "1m",
+            "3m",
+            "1y"
+          ],
+          "title": "Horizon",
+          "type": "string"
+        },
+        "hypothesis_id": {
+          "format": "uuid",
+          "title": "Hypothesis Id",
+          "type": "string"
+        },
+        "support_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Support Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "hypothesis_id",
+        "direction",
+        "horizon",
+        "claim_codes",
+        "support_refs",
+        "contradict_refs",
+        "falsifiers"
+      ],
+      "title": "Hypothesis",
+      "type": "object"
+    },
+    "HypothesisGeneration": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/Hypothesis"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E07",
+          "default": "E07",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "HypothesisGeneration",
+      "type": "object"
+    },
+    "Interaction": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/AdjustedPath"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E09",
+          "default": "E09",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "Interaction",
+      "type": "object"
+    },
+    "MetaCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "driver_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Driver Refs",
+          "type": "array"
+        },
+        "error_class": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Error Class"
+        },
+        "failed_checks": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Failed Checks",
+          "type": "array"
+        },
+        "falsifiers": {
+          "items": {
+            "$ref": "#/$defs/Falsifier"
+          },
+          "title": "Falsifiers",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E19",
+          "default": "E19",
+          "title": "Kind",
+          "type": "string"
+        },
+        "offending_engines": {
+          "items": {
+            "enum": [
+              "E01",
+              "E02",
+              "E03",
+              "E04",
+              "E05",
+              "E06",
+              "E07",
+              "E08",
+              "E09",
+              "E10",
+              "E11",
+              "E12",
+              "E13",
+              "E14",
+              "E15",
+              "E16",
+              "E17",
+              "E18",
+              "E19"
+            ],
+            "type": "string"
+          },
+          "title": "Offending Engines",
+          "type": "array"
+        },
+        "publishable": {
+          "title": "Publishable",
+          "type": "boolean"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "publishable",
+        "failed_checks",
+        "offending_engines",
+        "driver_refs",
+        "falsifiers",
+        "error_class"
+      ],
+      "title": "MetaCheck",
+      "type": "object"
+    },
+    "ModuleState": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Confidence"
+        },
+        "coverage": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Coverage",
+          "type": "number"
+        },
+        "direction": {
+          "enum": [
+            "positive",
+            "negative",
+            "neutral",
+            "unknown"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "module_id": {
+          "enum": [
+            "macro",
+            "ai_demand",
+            "memory",
+            "supply",
+            "earnings",
+            "capital_flow",
+            "valuation",
+            "preferred",
+            "market_regime"
+          ],
+          "title": "Module Id",
+          "type": "string"
+        },
+        "momentum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Momentum"
+        },
+        "outgoing_effects": {
+          "items": {
+            "$ref": "#/$defs/OutgoingEffect"
+          },
+          "title": "Outgoing Effects",
+          "type": "array"
+        },
+        "regime": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Regime"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 100,
+              "minimum": -100,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score"
+        },
+        "top_factors": {
+          "items": {
+            "$ref": "#/$defs/FactorContribution"
+          },
+          "title": "Top Factors",
+          "type": "array"
+        }
+      },
+      "required": [
+        "module_id",
+        "score",
+        "direction",
+        "momentum",
+        "regime",
+        "confidence",
+        "coverage",
+        "top_factors",
+        "outgoing_effects"
+      ],
+      "title": "ModuleState",
+      "type": "object"
+    },
+    "NumericRange": {
+      "additionalProperties": false,
+      "properties": {
+        "high": {
+          "title": "High",
+          "type": "number"
+        },
+        "low": {
+          "title": "Low",
+          "type": "number"
+        }
+      },
+      "required": [
+        "low",
+        "high"
+      ],
+      "title": "NumericRange",
+      "type": "object"
+    },
+    "OutgoingEffect": {
+      "additionalProperties": false,
+      "properties": {
+        "effect": {
+          "title": "Effect",
+          "type": "number"
+        },
+        "lag_days": {
+          "minimum": 0,
+          "title": "Lag Days",
+          "type": "number"
+        },
+        "target": {
+          "enum": [
+            "macro",
+            "ai_demand",
+            "memory",
+            "supply",
+            "earnings",
+            "capital_flow",
+            "valuation",
+            "preferred",
+            "market_regime"
+          ],
+          "title": "Target",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target",
+        "effect",
+        "lag_days"
+      ],
+      "title": "OutgoingEffect",
+      "type": "object"
+    },
+    "Override": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_id": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "unit": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factor_id",
+        "value",
+        "unit"
+      ],
+      "title": "Override",
+      "type": "object"
+    },
+    "PricedIn": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/PricedInEstimate"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E04",
+          "default": "E04",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "PricedIn",
+      "type": "object"
+    },
+    "PricedInEstimate": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "format": "uuid",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "pre_event_end": {
+          "format": "date-time",
+          "title": "Pre Event End",
+          "type": "string"
+        },
+        "pre_event_start": {
+          "format": "date-time",
+          "title": "Pre Event Start",
+          "type": "string"
+        },
+        "priced_in_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Priced In Fraction"
+        },
+        "residual_shock": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Residual Shock"
+        },
+        "surprise_id": {
+          "format": "uuid",
+          "title": "Surprise Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "surprise_id",
+        "priced_in_fraction",
+        "residual_shock",
+        "pre_event_start",
+        "pre_event_end"
+      ],
+      "title": "PricedInEstimate",
+      "type": "object"
+    },
+    "ProbabilityCalibration": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "forecast": {
+          "$ref": "#/$defs/Forecast"
+        },
+        "kind": {
+          "const": "E18",
+          "default": "E18",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "forecast"
+      ],
+      "title": "ProbabilityCalibration",
+      "type": "object"
+    },
+    "ProbabilityVector": {
+      "additionalProperties": false,
+      "properties": {
+        "down": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Down",
+          "type": "number"
+        },
+        "flat": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Flat",
+          "type": "number"
+        },
+        "up": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Up",
+          "type": "number"
+        }
+      },
+      "required": [
+        "up",
+        "down",
+        "flat"
+      ],
+      "title": "ProbabilityVector",
+      "type": "object"
+    },
+    "Scenario": {
+      "additionalProperties": false,
+      "properties": {
+        "constraint_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Constraint Refs",
+          "type": "array"
+        },
+        "hypothesis_id": {
+          "format": "uuid",
+          "title": "Hypothesis Id",
+          "type": "string"
+        },
+        "overrides": {
+          "items": {
+            "$ref": "#/$defs/Override"
+          },
+          "title": "Overrides",
+          "type": "array"
+        },
+        "prior_weight": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Prior Weight",
+          "type": "number"
+        },
+        "scenario_id": {
+          "format": "uuid",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "scenario_kind": {
+          "enum": [
+            "base",
+            "upside",
+            "downside",
+            "tail",
+            "user"
+          ],
+          "title": "Scenario Kind",
+          "type": "string"
+        },
+        "shock_distributions": {
+          "items": {
+            "$ref": "#/$defs/ShockDistribution"
+          },
+          "title": "Shock Distributions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "scenario_kind",
+        "hypothesis_id",
+        "prior_weight",
+        "overrides",
+        "shock_distributions",
+        "constraint_refs"
+      ],
+      "title": "Scenario",
+      "type": "object"
+    },
+    "ScenarioGeneration": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/Scenario"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E15",
+          "default": "E15",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "ScenarioGeneration",
+      "type": "object"
+    },
+    "ShockDistribution": {
+      "additionalProperties": false,
+      "properties": {
+        "distribution_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Distribution Id",
+          "type": "string"
+        },
+        "factor_id": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "family": {
+          "enum": [
+            "normal",
+            "empirical",
+            "fixed"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "location": {
+          "title": "Location",
+          "type": "number"
+        },
+        "scale": {
+          "minimum": 0,
+          "title": "Scale",
+          "type": "number"
+        },
+        "version": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "distribution_id",
+        "factor_id",
+        "family",
+        "location",
+        "scale",
+        "version"
+      ],
+      "title": "ShockDistribution",
+      "type": "object"
+    },
+    "Simulation": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/SimulationResult"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E17",
+          "default": "E17",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "Simulation",
+      "type": "object"
+    },
+    "SimulationResult": {
+      "additionalProperties": false,
+      "properties": {
+        "class_counts": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "minimum": 0,
+              "type": "integer"
+            }
+          ],
+          "title": "Class Counts",
+          "type": "array"
+        },
+        "distribution_version": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Distribution Version",
+          "type": "string"
+        },
+        "price_anchor": {
+          "exclusiveMinimum": 0,
+          "title": "Price Anchor",
+          "type": "number"
+        },
+        "return_quantiles": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Return Quantiles",
+          "type": "array"
+        },
+        "samples": {
+          "exclusiveMinimum": 0,
+          "title": "Samples",
+          "type": "integer"
+        },
+        "scenario_id": {
+          "format": "uuid",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "seed": {
+          "minimum": 0,
+          "title": "Seed",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "seed",
+        "samples",
+        "return_quantiles",
+        "class_counts",
+        "price_anchor",
+        "distribution_version"
+      ],
+      "title": "SimulationResult",
+      "type": "object"
+    },
+    "SituationState": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "conflict_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Conflict Ids",
+          "type": "array"
+        },
+        "dominant_module_ids": {
+          "items": {
+            "enum": [
+              "macro",
+              "ai_demand",
+              "memory",
+              "supply",
+              "earnings",
+              "capital_flow",
+              "valuation",
+              "preferred",
+              "market_regime"
+            ],
+            "type": "string"
+          },
+          "title": "Dominant Module Ids",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E05",
+          "default": "E05",
+          "title": "Kind",
+          "type": "string"
+        },
+        "missing_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Missing Ids",
+          "type": "array"
+        },
+        "negative_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Negative Refs",
+          "type": "array"
+        },
+        "positive_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Positive Refs",
+          "type": "array"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "theme_ids": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Theme Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "theme_ids",
+        "positive_refs",
+        "negative_refs",
+        "conflict_ids",
+        "missing_ids",
+        "dominant_module_ids"
+      ],
+      "title": "SituationState",
+      "type": "object"
+    },
+    "StateEstimation": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/ModuleState"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E06",
+          "default": "E06",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "StateEstimation",
+      "type": "object"
+    },
+    "StructuredEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_ids": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Actor Ids",
+          "type": "array"
+        },
+        "actual": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Actual"
+        },
+        "event_id": {
+          "format": "uuid",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "event_type": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Event Type",
+          "type": "string"
+        },
+        "evidence_spans": {
+          "items": {
+            "$ref": "#/$defs/EvidenceSpan"
+          },
+          "minItems": 1,
+          "title": "Evidence Spans",
+          "type": "array"
+        },
+        "factor_refs": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Factor Refs",
+          "type": "array"
+        },
+        "occurred_at": {
+          "format": "date-time",
+          "title": "Occurred At",
+          "type": "string"
+        },
+        "published_at": {
+          "format": "date-time",
+          "title": "Published At",
+          "type": "string"
+        },
+        "unit": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_type",
+        "actor_ids",
+        "factor_refs",
+        "actual",
+        "unit",
+        "occurred_at",
+        "published_at",
+        "evidence_spans"
+      ],
+      "title": "StructuredEvent",
+      "type": "object"
+    },
+    "SurpriseObject": {
+      "additionalProperties": false,
+      "properties": {
+        "actual": {
+          "title": "Actual",
+          "type": "number"
+        },
+        "consensus_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Consensus Ids",
+          "type": "array"
+        },
+        "event_id": {
+          "format": "uuid",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "expected": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected"
+        },
+        "scale": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Scale"
+        },
+        "surprise": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Surprise"
+        }
+      },
+      "required": [
+        "event_id",
+        "actual",
+        "expected",
+        "surprise",
+        "scale",
+        "consensus_ids"
+      ],
+      "title": "SurpriseObject",
+      "type": "object"
+    },
+    "TemporalPath": {
+      "additionalProperties": false,
+      "properties": {
+        "active_fraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Active Fraction",
+          "type": "number"
+        },
+        "decay": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Decay",
+          "type": "number"
+        },
+        "effect": {
+          "title": "Effect",
+          "type": "number"
+        },
+        "horizon": {
+          "enum": [
+            "1d",
+            "1w",
+            "1m",
+            "3m",
+            "1y"
+          ],
+          "title": "Horizon",
+          "type": "string"
+        },
+        "lag_hours": {
+          "minimum": 0,
+          "title": "Lag Hours",
+          "type": "number"
+        },
+        "path_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Path Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path_id",
+        "horizon",
+        "lag_hours",
+        "active_fraction",
+        "decay",
+        "effect"
+      ],
+      "title": "TemporalPath",
+      "type": "object"
+    },
+    "TemporalReasoning": {
+      "additionalProperties": false,
+      "properties": {
+        "applicable": {
+          "default": true,
+          "title": "Applicable",
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/TemporalPath"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "kind": {
+          "const": "E12",
+          "default": "E12",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "title": "TemporalReasoning",
+      "type": "object"
+    },
+    "ValidatedScenario": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_distribution_refs": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Accepted Distribution Refs",
+          "type": "array"
+        },
+        "scenario_id": {
+          "format": "uuid",
+          "title": "Scenario Id",
+          "type": "string"
+        },
+        "valid": {
+          "title": "Valid",
+          "type": "boolean"
+        },
+        "violations": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Violations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scenario_id",
+        "valid",
+        "violations",
+        "accepted_distribution_refs"
+      ],
+      "title": "ValidatedScenario",
+      "type": "object"
+    },
+    "VersionBundle": {
+      "additionalProperties": false,
+      "properties": {
+        "calendar": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Calendar",
+          "type": "string"
+        },
+        "calibration": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Calibration",
+          "type": "string"
+        },
+        "code_commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Code Commit",
+          "type": "string"
+        },
+        "engines": {
+          "items": {
+            "$ref": "#/$defs/EngineVersion"
+          },
+          "title": "Engines",
+          "type": "array"
+        },
+        "graph": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Graph",
+          "type": "string"
+        },
+        "model": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Model",
+          "type": "string"
+        },
+        "ontology": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Ontology",
+          "type": "string"
+        },
+        "policy": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Policy",
+          "type": "string"
+        },
+        "prompt": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Prompt",
+          "type": "string"
+        },
+        "source_registry": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Source Registry",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ontology",
+        "graph",
+        "model",
+        "prompt",
+        "calibration",
+        "policy",
+        "source_registry",
+        "calendar",
+        "code_commit",
+        "engines"
+      ],
+      "title": "VersionBundle",
+      "type": "object"
+    },
+    "Warning": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Code",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "message": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Message",
+          "type": "string"
+        },
+        "severity": {
+          "default": "warning",
+          "enum": [
+            "info",
+            "warning",
+            "error"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "title": "Warning",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "confidence": {
+      "anyOf": [
+        {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Confidence"
+    },
+    "evidence_refs": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "pattern": "\\S",
+        "type": "string"
+      },
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "next_engine": {
+      "anyOf": [
+        {
+          "enum": [
+            "E01",
+            "E02",
+            "E03",
+            "E04",
+            "E05",
+            "E06",
+            "E07",
+            "E08",
+            "E09",
+            "E10",
+            "E11",
+            "E12",
+            "E13",
+            "E14",
+            "E15",
+            "E16",
+            "E17",
+            "E18",
+            "E19"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Next Engine"
+    },
+    "output_artifact": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Artifact"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "retry_engine": {
+      "anyOf": [
+        {
+          "enum": [
+            "E01",
+            "E02",
+            "E03",
+            "E04",
+            "E05",
+            "E06",
+            "E07",
+            "E08",
+            "E09",
+            "E10",
+            "E11",
+            "E12",
+            "E13",
+            "E14",
+            "E15",
+            "E16",
+            "E17",
+            "E18",
+            "E19"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Retry Engine"
+    },
+    "status": {
+      "enum": [
+        "success",
+        "insufficient_evidence",
+        "conflict",
+        "retry",
+        "failed"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "trace_id": {
+      "format": "uuid",
+      "title": "Trace Id",
+      "type": "string"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Warning"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "status",
+    "trace_id"
+  ],
+  "title": "EngineResult",
+  "type": "object"
+}

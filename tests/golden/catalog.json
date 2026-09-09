@@ -1,0 +1,938 @@
+{
+  "cases": [
+    {
+      "assumptions": [],
+      "case_id": "T01",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Benign macro + memory boom",
+        "10Y4.4; KRW1330; DRAM+12; AI strong; foreign buy",
+        "1M",
+        "UP 80-90",
+        "ENTRY"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T02",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Hawkish FOMC",
+        "10Y5.05; KRW1390; hawkish; foreign sell",
+        "1W",
+        "DOWN 70-82",
+        "SELL"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T03",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Dovish hike priced-in",
+        "25bp expected; 10Y→4.6; memory strong",
+        "1W",
+        "UP 55-70",
+        "WAIT/HOLD"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T04",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Hot CPI surprise",
+        "CPI +0.4pp; 10Y+18bp; KRW weak",
+        "1W",
+        "DOWN 65-78",
+        "WATCH/SELL"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T05",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Strong jobs benign inflation",
+        "jobs strong; CPI benign",
+        "1W",
+        "mixed 45-60 UP",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T06",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Oil shock",
+        "WTI +15%; yields↑",
+        "1W",
+        "DOWN 55-70",
+        "WATCH"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T07",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "FX shock",
+        "DXY↑; KRW1420; foreign sell",
+        "1W",
+        "DOWN 70+",
+        "SELL"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T08",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Foreign buy divergence",
+        "market weak; Samsung foreign heavy buy",
+        "1W",
+        "UP > baseline",
+        "WAIT/ENTRY"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T09",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Foreign sell divergence",
+        "price↑; foreign heavy sell",
+        "1W",
+        "turning risk↑",
+        "WATCH SELL"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T10",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "DRAM contract +20",
+        "inventory low; HBM strong",
+        "1M",
+        "UP 75-88",
+        "ENTRY boundary"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T11",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "DRAM spot rollover",
+        "spot -12%; contract flat",
+        "1M",
+        "UP falls",
+        "HOLD/WATCH"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T12",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Inventory spike",
+        "inventory high; ASP weak",
+        "1M",
+        "DOWN 65-78",
+        "SELL boundary"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T13",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "HBM surge",
+        "AI CAPEX strong; HBM orders↑",
+        "3M",
+        "UP 75-88",
+        "ENTRY boundary"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T14",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "HBM disappointment",
+        "AI CAPEX strong; HBM orders↓",
+        "3M",
+        "UP below baseline",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T15",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "AI capex acceleration",
+        "CAPEX +40%; ROI stable",
+        "1Y",
+        "UP 75-90",
+        "ENTRY boundary"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T16",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "AI debt stress",
+        "CAPEX +40%; ROI weak; yields↑",
+        "1Y",
+        "UP 45-60",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T17",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Weak monetization",
+        "usage↑; revenue/margin weak",
+        "1Y",
+        "UP reduced",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T18",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "CXMT early ramp",
+        "capacity +35%; early ramp",
+        "1Y",
+        "DOWN 55-70",
+        "WATCH"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T19",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "CXMT delayed",
+        "capacity plan; ramp +2Y",
+        "1W",
+        "minimal effect",
+        "HOLD/WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T20",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Samsung capex surge",
+        "current shortage; capex↑",
+        "1W vs1Y",
+        "short UP > long UP",
+        "different"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T21",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Supply discipline",
+        "SKH/Micron capex controlled",
+        "1Y",
+        "UP higher",
+        "HOLD/ENTRY"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T22",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Yield improvement",
+        "effective supply↑ faster",
+        "1Y",
+        "UP lower",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T23",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "EPS revision +20",
+        "rates stable",
+        "1M",
+        "UP 80+",
+        "ENTRY"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T24",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "EPS strong + rate 5.2",
+        "EPS+20; 10Y5.2",
+        "1M",
+        "UP 45-60",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T25",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "FCF deterioration",
+        "earnings↑; FCF↓",
+        "1Y",
+        "confidence/UP reduced",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T26",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Shareholder return surprise",
+        "cash return↑",
+        "1M",
+        "Preferred UP boost",
+        "ENTRY boundary"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T27",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Extreme pref discount",
+        "discount wide; common stable",
+        "1M",
+        "relative UP",
+        "ENTRY if overall"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T28",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Pref discount closes",
+        "discount normalizes",
+        "1M",
+        "support fades",
+        "HOLD"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T29",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Breakout + volume + flow",
+        "20/60 positive; vol z high; foreign buy",
+        "1W",
+        "UP 70-85",
+        "ENTRY boundary"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T30",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Overbought no flow",
+        "RSI high; volume fades; foreign sell",
+        "1W",
+        "DOWN risk↑",
+        "WATCH SELL"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T31",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Reflexive squeeze",
+        "heavy buy; momentum high",
+        "1W",
+        "UP 75-85",
+        "ENTRY boundary"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T32",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Forced deleveraging",
+        "vol spike; sell; rates↑",
+        "1W",
+        "DOWN 80+",
+        "SELL"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T33",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Missing memory data",
+        "DRAM/HBM unknown",
+        "1M",
+        "Confidence <55",
+        "NO ACTION"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T34",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Conflicting sources",
+        "DRAM sources conflict",
+        "1M",
+        "confidence reduced",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T35",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Stale data",
+        "memory data stale 60d",
+        "1M",
+        "confidence reduced",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T36",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Priced-in hawkish",
+        "hawkish event 90% expected",
+        "1W",
+        "downside < raw model",
+        "HOLD/WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T37",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Unexpected dovish",
+        "dovish surprise; 10Y↓; KRW↑",
+        "1W",
+        "UP rises sharply",
+        "ENTRY boundary"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T38",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Historical bullish trap",
+        "current neutral; past analogs bullish",
+        "1W",
+        "history capped",
+        "NO threshold jump"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T39",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Historical bearish trap",
+        "current positive; past analogs bearish",
+        "1M",
+        "history capped",
+        "No forced SELL"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T40",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Regime structural break",
+        "old rate relation stops working",
+        "1M",
+        "confidence↓; regime-change flag",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T41",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Impossible revenue scenario",
+        "demand↓ price↓ volume↓ revenue↑",
+        "1Y",
+        "scenario rejected",
+        "N/A"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T42",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Impossible capacity ramp",
+        "fab output +50% next week",
+        "1W",
+        "scenario rejected",
+        "N/A"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T43",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Accounting cash violation",
+        "FCF negative but cash rises without financing",
+        "1Y",
+        "scenario rejected",
+        "N/A"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T44",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Actor response Fed",
+        "inflation↑ but Fed assumed dovish no reason",
+        "1M",
+        "scenario challenge/reject",
+        "N/A"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T45",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Actor response CXMT",
+        "price high; CXMT capacity constrained",
+        "1Y",
+        "supply response capped",
+        "HOLD"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T46",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Path double count",
+        "HBM and DRAM constraint same causal source",
+        "1M",
+        "duplicate contribution removed",
+        "No inflation"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T47",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Opposing paths",
+        "AI boom boosts EPS and yields",
+        "1M",
+        "mid probability 45-65",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T48",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Lag test",
+        "new fab announced today",
+        "1D",
+        "near-zero supply effect",
+        "HOLD/WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T49",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Lag maturation",
+        "fab ramp reaches production",
+        "1Y",
+        "supply effect material",
+        "WATCH"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T50",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Turning point early warning",
+        "price↑; flow↓; ASP momentum↓; rates↑",
+        "1W",
+        "transition risk high",
+        "WATCH SELL"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T51",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "False turning point",
+        "price↑; flow briefly↓; EPS/ASP accelerate",
+        "1W",
+        "warning suppressed",
+        "HOLD"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T52",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Confidence high alignment",
+        "official sources agree",
+        "1M",
+        "confidence >75",
+        "policy eligible"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T53",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Confidence low rumor",
+        "rumor-only supply shock",
+        "1M",
+        "confidence <50",
+        "NO ACTION"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T54",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "User bullish bias",
+        "user bullish; evidence neutral",
+        "1W",
+        "no upward adjustment from user belief",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T55",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "AI anchoring bias",
+        "prior forecast bullish; new data bearish",
+        "1W",
+        "forecast updates bearish",
+        "SELL boundary"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T56",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Challenger wins",
+        "main bull but counter evidence stronger",
+        "1W",
+        "main hypothesis replaced",
+        "depends"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T57",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Challenger weak",
+        "counter lacks evidence",
+        "1M",
+        "main retained",
+        "depends"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T58",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Entry threshold 79",
+        "UP79; conf85; no challenge",
+        "1M",
+        "UP79",
+        "WAIT"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T59",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Entry threshold 80",
+        "UP80; conf75; no challenge",
+        "1M",
+        "UP80",
+        "ENTRY"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T60",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Entry low confidence",
+        "UP85; conf55",
+        "1M",
+        "UP85 conf55",
+        "NO ACTION"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T61",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Sell threshold 69",
+        "DOWN69; conf80; held",
+        "1W",
+        "DOWN69",
+        "HOLD"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T62",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Sell threshold 70",
+        "DOWN70; conf70; held",
+        "1W",
+        "DOWN70",
+        "SELL"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T63",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Sell low confidence",
+        "DOWN80; conf50",
+        "1W",
+        "DOWN80 conf50",
+        "HOLD/WATCH"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T64",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Short sell, long entry",
+        "FOMC risk high; long AI/memory strong",
+        "1W/1Y",
+        "short DOWN>70; long UP>80",
+        "SELL short / ENTRY long"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T65",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Short entry, long risk",
+        "flow squeeze; CXMT long risk",
+        "1W/1Y",
+        "short UP>80; long UP<60",
+        "ENTRY short / WAIT long"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T66",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Probability sum",
+        "arbitrary valid inputs",
+        "all",
+        "UP+DOWN+FLAT=100",
+        "N/A"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T67",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Contribution reconstruction",
+        "known contribution set",
+        "1M",
+        "final equals stored deltas/calibration",
+        "N/A"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T68",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Graph version regression",
+        "same data; graph version changed",
+        "1M",
+        "diff explained by edge/version",
+        "N/A"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T69",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Model version regression",
+        "same graph; calibrator changed",
+        "1M",
+        "diff localized to calibration",
+        "N/A"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "T70",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Prediction Journal immutability",
+        "past forecast outcome known",
+        "all",
+        "original snapshot unchanged",
+        "N/A"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "MT01",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "30분봉 Bottom Reversal 강함, 일봉 하락, Future Upside 55%",
+        "WAIT — 기술적 반등만으로 Entry 금지"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "MT02",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "30분봉 Bottom Reversal 82%, 일봉 정렬 76%, Future Upside 84%, Confidence 80%",
+        "단기 ENTRY"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "MT03",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "일봉 Bottom Reversal 85%, 주봉 정렬 80%, Future Upside 83%",
+        "중기 ENTRY"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "MT04",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "주봉 Bottom Reversal 82%, 월봉 정렬 78%, Future Upside 86%",
+        "장기 ENTRY"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "MT05",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "30분봉 Top Reversal 80%, Future Downside 75%, 일봉 상승 강함",
+        "단기 SELL 또는 축소, 중장기 유지 가능"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "MT06",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "일봉 Top Reversal 72%, Future Downside 74%, 주봉도 하락 전환",
+        "중기 SELL"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "MT07",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Future Upside 88%, Bottom Reversal 40%",
+        "WAIT — 방향은 좋으나 타이밍 미확인"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "MT08",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Bottom Reversal 90%, Future Upside 52%",
+        "WAIT — 기술적 반등일 가능성"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "MT09",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "Bottom Reversal 이후 외국인/기관 수급 전환",
+        "Liquidity Score와 Future Reasoning 재계산"
+      ]
+    },
+    {
+      "assumptions": [],
+      "case_id": "MT10",
+      "execution_status": "unresolved",
+      "source_columns": [
+        "단기 SELL, 중기 HOLD, 장기 ENTRY 조건",
+        "Horizon별 Position 독립 관리"
+      ]
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_hash_format": "utf8-lf",
+  "source_path": "docs/samsung_future_reasoning_prd_v1.1.html",
+  "source_sha256": "42558703612c86bbdc2fabb519b7a5b5a92fd0a61743b21744af9fe210fa9fef"
+}
