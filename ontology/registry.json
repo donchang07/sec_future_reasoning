@@ -3,7 +3,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -16,7 +16,7 @@
       },
       "module_id": "macro",
       "name_ko": "미국2년금리",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: §2 US2Y",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -43,7 +43,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [
         "1d",
         "1w",
@@ -62,7 +62,7 @@
       },
       "module_id": "macro",
       "name_ko": "미국10년금리",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: §2, Scenario",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -89,7 +89,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "event",
-      "comparison_period": "previous_observation",
+      "comparison_period": "previous_policy_meeting",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -102,7 +102,7 @@
       },
       "module_id": "macro",
       "name_ko": "연준정책금리",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: Fed",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -128,7 +128,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "monthly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_month",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -141,7 +141,7 @@
       },
       "module_id": "macro",
       "name_ko": "미국CPI",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: CPI",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -167,7 +167,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "monthly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_month",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -180,7 +180,7 @@
       },
       "module_id": "macro",
       "name_ko": "미국고용증감",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: Employment",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -206,7 +206,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -219,7 +219,7 @@
       },
       "module_id": "macro",
       "name_ko": "달러지수",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: DXY",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -245,7 +245,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [
         "1d",
         "1w",
@@ -264,7 +264,7 @@
       },
       "module_id": "macro",
       "name_ko": "원달러환율",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: USDKRW",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -291,7 +291,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -304,7 +304,7 @@
       },
       "module_id": "macro",
       "name_ko": "WTI유가",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: Oil/T06",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -330,7 +330,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "quarterly",
-      "comparison_period": "year",
+      "comparison_period": "1_calendar_year",
       "critical_for_horizons": [
         "3m",
         "1y"
@@ -346,7 +346,7 @@
       },
       "module_id": "ai_demand",
       "name_ko": "하이퍼스케일러투자",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: CAPEX",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -372,7 +372,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "quarterly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_year",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -385,7 +385,7 @@
       },
       "module_id": "ai_demand",
       "name_ko": "GPU수요증가",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: GPU demand",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -412,7 +412,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "quarterly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_year",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -425,7 +425,7 @@
       },
       "module_id": "ai_demand",
       "name_ko": "AI매출증가",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: AI revenue",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -451,7 +451,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "monthly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_year",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -464,7 +464,7 @@
       },
       "module_id": "ai_demand",
       "name_ko": "AI사용량증가",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: usage",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -494,7 +494,7 @@
         "lagged_capex"
       ],
       "cadence": "quarterly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "4_calendar_quarters",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -507,7 +507,7 @@
       },
       "module_id": "ai_demand",
       "name_ko": "AI투자수익대용지표",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "P: T16 ROI 정량화 제안",
       "provenance_class": "P",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -519,7 +519,7 @@
       "source_id": null,
       "source_status": "not_connected",
       "timezone": null,
-      "transform": "level",
+      "transform": "ratio",
       "unit": "ratio",
       "unresolved_fields": [
         "provider",
@@ -534,7 +534,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "monthly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_month",
       "critical_for_horizons": [
         "1m",
         "3m",
@@ -551,7 +551,7 @@
       },
       "module_id": "memory",
       "name_ko": "DRAM계약가격",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: DRAM ASP",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -577,7 +577,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -590,7 +590,7 @@
       },
       "module_id": "memory",
       "name_ko": "DRAM현물가격",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: T11 spot",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -616,7 +616,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "monthly",
-      "comparison_period": "year",
+      "comparison_period": "1_calendar_year",
       "critical_for_horizons": [
         "1m",
         "3m",
@@ -633,7 +633,7 @@
       },
       "module_id": "memory",
       "name_ko": "HBM수요",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: HBM Demand",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -660,7 +660,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "quarterly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_quarter",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -673,7 +673,7 @@
       },
       "module_id": "memory",
       "name_ko": "메모리재고일수",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: Inventory",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -700,7 +700,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "quarterly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_year",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -713,7 +713,7 @@
       },
       "module_id": "memory",
       "name_ko": "메모리비트증가",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: bit growth",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -740,7 +740,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "quarterly/event",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_year",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -753,7 +753,7 @@
       },
       "module_id": "memory",
       "name_ko": "HBM주문증가",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: T13/T14 orders",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -780,7 +780,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "monthly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_month",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -793,7 +793,7 @@
       },
       "module_id": "supply",
       "name_ko": "삼성생산능력",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: Samsung capacity",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -820,7 +820,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "monthly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_month",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -833,7 +833,7 @@
       },
       "module_id": "supply",
       "name_ko": "SK하이닉스생산능력",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: SKH capacity",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -860,7 +860,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "monthly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_month",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -873,7 +873,7 @@
       },
       "module_id": "supply",
       "name_ko": "마이크론생산능력",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: Micron capacity",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -900,7 +900,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "monthly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_month",
       "critical_for_horizons": [
         "3m",
         "1y"
@@ -916,7 +916,7 @@
       },
       "module_id": "supply",
       "name_ko": "CXMT생산능력",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: CXMT capacity",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -943,7 +943,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "event",
-      "comparison_period": "previous_observation",
+      "comparison_period": "point_in_time",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -956,7 +956,7 @@
       },
       "module_id": "supply",
       "name_ko": "팹가동소요기간",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: fab schedule/T19",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -983,7 +983,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "quarterly",
-      "comparison_period": "year",
+      "comparison_period": "1_calendar_year",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -996,7 +996,7 @@
       },
       "module_id": "earnings",
       "name_ko": "삼성매출",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: revenue",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1022,7 +1022,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "quarterly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_quarter",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1035,7 +1035,7 @@
       },
       "module_id": "earnings",
       "name_ko": "삼성영업이익률",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: margin",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1061,7 +1061,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "quarterly",
-      "comparison_period": "year",
+      "comparison_period": "1_calendar_year",
       "critical_for_horizons": [
         "3m",
         "1y"
@@ -1077,7 +1077,7 @@
       },
       "module_id": "earnings",
       "name_ko": "삼성EPS",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: EPS",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1106,7 +1106,7 @@
         "capex_cash_flow"
       ],
       "cadence": "quarterly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_quarter",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1119,7 +1119,7 @@
       },
       "module_id": "earnings",
       "name_ko": "삼성FCF",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: FCF",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1146,7 +1146,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "30_calendar_days",
       "critical_for_horizons": [
         "1m",
         "3m",
@@ -1163,7 +1163,7 @@
       },
       "module_id": "earnings",
       "name_ko": "삼성EPS수정",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: revisions",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1175,7 +1175,7 @@
       "source_id": null,
       "source_status": "not_connected",
       "timezone": null,
-      "transform": "level",
+      "transform": "pct_change",
       "unit": "percent",
       "unresolved_fields": [
         "provider",
@@ -1190,7 +1190,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "quarterly",
-      "comparison_period": "year",
+      "comparison_period": "1_calendar_year",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1203,7 +1203,7 @@
       },
       "module_id": "earnings",
       "name_ko": "삼성설비투자",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: T20 CAPEX",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1229,7 +1229,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [
         "1d",
         "1w",
@@ -1248,7 +1248,7 @@
       },
       "module_id": "capital_flow",
       "name_ko": "외국인순매수",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: foreign flow",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1274,7 +1274,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1287,7 +1287,7 @@
       },
       "module_id": "capital_flow",
       "name_ko": "기관순매수",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: institution flow",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1313,7 +1313,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1326,7 +1326,7 @@
       },
       "module_id": "capital_flow",
       "name_ko": "프로그램순매수",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: program flow",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1356,7 +1356,7 @@
         "market_flow_ratio"
       ],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1369,7 +1369,7 @@
       },
       "module_id": "capital_flow",
       "name_ko": "반도체상대자금흐름",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: sector relative flow",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1396,7 +1396,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1409,7 +1409,7 @@
       },
       "module_id": "capital_flow",
       "name_ko": "외국인지분변화",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "P: 누적 자금 검증 보조",
       "provenance_class": "P",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1437,7 +1437,7 @@
         "forward_eps_consensus"
       ],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "forward_12_months",
       "critical_for_horizons": [
         "3m",
         "1y"
@@ -1455,7 +1455,7 @@
       },
       "module_id": "valuation",
       "name_ko": "삼성선행PER",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: PER",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1467,7 +1467,7 @@
       "source_id": null,
       "source_status": "not_connected",
       "timezone": null,
-      "transform": "level",
+      "transform": "ratio",
       "unit": "ratio",
       "unresolved_fields": [
         "provider",
@@ -1484,7 +1484,7 @@
         "book_value_per_share"
       ],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "latest_reported_quarter",
       "critical_for_horizons": [],
       "derived_from": [
         "samsung_common_price"
@@ -1499,7 +1499,7 @@
       },
       "module_id": "valuation",
       "name_ko": "삼성PBR",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: PBR",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1512,7 +1512,7 @@
       "source_id": null,
       "source_status": "not_connected",
       "timezone": null,
-      "transform": "level",
+      "transform": "ratio",
       "unit": "ratio",
       "unresolved_fields": [
         "provider",
@@ -1527,7 +1527,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "monthly",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_calendar_month",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1540,7 +1540,7 @@
       },
       "module_id": "valuation",
       "name_ko": "주식위험프리미엄",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: ERP",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1570,7 +1570,7 @@
         "equity_beta"
       ],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [
         "3m",
         "1y"
@@ -1588,7 +1588,7 @@
       },
       "module_id": "valuation",
       "name_ko": "주식할인율",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: discount rate",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1614,7 +1614,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "30m/daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1627,7 +1627,7 @@
       },
       "module_id": "preferred",
       "name_ko": "삼성보통주가격",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: Samsung common",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1653,7 +1653,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "30m/daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [
         "1d",
         "1w",
@@ -1672,7 +1672,7 @@
       },
       "module_id": "preferred",
       "name_ko": "삼성우선주가격",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: Samsung preferred",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1698,7 +1698,7 @@
     {
       "auxiliary_inputs": [],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [],
       "derived_from": [
         "samsung_preferred_price",
@@ -1714,7 +1714,7 @@
       },
       "module_id": "preferred",
       "name_ko": "우선주할인율",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: common/preferred spread",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1742,7 +1742,7 @@
         "cash_dividends"
       ],
       "cadence": "daily/event",
-      "comparison_period": "previous_observation",
+      "comparison_period": "trailing_12_months",
       "critical_for_horizons": [],
       "derived_from": [
         "samsung_preferred_price"
@@ -1757,7 +1757,7 @@
       },
       "module_id": "preferred",
       "name_ko": "우선주배당수익률",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: dividend",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1770,7 +1770,7 @@
       "source_id": null,
       "source_status": "not_connected",
       "timezone": null,
-      "transform": "level",
+      "transform": "ratio",
       "unit": "ratio",
       "unresolved_fields": [
         "provider",
@@ -1788,7 +1788,7 @@
         "free_float_shares"
       ],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "1_trading_day",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1801,7 +1801,7 @@
       },
       "module_id": "preferred",
       "name_ko": "우선주회전율",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: liquidity",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1813,7 +1813,7 @@
       "source_id": null,
       "source_status": "not_connected",
       "timezone": null,
-      "transform": "level",
+      "transform": "ratio",
       "unit": "ratio",
       "unresolved_fields": [
         "provider",
@@ -1830,7 +1830,7 @@
         "market_bars"
       ],
       "cadence": "30m/daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "point_in_time",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1843,7 +1843,7 @@
       },
       "module_id": "market_regime",
       "name_ko": "우선주RSI",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "E: RSI",
       "provenance_class": "E",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1871,7 +1871,7 @@
         "market_bars"
       ],
       "cadence": "30m/daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "point_in_time",
       "critical_for_horizons": [
         "1d",
         "1w",
@@ -1890,7 +1890,7 @@
       },
       "module_id": "market_regime",
       "name_ko": "우선주추세정렬",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: trend",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1918,7 +1918,7 @@
         "market_bars"
       ],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "20_trading_days",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -1931,7 +1931,7 @@
       },
       "module_id": "market_regime",
       "name_ko": "우선주실현변동성",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: volatility",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -1959,7 +1959,7 @@
         "market_bars"
       ],
       "cadence": "30m/daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "20_trading_days",
       "critical_for_horizons": [
         "1d",
         "1w",
@@ -1978,7 +1978,7 @@
       },
       "module_id": "market_regime",
       "name_ko": "우선주거래량Z",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "D: volume",
       "provenance_class": "D",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -2006,7 +2006,7 @@
         "market_bars"
       ],
       "cadence": "daily",
-      "comparison_period": "previous_observation",
+      "comparison_period": "252_trading_days",
       "critical_for_horizons": [],
       "derived_from": [],
       "economic_sign_by_regime": "graph_defined",
@@ -2019,7 +2019,7 @@
       },
       "module_id": "market_regime",
       "name_ko": "우선주과열백분위",
-      "ontology_version": "ontology-design-v1",
+      "ontology_version": "ontology-design-v2",
       "prd_reference": "P: overheat 정량화 제안",
       "provenance_class": "P",
       "quality_tolerance_rule": "quality-rule-experimental-v1",
@@ -2081,6 +2081,6 @@
       "name": "market regime"
     }
   ],
-  "ontology_version": "ontology-design-v1",
+  "ontology_version": "ontology-design-v2",
   "schema_version": "1.0.0"
 }

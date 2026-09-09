@@ -1,4 +1,4 @@
-name: Foundation checks
+name: Reasoning fixture checks
 on:
   workflow_dispatch:
   push:
@@ -21,6 +21,12 @@ jobs:
       - run: python -m pip install -r requirements.lock
       - run: python -m pytest -q
       - run: python -m reasoning validate
+      - run: python -m reasoning run-fixture --output artifacts/local/prediction-journal.json
+      - run: python -m reasoning verify-journal --journal artifacts/local/prediction-journal.json --replay
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prediction-journal-python-${{ matrix.python }}
+          path: artifacts/local/prediction-journal.json
       - name: Verify unimplemented product Golden gate stays closed
         shell: bash
         run: |

@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 
 from .registry import Registry
+from .factor_periods import FACTOR_PERIODS
 from .schemas.artifacts import Artifact, EngineResult, PAYLOAD_TYPES
 from .schemas.contracts import Forecast, Observation, SealedJournal, MODULE_IDS
 
@@ -84,7 +85,7 @@ def build_registry(root: Path) -> dict:
             warmup = 252
         factors.append(dict(
             factor_id=factor_id, module_id=module, name_ko=names[index], value_definition=definition,
-            unit=units[index], transform=transform, comparison_period=("year" if transform == "yoy" else "previous_observation"),
+            unit=units[index], transform=FACTOR_PERIODS[factor_id][0], comparison_period=FACTOR_PERIODS[factor_id][1],
             warmup=warmup, cadence=cadence, expected_release_at=None,
             freshness_sla=dict(basis=basis, maximum_age=int(age_match[0]) if age_match else None, source_definition=sla),
             critical_for_horizons=[h for h, required in (("1d", short), ("1w", short), ("1m", medium), ("3m", long), ("1y", long)) if factor_id in required],
@@ -93,9 +94,9 @@ def build_registry(root: Path) -> dict:
             derived_from=dependencies.get(factor_id, ()),
             auxiliary_inputs=auxiliary.get(factor_id, ("market_bars",) if module == "market_regime" else ()),
             economic_sign_by_regime="graph_defined", quality_tolerance_rule="quality-rule-experimental-v1",
-            ontology_version="ontology-design-v1", unresolved_fields=["provider", "series_id", "release_schedule", "timezone"],
+            ontology_version="ontology-design-v2", unresolved_fields=["provider", "series_id", "release_schedule", "timezone"],
         ))
-    return Registry.model_validate(dict(ontology_version="ontology-design-v1",
+    return Registry.model_validate(dict(ontology_version="ontology-design-v2",
         modules=[dict(module_id=module, name=module.replace("_", " ")) for module in MODULE_IDS], factors=factors)).model_dump(mode="json")
 
 
@@ -158,8 +159,5 @@ def validate_repository(root: Path) -> dict:
 
 
 def release_ready(results: dict) -> bool:
-    cases = results.get("cases", [])
-    if len(cases) != 80 or {case.get("case_id") for case in cases} != CASE_IDS:
-        return False
-    return all(case.get("execution_status") == "passed" and case.get("run_id")
-               and case.get("fixture_hash") and case.get("versions") for case in cases)
+    from .release import verify_release
+    return verify_release(results, CASE_IDS)

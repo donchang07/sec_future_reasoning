@@ -81,15 +81,19 @@ def select_as_of(observations: tuple[Observation, ...], cutoff: datetime) -> tup
     """Keep source conflicts separate; select revisions only known at cutoff."""
     if cutoff.tzinfo is None or cutoff.utcoffset() is None:
         raise ValueError("cutoff must be timezone aware")
-    selected: dict[tuple, Observation] = {}
+    groups: dict[tuple, list[Observation]] = {}
     for item in observations:
         if item.published_at > cutoff or item.available_at > cutoff:
             continue
         key = (item.factor_id, item.source_id, item.observed_at)
-        old = selected.get(key)
-        if old is None or (item.available_at, item.published_at, str(item.observation_id)) > (
-                old.available_at, old.published_at, str(old.observation_id)):
-            selected[key] = item
+        groups.setdefault(key, []).append(item)
+    selected = {}
+    for key, items in groups.items():
+        latest = max((x.available_at, x.published_at) for x in items)
+        tied = [x for x in items if (x.available_at, x.published_at) == latest]
+        if len({(x.value, x.unit) for x in tied}) > 1:
+            raise ValueError(f"revision conflict: {key}")
+        selected[key] = min(tied, key=lambda x: str(x.observation_id))
     return tuple(sorted(selected.values(), key=lambda x: (x.factor_id, x.source_id, x.observed_at)))
 
 

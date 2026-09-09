@@ -400,6 +400,8 @@ class MetaCheck(PayloadBase):
 
     @model_validator(mode="after")
     def publish_checks(self):
+        if self.publishable and (not self.applicable or not self.driver_refs):
+            raise ValueError("publication requires applicable meta check and drivers")
         if self.publishable and (self.failed_checks or self.offending_engines or self.error_class):
             raise ValueError("failed meta checks cannot publish")
         return self
