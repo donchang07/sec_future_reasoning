@@ -9,10 +9,10 @@ Baseline은 `real-world-contract-v2.0.0`과 `73c30f77608813bafcecf137e413e88b3c0
 ```powershell
 .venv/Scripts/python.exe -m forward_ops bootstrap
 .venv/Scripts/python.exe -m forward_ops daily
-.venv/Scripts/python.exe -m forward_ops serve --port 8677
+.venv/Scripts/python.exe -m forward_ops serve --port 8678
 ```
 
-화면: http://127.0.0.1:8677. Forecast Horizon을 선택하면 기여 Ledger와 Gate, E09/E10/E11, source freshness를 조회한다. Shadow 진단과 Human Forecast, 평가 점수는 별도 영역이다. UI는 읽기 전용이며 입력은 아래 CLI를 사용한다.
+화면: http://127.0.0.1:8678. Forecast Horizon을 선택하면 기여 Ledger와 Gate, E09/E10/E11, source freshness를 조회한다. Shadow 진단과 Human Forecast, 평가 점수는 별도 영역이다. UI는 읽기 전용이며 입력은 아래 CLI를 사용한다.
 
 Daily는 15:50 KST 이후 현재 날짜의 완료 일봉이 있는 경우만 발행한다. 설치된 예약 실행은 16:10 KST이며 사용자 로그인·전원·네트워크가 필요하다. 같은 날짜에 다시 실행해도 이미 봉인된 Run은 바꾸지 않는다. 휴장/지연 자료는 not_ready, 주말/마감 전은 skipped다. not_ready는 종료 코드 2이며 예약 작업은 30분 간격 최대 3회 재시도한다.
 
