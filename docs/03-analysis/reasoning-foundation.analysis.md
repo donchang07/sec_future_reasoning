@@ -1,3 +1,5 @@
+> Update 2026-09-09: CK-01 through CK-04 are fixed and rechecked in the [vertical slice Check](reasoning-vertical-slice.analysis.md). The evaluation below is historical and refers to its original commit. Full-product completion is not claimed.
+
 # reasoning-foundation — 초기 Gap Analysis (재검토 전 기록)
 
 > **2026-09-09 Check 재검토:** 아래 100%는 초기 판정 이력이다. 추가 검증에서 F01/F03/F05/F06 결함을 재현하여 현재 판정은 3/7 match, 4/7 partial, Act 필요로 정정했다. [최신 Check 결과](sec-future-reasoning-v1-1.analysis.md)를 따른다.

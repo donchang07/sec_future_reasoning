@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-09-09T05:34:57.104Z",
+  "lastUpdated": "2026-09-09T05:37:24.513657+00:00",
   "activeFeatures": [
     "sec-future-reasoning-v1-1",
     "reasoning-foundation",
@@ -16,7 +16,8 @@
         "plan": "docs/01-plan/features/sec-future-reasoning-v1-1.plan.md",
         "design": "docs/02-design/features/sec-future-reasoning-v1-1.design.md",
         "designReview": "docs/03-analysis/sec-future-reasoning-v1-1.design-review.md",
-        "analysis": "docs/03-analysis/sec-future-reasoning-v1-1.analysis.md"
+        "analysis": "docs/03-analysis/sec-future-reasoning-v1-1.analysis.md",
+        "verticalSliceReport": "docs/04-report/reasoning-vertical-slice.report.md"
       },
       "taskChain": [
         {
@@ -69,18 +70,26 @@
           "CK-04"
         ],
         "implementationComplete": false
-      }
+      },
+      "resolvedFindings": [
+        "CK-01",
+        "CK-02",
+        "CK-03",
+        "CK-04"
+      ],
+      "completedVerticalSlice": "reasoning-vertical-slice",
+      "matchRateScope": "Historical whole-product check; not rescored after slice"
     },
     "reasoning-foundation": {
-      "phase": "act",
-      "matchRate": 42.857142857142854,
+      "phase": "completed",
+      "matchRate": 100.0,
       "iterationCount": 1,
       "documents": {
         "plan": "docs/01-plan/features/reasoning-foundation.plan.md",
         "design": "docs/02-design/features/reasoning-foundation.design.md",
         "analysis": "docs/03-analysis/reasoning-foundation.analysis.md",
         "report": "docs/04-report/reasoning-foundation.report.md",
-        "recheck": "docs/03-analysis/sec-future-reasoning-v1-1.analysis.md"
+        "recheck": "docs/03-analysis/reasoning-vertical-slice.analysis.md"
       },
       "taskChain": [
         {
@@ -109,25 +118,44 @@
         },
         {
           "phase": "report",
-          "status": "pending",
-          "createdAt": "2026-09-09T05:02:02.154Z"
+          "status": "completed",
+          "createdAt": "2026-09-09T05:02:02.154Z",
+          "completedAt": "2026-09-09T05:37:24.513657+00:00"
         },
         {
           "phase": "act",
-          "status": "active",
-          "createdAt": "2026-09-09T05:18:05.182228+00:00"
+          "status": "completed",
+          "createdAt": "2026-09-09T05:18:05.182228+00:00",
+          "completedAt": "2026-09-09T05:36:24.807Z"
         }
       ],
       "timestamps": {
         "started": "2026-09-09T05:02:02.158Z",
-        "lastUpdated": "2026-09-09T05:18:05.182228+00:00"
+        "lastUpdated": "2026-09-09T05:37:24.513657+00:00"
+      },
+      "completedAt": "2026-09-09T05:36:56.043Z",
+      "resolvedFindings": [
+        "CK-01",
+        "CK-02",
+        "CK-03",
+        "CK-04"
+      ],
+      "previousMatchRate": 42.857142857142854,
+      "checkSummary": {
+        "findingsResolved": 4,
+        "foundationTestsPassed": 57,
+        "scope": "Foundation contracts and metadata; full-product release remains closed"
       }
     },
     "reasoning-vertical-slice": {
-      "phase": "check",
-      "matchRate": null,
+      "phase": "completed",
+      "matchRate": 100.0,
       "iterationCount": 1,
-      "documents": {},
+      "documents": {
+        "analysis": "docs/03-analysis/reasoning-vertical-slice.analysis.md",
+        "recheck": "docs/03-analysis/reasoning-vertical-slice.analysis.md",
+        "report": "docs/04-report/reasoning-vertical-slice.report.md"
+      },
       "taskChain": [
         {
           "phase": "plan",
@@ -149,19 +177,38 @@
         },
         {
           "phase": "check",
-          "status": "active",
-          "createdAt": "2026-09-09T05:21:32.018Z"
+          "status": "completed",
+          "createdAt": "2026-09-09T05:21:32.018Z",
+          "completedAt": "2026-09-09T05:36:24.778Z"
         },
         {
           "phase": "report",
-          "status": "pending",
-          "createdAt": "2026-09-09T05:21:32.018Z"
+          "status": "completed",
+          "createdAt": "2026-09-09T05:21:32.018Z",
+          "completedAt": "2026-09-09T05:36:56.022Z"
         }
       ],
       "timestamps": {
         "started": "2026-09-09T05:21:32.019Z",
-        "lastUpdated": "2026-09-09T05:34:57.081Z"
-      }
+        "lastUpdated": "2026-09-09T05:37:24.513657+00:00"
+      },
+      "checkSummary": {
+        "checkedCommit": "1f38e7fad801b4bc7e1d65b09becf7eba2ec1de4",
+        "match": 31,
+        "total": 31,
+        "testsPassed": 89,
+        "coreCasesPassed": 15,
+        "engineExecutions": 114,
+        "replayVerified": true,
+        "productReleaseReady": false
+      },
+      "completedAt": "2026-09-09T05:36:56.018Z",
+      "resolvedFindings": [
+        "CK-01",
+        "CK-02",
+        "CK-03",
+        "CK-04"
+      ]
     }
   },
   "pipeline": {
@@ -172,7 +219,7 @@
   "session": {
     "startedAt": "2026-09-09T04:15:13.803Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-09-09T05:34:57.104Z"
+    "lastActivity": "2026-09-09T05:36:56.048Z"
   },
   "history": [
     {
@@ -337,6 +384,69 @@
       "phase": "do",
       "nextPhase": "check",
       "timestamp": "2026-09-09T05:34:57.074Z"
+    },
+    {
+      "feature": "reasoning-vertical-slice",
+      "from": "check",
+      "to": "act",
+      "timestamp": "2026-09-09T05:36:24.771Z"
+    },
+    {
+      "feature": "reasoning-vertical-slice",
+      "action": "phase_complete",
+      "phase": "check",
+      "nextPhase": "act",
+      "timestamp": "2026-09-09T05:36:24.772Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "from": "act",
+      "to": "report",
+      "timestamp": "2026-09-09T05:36:24.803Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "action": "phase_complete",
+      "phase": "act",
+      "nextPhase": "report",
+      "timestamp": "2026-09-09T05:36:24.803Z"
+    },
+    {
+      "feature": "reasoning-vertical-slice",
+      "from": "act",
+      "to": "report",
+      "timestamp": "2026-09-09T05:36:55.990Z"
+    },
+    {
+      "feature": "reasoning-vertical-slice",
+      "action": "phase_complete",
+      "phase": "act",
+      "nextPhase": "report",
+      "timestamp": "2026-09-09T05:36:55.991Z"
+    },
+    {
+      "feature": "reasoning-vertical-slice",
+      "action": "phase_complete",
+      "phase": "report",
+      "nextPhase": "completed",
+      "timestamp": "2026-09-09T05:36:56.019Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "action": "phase_complete",
+      "phase": "report",
+      "nextPhase": "completed",
+      "timestamp": "2026-09-09T05:36:56.045Z"
+    },
+    {
+      "feature": "reasoning-vertical-slice",
+      "action": "verified_completion",
+      "timestamp": "2026-09-09T05:37:24.513657+00:00",
+      "testsPassed": 89,
+      "coreCasesPassed": 15,
+      "engineExecutions": 114,
+      "ci": "34315461362",
+      "note": "Status/task-chain reconciled with completed Check and report; parent remains act"
     }
   ]
 }

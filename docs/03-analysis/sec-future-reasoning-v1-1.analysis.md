@@ -1,3 +1,5 @@
+> Update 2026-09-09: CK-01 through CK-04 are fixed and rechecked in the [vertical slice Check](reasoning-vertical-slice.analysis.md). The evaluation below is historical and refers to its original commit. Full-product completion is not claimed.
+
 # SEC Future Reasoning v1.1 — Check 결과
 
 > 2026-09-09 · Check 1 · 대상 commit: `629af3d45054dd70d592d7118bac4912573b92af`

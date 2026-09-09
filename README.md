@@ -32,8 +32,17 @@ bkit-codex PDCA를 사용합니다. Plan과 Design은 반드시 canonical PRD v1
 
 ## 현재 구현
 
-P1 `reasoning-foundation`: typed Engine 계약, 버전·cutoff·확률/ledger·Journal 검증, 49 Factor Registry, Golden 80개 카탈로그와 schema 검사 CLI를 구현했습니다. [설치와 실행 안내](docs/FOUNDATION.md)를 참고하세요.
+Foundation 계약과 E01–E19 최소 알고리즘을 구현했습니다. 합성 삼성전자우 fixture가 1주·1개월·1년 각각에서 추론→Wave/Alignment/Liquidity→기술 feedback 1회→Decision→Prediction Journal까지 실행됩니다. 114개 중간 EngineResult를 조회하고 contribution ledger와 전체 replay로 결과를 검증합니다.
 
-전체 제품 Do는 진행 중입니다. 실제 추론 엔진 실행·DB·API/UI는 다음 기능이며, 미실행 Golden 카탈로그는 release gate를 통과하지 않습니다.
+- [설치·fixture 실행·Journal 조회](docs/VERTICAL_SLICE.md)
+- [최신 Check: 결함 4개 수정과 89개 테스트](docs/03-analysis/reasoning-vertical-slice.analysis.md)
+- [완료 보고서와 Horizon별 결과](docs/04-report/reasoning-vertical-slice.report.md)
+- [Foundation 계약 설명](docs/FOUNDATION.md)
 
-최신 [Check 결과](docs/03-analysis/sec-future-reasoning-v1-1.analysis.md): 기존 테스트 50개는 통과했으나 추가 경계 검증에서 foundation 결함 4개를 확인했습니다. 전체 제품 구현은 미완성이며 다음 PDCA 단계는 Act입니다. foundation의 초기 완료 판정도 재개했습니다.
+```powershell
+python -m pip install -r requirements.lock
+python -m reasoning run-fixture --output artifacts/local/prediction-journal.json
+python -m reasoning verify-journal --journal artifacts/local/prediction-journal.json --replay
+```
+
+핵심 15개를 포함한 pytest 89개와 GitHub CI Python 3.11/3.12가 통과했습니다. 원래 Golden 80개 전체는 아직 실행 완료 상태가 아니므로 product release gate는 닫혀 있습니다. 합성 fixture의 calibration은 unvalidated이며 실데이터 adapter·운영 검증·DB/API/UI는 후속 범위입니다.
