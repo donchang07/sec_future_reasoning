@@ -30,6 +30,7 @@ class SourceObservation(Contract):
     collected_at: AwareDatetime
     data_mode: DataMode
     raw_ref: Text
+    reporting_period: str | None = None
     prior_value: Number | None = None
     reported_yoy: Number | None = None
     current_workdays: Number | None = None
@@ -105,6 +106,7 @@ class FactorEvidence(Contract):
     data_mode: DataMode
     horizon: Horizon
     economic_scope: str
+    reporting_period: str | None = None
     mapping: MappingRule
     derived_signals: dict[str, Number | None] = {}
 

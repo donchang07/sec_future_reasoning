@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import re
 from collections import Counter
 from pathlib import Path
 from .types import CONTRACT_VERSION, MAPPING_VERSION, SourceObservation, Requirement
@@ -21,11 +22,13 @@ def source_from_fact(f):
     stage=None
     if f.month:
         stage={10:'nowcast_v1',20:'nowcast_v2'}.get(f.coverage_days,'final')
+    period=re.search(r'\b(H[12]|Q[1-4]|FY)\b',f.scope) if scope=='company_consolidated' else None
     return SourceObservation(source_id=f.source_id,source_field=f.factor_id,source_unit=f.unit,value=f.value,
         economic_scope=scope,series_id='kcs_semiconductor_exports' if f.month else f.factor_id,
         observed_at=f.observed_at,effective_at=f.effective_at,released_at=f.released_at,collected_at=f.collected_at,
         data_mode=f.data_mode,raw_ref=f.source_ref,reported_yoy=f.yoy_percent,month=f.month,
-        coverage_days=f.coverage_days,vintage_stage=stage)
+        coverage_days=f.coverage_days,vintage_stage=stage,
+        reporting_period=f'{f.effective_at.year}-{period[1]}' if period else None)
 
 
 def classify_facts(facts,cutoff):

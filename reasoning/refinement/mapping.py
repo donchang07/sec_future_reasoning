@@ -1,6 +1,7 @@
 """Allowlisted source semantics. No observation can bypass this boundary."""
 import hashlib
 import json
+import re
 from .types import MappingPolicy, MappingRule, MappingBatch, FactorEvidence, Unmapped, SourceObservation, MAPPING_VERSION
 from .registry import MATRIX, rule_for, UNITS
 from .exports import select_vintages, export_signals
@@ -19,15 +20,15 @@ def evidence(o,rule,value,signal,root,horizon,derived=None,extra_refs=()):
     return FactorEvidence(evidence_id=digest(key),factor_id=rule.factor_id,value=value,
         unit=UNITS[rule.factor_id],signal=signal,root_id=root,series_id=o.series_id,source_refs=tuple(sorted(set((o.raw_ref,)+extra_refs))),
         effective_at=o.effective_at,collected_at=o.collected_at,data_mode=o.data_mode,horizon=horizon,
-        economic_scope=o.economic_scope,mapping=rule,derived_signals=derived or {})
+        economic_scope=o.economic_scope,reporting_period=o.reporting_period,mapping=rule,derived_signals=derived or {})
 
 
 def derive_company(items,version,horizon):
     groups={}
     for e in items:
-        if e.economic_scope=='company_consolidated':groups.setdefault(e.effective_at,{}).setdefault(e.factor_id,[]).append(e)
+        if e.economic_scope=='company_consolidated':groups.setdefault((e.effective_at,e.reporting_period),{}).setdefault(e.factor_id,[]).append(e)
     derived=[]
-    for period,group in sorted(groups.items()):
+    for (period,reporting_period),group in sorted(groups.items()):
         # Ambiguous multiple source values may never choose the convenient operand.
         values={k:v[0] for k,v in group.items() if len({e.value for e in v})==1}
         def create(name,keys,calc,transform):
@@ -41,7 +42,7 @@ def derive_company(items,version,horizon):
             item=FactorEvidence(evidence_id=digest({'inputs':[e.evidence_id for e in inputs],'rule':rule.model_dump(mode='json'),'value':value}),
                 factor_id=name,value=value,unit=UNITS[name],signal=None,root_id='company:'+period.isoformat(),series_id=name,
                 source_refs=refs,effective_at=period,collected_at=max(e.collected_at for e in inputs),
-                data_mode=inputs[0].data_mode,horizon=horizon,economic_scope='company_consolidated',mapping=rule)
+                data_mode=inputs[0].data_mode,horizon=horizon,economic_scope='company_consolidated',reporting_period=reporting_period,mapping=rule)
             derived.append(item);values[name]=item
         create('samsung_operating_margin',('samsung_operating_profit','samsung_revenue'),lambda p,r:100*p/r if r>0 else None,'ratio_margin')
         create('samsung_capex',('samsung_capex_ppe_cash','samsung_capex_intangibles'),lambda a,b:a+b,'full_cash_capex')
@@ -66,6 +67,8 @@ def map_observations(observations,cutoff,horizon,regime,policy=None):
         if rule is None:reject(o,'no_mapping_rule');continue
         if o.source_unit!=rule.source_unit:reject(o,'unit_mismatch');continue
         if o.economic_scope!=rule.economic_scope:reject(o,'scope_mismatch');continue
+        if o.economic_scope=='company_consolidated' and (not o.reporting_period or not re.fullmatch(r'\d{4}-(Q[1-4]|H[12]|FY|YTD-Q[1-4])',o.reporting_period)):
+            reject(o,'financial_period_missing');continue
         if horizon not in rule.valid_horizon:reject(o,'horizon_excluded');continue
         if '*' not in rule.valid_regime and regime not in rule.valid_regime:reject(o,'regime_excluded');continue
         if not o.eligible(cutoff):reject(o,'after_cutoff');continue
@@ -95,11 +98,18 @@ def map_observations(observations,cutoff,horizon,regime,policy=None):
     nonexports={}
     for o in eligible:
         if o.source_field!='semiconductor_export_demand':
-            nonexports.setdefault((o.source_field,o.series_id,o.economic_scope),[]).append(o)
+            nonexports.setdefault((o.source_field,o.series_id,o.economic_scope,o.reporting_period),[]).append(o)
     selected=[]
     for group in nonexports.values():
-        latest=max((o.effective_at,o.released_at or o.collected_at,o.collected_at) for o in group)
-        same=[o for o in group if (o.effective_at,o.released_at or o.collected_at,o.collected_at)==latest]
+        effective=max(o.effective_at for o in group)
+        # Revision ordering applies within a provider, never across independent providers.
+        providers={}
+        for o in group:
+            if o.effective_at==effective:providers.setdefault(o.source_id,[]).append(o)
+        same=[]
+        for records in providers.values():
+            latest=max((o.released_at or o.collected_at,o.collected_at) for o in records)
+            same.extend(o for o in records if (o.released_at or o.collected_at,o.collected_at)==latest)
         if len({(o.value,o.prior_value) for o in same})>1:
             for o in group:reject(o,'conflicting_source_value')
             continue

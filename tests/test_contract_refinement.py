@@ -12,6 +12,7 @@ NOW = datetime(2026, 9, 9, tzinfo=timezone.utc)
 
 
 def obs(field, value=1., unit='percent', scope='macro', **kwargs):
+    if scope=='company_consolidated':kwargs.setdefault('reporting_period','2026-H1')
     return SourceObservation(source_id='authored_test', source_field=field, source_unit=unit, value=float(value),
         economic_scope=scope, series_id=field, observed_at=NOW-timedelta(days=1),
         effective_at=NOW-timedelta(days=1), released_at=NOW-timedelta(hours=1), collected_at=NOW,
@@ -291,7 +292,7 @@ def test_real_23_fact_classification_contract_without_prediction(tmp_path):
         'ppe_acquisition','investing_cash','financing_cash','fx_cash_effect','cash_change','cash_begin','cash_end']
     facts=[]
     for i,name in enumerate(fields):
-        facts.append(Fact(factor_id='samsung_'+name,value=-30. if name=='ppe_acquisition' else 100.,unit='krw_million',scope='Consolidated',
+        facts.append(Fact(factor_id='samsung_'+name,value=-30. if name=='ppe_acquisition' else 100.,unit='krw_million',scope='Consolidated H1',
             source_id='samsung_cf',source_ref='test:'+name,observed_at=NOW-timedelta(days=1),effective_at=NOW-timedelta(days=1),
             released_at=None,collected_at=NOW,market_timezone='Asia/Seoul',authority='official_original',freshness_days=150.,mapping_reason='legacy unmapped'))
     for i in range(7):
@@ -314,3 +315,34 @@ def test_published_contract_manifest_matches_code_and_frozen_model():
     assert manifest['live_prediction_enabled'] is False
     assert manifest['entry_threshold']==.8 and manifest['sell_threshold']==.7
     assert manifest['prior']==[.4,.35,.25]
+
+
+def test_rw01_cross_provider_conflict_is_not_a_revision():
+    sources=short_sources()
+    other=sources[0].model_copy(update={'source_id':'second_provider','value':7.,'raw_ref':'test:other',
+        'collected_at':NOW-timedelta(minutes=1)})
+    a=assessment(sources+[other])
+    assert a.coverage['macro']==.5
+    assert any(u.reason=='conflicting_source_value' for u in a.unmapped)
+
+
+def test_rw02_same_end_date_different_duration_not_combined():
+    a=obs('samsung_revenue',200.,'krw_million','company_consolidated',reporting_period='2026-H1')
+    b=obs('samsung_operating_profit',40.,'krw_million','company_consolidated',reporting_period='2026-Q2')
+    batch=map_observations([a,b],NOW,'1m','unknown')
+    assert not any(e.factor_id=='samsung_operating_margin' for e in batch.evidence)
+
+
+def test_rw02_missing_reporting_period_unmapped():
+    s=obs('samsung_revenue',200.,'krw_million','company_consolidated',reporting_period=None)
+    batch=map_observations([s],NOW,'1m','unknown')
+    assert not batch.evidence and batch.unmapped[0].reason=='financial_period_missing'
+
+
+def test_rw02_e11_rejects_cross_period_statement_operands():
+    from reasoning.refinement.constraints import company_from_evidence
+    sources=[obs('samsung_total_assets',300.,'krw_million','company_consolidated',reporting_period='2026-H1'),
+        obs('samsung_total_liabilities',100.,'krw_million','company_consolidated',reporting_period='2026-Q2')]
+    batch=map_observations(sources,NOW,'1y','unknown')
+    with pytest.raises(ValueError,match='reporting periods'):
+        company_from_evidence(batch.evidence)

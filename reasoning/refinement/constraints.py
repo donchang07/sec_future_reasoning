@@ -137,9 +137,12 @@ def company_from_evidence(evidence):
     latest=max(e.effective_at for e in items);items=[e for e in items if e.effective_at==latest]
     aliases={'total_assets':'assets','total_liabilities':'liabilities','total_equity':'equity'}
     values={}
+    periods=set()
     for e in items:
         k=e.factor_id.removeprefix('samsung_');k=aliases.get(k,k)
         if k in CompanyFinancials.model_fields and k not in ('scope','period','unit','source_refs'):
+            periods.add(e.reporting_period)
             if k in values and values[k]!=e.value:raise ValueError('conflicting financial evidence')
             values[k]=e.value
-    return CompanyFinancials(period=latest.isoformat(),source_refs=tuple(sorted({r for e in items for r in e.source_refs})),**values)
+    if len(periods)>1 or None in periods:raise ValueError('incompatible financial reporting periods')
+    return CompanyFinancials(period=next(iter(periods)) if periods else latest.isoformat(),source_refs=tuple(sorted({r for e in items for r in e.source_refs})),**values)
