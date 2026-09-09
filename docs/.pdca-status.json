@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-09-09T06:44:10.246Z",
+  "lastUpdated": "2026-09-09T06:45:43.944Z",
   "activeFeatures": [
     "sec-future-reasoning-v1-1",
     "reasoning-foundation",
@@ -384,13 +384,16 @@
       "completedAt": "2026-09-09T06:32:13.839Z"
     },
     "live-forward-v2": {
-      "phase": "act",
+      "phase": "completed",
       "matchRate": 100,
       "iterationCount": 1,
       "documents": {
         "analysis": "docs/03-analysis/live-forward-v2.analysis.md",
         "preflight": "docs/03-analysis/live-forward-v2.preflight.md",
-        "preRunLock": "docs/03-analysis/live-forward-v2.pre-run-lock.json"
+        "preRunLock": "docs/03-analysis/live-forward-v2.pre-run-lock.json",
+        "report": "docs/04-report/live-forward-v2.report.md",
+        "sealedJournal": "docs/03-analysis/live-forward-v2.sealed-journal.json",
+        "fullExplainability": "docs/04-report/live-forward-v2.full-explainability.md"
       },
       "taskChain": [
         {
@@ -413,18 +416,25 @@
         },
         {
           "phase": "check",
-          "status": "pending",
-          "createdAt": "2026-09-09T06:36:51.626Z"
+          "status": "completed",
+          "createdAt": "2026-09-09T06:36:51.626Z",
+          "completedAt": "2026-09-09T06:45:44.875650+00:00"
         },
         {
           "phase": "report",
           "status": "pending",
           "createdAt": "2026-09-09T06:36:51.626Z"
+        },
+        {
+          "phase": "act",
+          "status": "completed",
+          "completedAt": "2026-09-09T06:45:44.875650+00:00",
+          "description": "Frozen result retained; findings deferred without code changes"
         }
       ],
       "timestamps": {
         "started": "2026-09-09T06:36:51.630Z",
-        "lastUpdated": "2026-09-09T06:44:10.246Z"
+        "lastUpdated": "2026-09-09T06:45:43.944Z"
       },
       "checkSummary": {
         "testsPassed": 187,
@@ -446,8 +456,26 @@
         "withheldHorizons": [
           "1y"
         ],
-        "postResultCodeChanges": false
-      }
+        "postResultCodeChanges": false,
+        "journalSha256": "40c54c137865fdbb9f24c2750455a2ffa974b16ff2c51059ddc12f2f2f958002",
+        "codeFreezeVerifiedAfterRun": true,
+        "implementationComplete": true,
+        "scope": "First frozen v2 forward evidence; not predictive accuracy or full-product release"
+      },
+      "completedAt": "2026-09-09T06:45:44.875650+00:00",
+      "status": "completed",
+      "completionCriteria": {
+        "matched": 17,
+        "blocked": 0,
+        "total": 17
+      },
+      "findings": [
+        "LV2-F01",
+        "LV2-F02",
+        "LV2-F03",
+        "LV2-F04",
+        "LV2-F05"
+      ]
     }
   },
   "pipeline": {
@@ -458,7 +486,7 @@
   "session": {
     "startedAt": "2026-09-09T04:15:13.803Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-09-09T06:44:10.246Z"
+    "lastActivity": "2026-09-09T06:45:43.944Z"
   },
   "history": [
     {
@@ -881,6 +909,26 @@
       "phase": "check",
       "nextPhase": "act",
       "timestamp": "2026-09-09T06:44:10.241Z"
+    },
+    {
+      "feature": "live-forward-v2",
+      "from": "act",
+      "to": "report",
+      "timestamp": "2026-09-09T06:45:43.913Z"
+    },
+    {
+      "feature": "live-forward-v2",
+      "action": "phase_complete",
+      "phase": "act",
+      "nextPhase": "report",
+      "timestamp": "2026-09-09T06:45:43.914Z"
+    },
+    {
+      "feature": "live-forward-v2",
+      "action": "phase_complete",
+      "phase": "report",
+      "nextPhase": "completed",
+      "timestamp": "2026-09-09T06:45:43.941Z"
     }
   ]
 }
