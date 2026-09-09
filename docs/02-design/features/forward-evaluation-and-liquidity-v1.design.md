@@ -19,11 +19,11 @@ HumanMarketClose: provenance literal human_supplied_market_close, source referen
 | Program market-wide | KRW million, scope explicitly KOSPI | Diagnostic only |
 | USD futures | contracts, expiry, actor | Diagnostic only; no equity sign assumption |
 | 005930 common individual flow | KRW million, actor | Diagnostic only |
-| 005935 preferred foreign/institution | KRW million net purchases | Exact existing foreign_net_buy / institution_net_buy |
-| 005935 program | KRW million, program actor | Exact existing program_net_buy |
-| Semiconductor relative flow | sector net-buy/turnover minus market net-buy/turnover; all four operands | Existing semiconductor_relative_flow, computed with positive denominators |
+| 005935 preferred foreign/institution | KRW million net purchases | Shadow only; exact meaning recorded for later research |
+| 005935 program | KRW million, program actor | Shadow only |
+| Semiconductor relative flow | sector net-buy/turnover minus market net-buy/turnover; all four operands | Shadow only; computed with positive denominators |
 
-Exact-compatible observations are converted to Foundation Observation plus existing Semantic Mapping before frozen run_mapped. No factor alias for broad market or derivatives. Include actual prior rows only when available; no invented comparator. Liquidity still requires all four original flow inputs plus original timing rule. Missing any stays null. The same dated session is required for all admitted close evidence to prevent cross-day splicing.
+All newly supplied observations remain in a separate Shadow request/record. Invoke frozen live_v2.evaluate(bundle) without adding observations, setting held, injecting events or replacing any runner. Original Liquidity remains unavailable until the existing source path reliably supplies its original evidence; this feature does not enable that path. Shadow analysis cannot influence Baseline Probability, Confidence, gates or decisions, including after 20 cases.
 
 FE-F01 remains a contract conflict: separate interaction/actor diagnostics group same actor/date, show cash/futures concurrence or opposing positioning and possible hedging uncertainty, without adding amounts or assigning forecast weights. Horizon validity short/medium for daily net-trading, long requires longitudinal holdings not supplied. These are NOT replacements for the actual E09/E10 artifacts, which remain inspectable in the system journal.
 
@@ -46,3 +46,6 @@ Localhost-only HTTP service and static HTML/CSS/JS, no new dependencies. One scr
 
 ## Tests / Check
 Add tests first for typed units/scopes/expiry, revision conflict, cutoff and human chronology, compatible-only admission, no derivatives sum, event surprise/pricing with no hard-coded FOMC direction, closed-session/idempotency, outcome earliest-close identity and immutability, Brier/reliability/confidence/ties/withholding, false/missed denominators, human isolation/late exclusion, minimum-run deduplication, frozen drift and replay, API traversal/XSS safety. Retain 187 regressions, run CI, visually inspect desktop UI and drill-down. Complete Check after implementation; Act records remaining FE-F01/F02/F04 limitations without tuning.
+
+## Shadow outcome comparison (user clarification before Do)
+After matching outcomes, join only shadow evidence received no later than the prediction cutoff. Report per-horizon error/correct-run groups by instrument/investor/measure sign and event surprise sign, with sample counts, mean realized returns and baseline Brier. Preserve unknown/missing buckets. This is retrospective descriptive association, not a trained correction or causal attribution. No selection of weights, thresholds, features or calibration. Shadow and Human Forecast never enter the isolated model worker input; only shadow hashes are linked in the outer immutable operations journal.
