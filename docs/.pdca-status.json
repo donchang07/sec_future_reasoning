@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-09-09T06:27:21.759Z",
+  "lastUpdated": "2026-09-09T06:32:13.846Z",
   "activeFeatures": [
     "sec-future-reasoning-v1-1",
     "reasoning-foundation",
@@ -8,7 +8,7 @@
     "real-data-minimum-slice",
     "real-world-contract-refinement"
   ],
-  "primaryFeature": "real-data-minimum-slice",
+  "primaryFeature": "real-world-contract-refinement",
   "features": {
     "sec-future-reasoning-v1-1": {
       "phase": "act",
@@ -295,10 +295,17 @@
       }
     },
     "real-world-contract-refinement": {
-      "phase": "act",
-      "matchRate": null,
-      "iterationCount": 1,
-      "documents": {},
+      "phase": "completed",
+      "matchRate": 100,
+      "iterationCount": 2,
+      "documents": {
+        "plan": "docs/01-plan/features/real-world-contract-refinement.plan.md",
+        "design": "docs/02-design/features/real-world-contract-refinement.design.md",
+        "analysis": "docs/03-analysis/real-world-contract-refinement.analysis.md",
+        "report": "docs/04-report/real-world-contract-refinement.report.md",
+        "mappingAudit": "docs/03-analysis/real-world-contract-refinement.mapping-audit.md",
+        "releaseManifest": "config/contracts/real-world-contract-v2.0.0.json"
+      },
       "taskChain": [
         {
           "phase": "plan",
@@ -326,14 +333,54 @@
         },
         {
           "phase": "report",
-          "status": "active",
-          "createdAt": "2026-09-09T06:14:01.942Z"
+          "status": "completed",
+          "createdAt": "2026-09-09T06:14:01.942Z",
+          "completedAt": "2026-09-09T06:32:13.846Z"
+        },
+        {
+          "phase": "act",
+          "status": "completed",
+          "createdAt": "2026-09-09T06:32:13.757045+00:00",
+          "completedAt": "2026-09-09T06:32:13.817Z"
         }
       ],
       "timestamps": {
         "started": "2026-09-09T06:14:01.945Z",
-        "lastUpdated": "2026-09-09T06:27:21.759Z"
-      }
+        "lastUpdated": "2026-09-09T06:32:13.846Z"
+      },
+      "status": "completed",
+      "completionCriteria": {
+        "matched": 10,
+        "blocked": 0,
+        "total": 10
+      },
+      "checkSummary": {
+        "testsPassed": 170,
+        "newTests": 41,
+        "originalTestsPassed": 129,
+        "requiredGoldenScenarios": 15,
+        "matrixFactors": 48,
+        "horizons": 3,
+        "memoryFamilies": 7,
+        "directlyMappable": 19,
+        "derivedMappable": 4,
+        "stillUnmapped": 0,
+        "bothJournalBytesUnchanged": true,
+        "bothRecordedReplaysEqual": true,
+        "newLivePredictionCreated": false,
+        "legacyCoreAndProfileUnchanged": true,
+        "ci": "34319281921",
+        "tagTargetCI": "34319310462",
+        "contractVersion": "real-world-contract-v2.0.0",
+        "releaseTagCommit": "b9dc4a542113044d4d7ecdec4c70ec0fca03897b",
+        "implementationComplete": true,
+        "scope": "contract library and offline audit; live integration deferred"
+      },
+      "resolvedFindings": [
+        "RW-01",
+        "RW-02"
+      ],
+      "completedAt": "2026-09-09T06:32:13.839Z"
     }
   },
   "pipeline": {
@@ -344,7 +391,7 @@
   "session": {
     "startedAt": "2026-09-09T04:15:13.803Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-09-09T06:27:21.759Z"
+    "lastActivity": "2026-09-09T06:32:13.846Z"
   },
   "history": [
     {
@@ -702,6 +749,26 @@
       "phase": "check",
       "nextPhase": "act",
       "timestamp": "2026-09-09T06:27:21.752Z"
+    },
+    {
+      "feature": "real-world-contract-refinement",
+      "from": "act",
+      "to": "report",
+      "timestamp": "2026-09-09T06:32:13.810Z"
+    },
+    {
+      "feature": "real-world-contract-refinement",
+      "action": "phase_complete",
+      "phase": "act",
+      "nextPhase": "report",
+      "timestamp": "2026-09-09T06:32:13.812Z"
+    },
+    {
+      "feature": "real-world-contract-refinement",
+      "action": "phase_complete",
+      "phase": "report",
+      "nextPhase": "completed",
+      "timestamp": "2026-09-09T06:32:13.841Z"
     }
   ]
 }
