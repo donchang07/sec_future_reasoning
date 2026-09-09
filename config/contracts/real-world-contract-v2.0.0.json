@@ -1,0 +1,638 @@
+{
+  "contract_version": "real-world-contract-v2.0.0",
+  "mapping_version": "semantic-mapping-v1.0.0",
+  "artifact_type": "contract_release",
+  "live_prediction_enabled": false,
+  "e11_version": "e11-real-world-v2.0.0",
+  "coverage_policy_version": "economic-bucket-quorum-v1",
+  "calibration": "unchanged temperature 1.15; unvalidated",
+  "prior": [
+    0.4,
+    0.35,
+    0.25
+  ],
+  "entry_threshold": 0.8,
+  "sell_threshold": 0.7,
+  "module_weight_policy": "unchanged reasoning.engines.WEIGHTS; requirement levels are not weights",
+  "module_minimums": {
+    "1w": {
+      "macro": 0.4,
+      "price_regime": 0.6
+    },
+    "1m": {
+      "macro": 0.4,
+      "memory": 0.25,
+      "earnings": 0.4,
+      "price_regime": 0.6
+    },
+    "1y": {
+      "macro": 0.4,
+      "memory": 0.5,
+      "earnings": 0.8,
+      "price_regime": 0.4
+    }
+  },
+  "memory_taxonomy": [
+    "dram_contract_asp",
+    "dram_spot_price",
+    "hbm_demand",
+    "hbm_price",
+    "memory_inventory",
+    "memory_bit_shipment",
+    "semiconductor_export_momentum"
+  ],
+  "requirement_matrix": {
+    "samsung_preferred_price": {
+      "factor_id": "samsung_preferred_price",
+      "module": "price_regime",
+      "bucket": "price",
+      "levels": {
+        "1w": "Hard Required",
+        "1m": "Hard Required",
+        "1y": "Hard Required"
+      },
+      "rationale": "Instrument anchor",
+      "max_age_days": 4.0
+    },
+    "preferred_trend_alignment": {
+      "factor_id": "preferred_trend_alignment",
+      "module": "price_regime",
+      "bucket": "regime",
+      "levels": {
+        "1w": "Strong Evidence",
+        "1m": "Supporting Evidence",
+        "1y": "Optional"
+      },
+      "rationale": "Short regime; correlated indicators share one bucket",
+      "max_age_days": 4.0
+    },
+    "preferred_volume_z": {
+      "factor_id": "preferred_volume_z",
+      "module": "price_regime",
+      "bucket": "regime",
+      "levels": {
+        "1w": "Strong Evidence",
+        "1m": "Supporting Evidence",
+        "1y": "Optional"
+      },
+      "rationale": "Short regime; correlated indicators share one bucket",
+      "max_age_days": 4.0
+    },
+    "preferred_rsi_14": {
+      "factor_id": "preferred_rsi_14",
+      "module": "price_regime",
+      "bucket": "regime",
+      "levels": {
+        "1w": "Strong Evidence",
+        "1m": "Supporting Evidence",
+        "1y": "Optional"
+      },
+      "rationale": "Short regime; correlated indicators share one bucket",
+      "max_age_days": 4.0
+    },
+    "samsung_common_price": {
+      "factor_id": "samsung_common_price",
+      "module": "price_regime",
+      "bucket": "regime",
+      "levels": {
+        "1w": "Supporting Evidence",
+        "1m": "Supporting Evidence",
+        "1y": "Supporting Evidence"
+      },
+      "rationale": "Relative-share context",
+      "max_age_days": 4.0
+    },
+    "us_10y_yield": {
+      "factor_id": "us_10y_yield",
+      "module": "macro",
+      "bucket": "rates",
+      "levels": {
+        "1w": "Strong Evidence",
+        "1m": "Strong Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Discount-rate evidence",
+      "max_age_days": 7.0
+    },
+    "usdkrw": {
+      "factor_id": "usdkrw",
+      "module": "macro",
+      "bucket": "fx",
+      "levels": {
+        "1w": "Strong Evidence",
+        "1m": "Strong Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Currency and foreign allocation",
+      "max_age_days": 4.0
+    },
+    "dram_contract_asp": {
+      "factor_id": "dram_contract_asp",
+      "module": "memory",
+      "bucket": "price",
+      "levels": {
+        "1w": "Supporting Evidence",
+        "1m": "Strong Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Contract realization differs from spot",
+      "max_age_days": 45.0
+    },
+    "dram_spot_price": {
+      "factor_id": "dram_spot_price",
+      "module": "memory",
+      "bucket": "price",
+      "levels": {
+        "1w": "Supporting Evidence",
+        "1m": "Supporting Evidence",
+        "1y": "Unavailable Allowed"
+      },
+      "rationale": "SKU spot only; no long realization assumption",
+      "max_age_days": 4.0
+    },
+    "hbm_price": {
+      "factor_id": "hbm_price",
+      "module": "memory",
+      "bucket": "price",
+      "levels": {
+        "1w": "Optional",
+        "1m": "Strong Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "HBM pricing distinct from demand",
+      "max_age_days": 120.0
+    },
+    "hbm_demand": {
+      "factor_id": "hbm_demand",
+      "module": "memory",
+      "bucket": "demand",
+      "levels": {
+        "1w": "Optional",
+        "1m": "Strong Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "HBM demand distinct from commodity price",
+      "max_age_days": 120.0
+    },
+    "memory_inventory": {
+      "factor_id": "memory_inventory",
+      "module": "memory",
+      "bucket": "balance",
+      "levels": {
+        "1w": "Optional",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Inventory and physical balance",
+      "max_age_days": 120.0
+    },
+    "memory_bit_shipment": {
+      "factor_id": "memory_bit_shipment",
+      "module": "memory",
+      "bucket": "balance",
+      "levels": {
+        "1w": "Optional",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Inventory and physical balance",
+      "max_age_days": 120.0
+    },
+    "semiconductor_export_momentum": {
+      "factor_id": "semiconductor_export_momentum",
+      "module": "memory",
+      "bucket": "demand",
+      "levels": {
+        "1w": "Supporting Evidence",
+        "1m": "Supporting Evidence",
+        "1y": "Supporting Evidence"
+      },
+      "rationale": "Broad nominal export demand proxy",
+      "max_age_days": 45.0
+    },
+    "samsung_eps": {
+      "factor_id": "samsung_eps",
+      "module": "earnings",
+      "bucket": "profitability",
+      "levels": {
+        "1w": "Supporting Evidence",
+        "1m": "Strong Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Earnings level/revision with explicit period",
+      "max_age_days": 150.0
+    },
+    "samsung_eps_revision": {
+      "factor_id": "samsung_eps_revision",
+      "module": "earnings",
+      "bucket": "profitability",
+      "levels": {
+        "1w": "Supporting Evidence",
+        "1m": "Strong Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Earnings level/revision with explicit period",
+      "max_age_days": 150.0
+    },
+    "samsung_operating_margin": {
+      "factor_id": "samsung_operating_margin",
+      "module": "earnings",
+      "bucket": "profitability",
+      "levels": {
+        "1w": "Supporting Evidence",
+        "1m": "Strong Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Earnings level/revision with explicit period",
+      "max_age_days": 150.0
+    },
+    "samsung_operating_cash": {
+      "factor_id": "samsung_operating_cash",
+      "module": "earnings",
+      "bucket": "cash_generation",
+      "levels": {
+        "1w": "Optional",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Cash generation",
+      "max_age_days": 150.0
+    },
+    "samsung_free_cash_flow": {
+      "factor_id": "samsung_free_cash_flow",
+      "module": "earnings",
+      "bucket": "cash_generation",
+      "levels": {
+        "1w": "Optional",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Cash generation",
+      "max_age_days": 150.0
+    },
+    "samsung_total_assets": {
+      "factor_id": "samsung_total_assets",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Supporting Evidence",
+        "1y": "Hard Required"
+      },
+      "rationale": "Long financial solvency anchor",
+      "max_age_days": 150.0
+    },
+    "samsung_total_liabilities": {
+      "factor_id": "samsung_total_liabilities",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Supporting Evidence",
+        "1y": "Hard Required"
+      },
+      "rationale": "Long financial solvency anchor",
+      "max_age_days": 150.0
+    },
+    "samsung_total_equity": {
+      "factor_id": "samsung_total_equity",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Supporting Evidence",
+        "1y": "Hard Required"
+      },
+      "rationale": "Long financial solvency anchor",
+      "max_age_days": 150.0
+    },
+    "samsung_revenue": {
+      "factor_id": "samsung_revenue",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_operating_profit": {
+      "factor_id": "samsung_operating_profit",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_capex_ppe_cash": {
+      "factor_id": "samsung_capex_ppe_cash",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_capex_intangibles": {
+      "factor_id": "samsung_capex_intangibles",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_capex": {
+      "factor_id": "samsung_capex",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_cash_begin": {
+      "factor_id": "samsung_cash_begin",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_cash_end": {
+      "factor_id": "samsung_cash_end",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_cash_change": {
+      "factor_id": "samsung_cash_change",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_investing_cash": {
+      "factor_id": "samsung_investing_cash",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_financing_cash": {
+      "factor_id": "samsung_financing_cash",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_fx_cash_effect": {
+      "factor_id": "samsung_fx_cash_effect",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_debt": {
+      "factor_id": "samsung_debt",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "samsung_cash_debt_ratio": {
+      "factor_id": "samsung_cash_debt_ratio",
+      "module": "earnings",
+      "bucket": null,
+      "levels": {
+        "1w": "Optional",
+        "1m": "Optional",
+        "1y": "Optional"
+      },
+      "rationale": "Accounting diagnostics; do not duplicate coverage",
+      "max_age_days": 150.0
+    },
+    "foreign_net_buy": {
+      "factor_id": "foreign_net_buy",
+      "module": "flow",
+      "bucket": "foreign",
+      "levels": {
+        "1w": "Strong Evidence",
+        "1m": "Strong Evidence",
+        "1y": "Supporting Evidence"
+      },
+      "rationale": "Marginal foreign demand; transaction liquidity separate",
+      "max_age_days": 4.0
+    },
+    "institution_net_buy": {
+      "factor_id": "institution_net_buy",
+      "module": "flow",
+      "bucket": "domestic",
+      "levels": {
+        "1w": "Strong Evidence",
+        "1m": "Strong Evidence",
+        "1y": "Supporting Evidence"
+      },
+      "rationale": "Domestic allocation",
+      "max_age_days": 4.0
+    },
+    "program_net_buy": {
+      "factor_id": "program_net_buy",
+      "module": "flow",
+      "bucket": "domestic",
+      "levels": {
+        "1w": "Supporting Evidence",
+        "1m": "Supporting Evidence",
+        "1y": "Optional"
+      },
+      "rationale": "Correlated supporting flow",
+      "max_age_days": 4.0
+    },
+    "semiconductor_relative_flow": {
+      "factor_id": "semiconductor_relative_flow",
+      "module": "flow",
+      "bucket": "domestic",
+      "levels": {
+        "1w": "Supporting Evidence",
+        "1m": "Supporting Evidence",
+        "1y": "Optional"
+      },
+      "rationale": "Correlated supporting flow",
+      "max_age_days": 4.0
+    },
+    "hyperscaler_capex": {
+      "factor_id": "hyperscaler_capex",
+      "module": "ai_demand",
+      "bucket": "investment",
+      "levels": {
+        "1w": "Optional",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Investment demand duration",
+      "max_age_days": 150.0
+    },
+    "gpu_demand_growth": {
+      "factor_id": "gpu_demand_growth",
+      "module": "ai_demand",
+      "bucket": "investment",
+      "levels": {
+        "1w": "Optional",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Investment demand duration",
+      "max_age_days": 150.0
+    },
+    "cxmt_memory_capacity": {
+      "factor_id": "cxmt_memory_capacity",
+      "module": "supply",
+      "bucket": "capacity",
+      "levels": {
+        "1w": "Unavailable Allowed",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Physical supply duration and scope",
+      "max_age_days": 150.0
+    },
+    "fab_capacity": {
+      "factor_id": "fab_capacity",
+      "module": "supply",
+      "bucket": "capacity",
+      "levels": {
+        "1w": "Unavailable Allowed",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Physical supply duration and scope",
+      "max_age_days": 150.0
+    },
+    "yield_rate": {
+      "factor_id": "yield_rate",
+      "module": "supply",
+      "bucket": "capacity",
+      "levels": {
+        "1w": "Unavailable Allowed",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Physical supply duration and scope",
+      "max_age_days": 150.0
+    },
+    "bit_supply": {
+      "factor_id": "bit_supply",
+      "module": "supply",
+      "bucket": "capacity",
+      "levels": {
+        "1w": "Unavailable Allowed",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Physical supply duration and scope",
+      "max_age_days": 150.0
+    },
+    "new_capacity": {
+      "factor_id": "new_capacity",
+      "module": "supply",
+      "bucket": "capacity",
+      "levels": {
+        "1w": "Unavailable Allowed",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Physical supply duration and scope",
+      "max_age_days": 150.0
+    },
+    "samsung_forward_per": {
+      "factor_id": "samsung_forward_per",
+      "module": "valuation",
+      "bucket": "valuation",
+      "levels": {
+        "1w": "Supporting Evidence",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Valuation duration",
+      "max_age_days": 45.0
+    },
+    "equity_discount_rate": {
+      "factor_id": "equity_discount_rate",
+      "module": "valuation",
+      "bucket": "valuation",
+      "levels": {
+        "1w": "Supporting Evidence",
+        "1m": "Supporting Evidence",
+        "1y": "Strong Evidence"
+      },
+      "rationale": "Valuation duration",
+      "max_age_days": 45.0
+    }
+  },
+  "source_sha256": {
+    "reasoning/refinement/__init__.py": "35847054ba7c9b7058b95b5e0ac4ad91de818aa0655595b4ccb0d2fcb09ddd5c",
+    "reasoning/refinement/assessment.py": "d9005e62e9e63d9e5a4699c796b3703e903856bd7ae03eb21dab49a4ba684e72",
+    "reasoning/refinement/audit.py": "978905c6209aafe2dd3ac1fd2edf04d10707e7fef7aa03d2018189456fc2cf5b",
+    "reasoning/refinement/constraints.py": "8f59423b26718213dd04c59eedd6f6fea079791f61f51e05f90dbda2a1f6394e",
+    "reasoning/refinement/exports.py": "70f9b2dfb4f8f71cada38390a44e811a35f5f37e5ee0ffbc505a0f8c34f63b44",
+    "reasoning/refinement/mapping.py": "8aead8a829451235e3f6053361c1cdd60736387ac7966f9ccb2f0acbee78cab6",
+    "reasoning/refinement/registry.py": "e7b6b10df6a912294cb6df1d0ef4fbcb181a9569deaed1ea96dda790be0ce515",
+    "reasoning/refinement/types.py": "78e17fbb94dfe7d428ce5110fdf84ec0612a0c4cfadb603e76b2e08503ac5e35"
+  },
+  "frozen_sha256": {
+    "reasoning/engines.py": "74949c6bbbfcdc335f0f3b6a643672c62a8f6aa1a943a4636137a6420daa0d18",
+    "reasoning/technical.py": "1514bb5dd637b20158cd2d3784d8967d627003ede431fd5a16fef306b8819f30",
+    "reasoning/decision.py": "63c5b4a3193481e0d863f3122ebe8fc20543ef0e759bd35ad5ecac9d5664bb34",
+    "config/live-model-profile.json": "9fbf95ccdcdb0302d1f9b7b7adfa70e093b4b8e6a2ba16d8f5dd78d789fb1d4a"
+  }
+}
