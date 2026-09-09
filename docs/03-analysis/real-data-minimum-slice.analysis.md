@@ -1,5 +1,7 @@
 # Check: real-data-minimum-slice
 
+> Act 2 재검증: 아래는 첫 실행 당시 Check 기록이다. 최신 결과는 [Act 2 보고서](../04-report/real-data-minimum-slice.act2.md)와 [기계 검증 증거](real-data-minimum-slice.act2-evidence.json)를 참조한다. 공식 재무·Spot·수출 원자료는 확보했지만 기존 입력 계약과의 매핑은 미완료이므로 7/9를 유지한다. 두 번째 Journal Replay와 129개 테스트 및 Python 3.11/3.12 CI가 통과했다. E11 전체 정상 계산 및 E18 수치 확률 조건은 여전히 미충족이다.
+
 2026-09-09 · 구현 commit `7c36073d74afc16ae21c44717ae12da2d90fa377`
 
 **부분 달성, 완료 아님.** 사용자 완료조건 9개 중 7개 충족, 2개 blocked(77.78%)다. 실제 데이터를 수집하여 첫 live_forward Journal을 저장하고 같은 raw snapshot replay에 성공했다. 그러나 DRAM critical 입력과 회계 근거가 없어서 모든 19개 엔진이 정상 수치 결과를 내거나 Horizon별 최종 확률을 생성하지 못했다. 이 조건을 optional로 낮추거나 합성값으로 채우지 않았다.

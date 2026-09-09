@@ -31,3 +31,19 @@ The schedule creates pending +1 calendar day, +7 calendar days and +1 calendar m
 The original 89 tests remain. New tests cover unavailable/stale/conflicting sources, revision/cutoff/unknown release, Korean timezone, partial daily/30m/week bars, mode mixing, immutable storage, source XML parsing, frozen engine hashes, offline complete snapshot replay and early Outcome rejection. New unit-test responses are synthetic_fixture and never published as live observations.
 
 Plan and Design: [Plan](01-plan/features/real-data-minimum-slice.plan.md), [Design/source matrix](02-design/features/real-data-minimum-slice.design.md). Full-product release stays closed. UI, Supabase, Neo4j and all-49 source integration are outside this feature.
+
+## Continued Act: official documentary evidence
+
+Install the updated `requirements.lock` (includes the PDF parser). This command collects Samsung consolidated statements, TrendForce's narrowly scoped public spot table, Customs HWPX exports and fresh market feeds, then writes a new immutable Act envelope:
+
+```powershell
+python -m reasoning.act_live collect
+python -m reasoning.act_live verify --journal artifacts/local/live/38930375-01dd-5110-b4b6-9b4362bbcd5a/prediction-journal.json
+python -m reasoning.act_live replay --journal artifacts/local/live/38930375-01dd-5110-b4b6-9b4362bbcd5a/prediction-journal.json
+```
+
+The first journal still uses `reasoning.live`, whereas the second uses `reasoning.act_live`. Replay requires the recorded code version: `7c36073` for the first and `1eb1885` for the second. Integrity verification does not require recomputing predictions. Full Python source hashes deliberately change when adapters change.
+
+Document URLs are pinned to the verified 2026 H1/August releases, not an automatic latest-release discovery service. Raw source bytes are stored locally in the journal for offline replay. No credentials are required by the connected documentary sources. KRX data access remains unavailable; a public access-guide response is not flow data. Spot HTML is an isolated source-specific adapter, not a general scraping architecture. Invalid tables fail closed.
+
+New facts are source-level `unmapped` evidence. No spot quote replaces the critical contract ASP index, and independent consolidated statement checks do not replace the original E11 single-unit identities. The model profile and all core algorithms remain unchanged. Consequently the second journal also has no numeric forecast and returns WAIT. See the [Act 2 report](04-report/real-data-minimum-slice.act2.md) for the remaining 2/9 criteria, source semantics, 129-test result and both replay checks. Mock documentary responses exist only in tests and are never published as live evidence.
