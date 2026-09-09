@@ -4,31 +4,18 @@ AI 기반 미래추론 시스템 연구 및 구현 프로젝트입니다.
 
 ## 목표
 
-복잡계라고 불려온 금융시장, 경제정책, 기업경영, 지정학, 전쟁·안보 등의 문제를 대상으로 다음 구조를 실험합니다.
-
-- 대규모 외부기억
-- Ontology와 Knowledge Graph
-- Causal Reasoning
-- Scenario / Counterfactual Simulation
-- Probability Calibration
-- Explainable Probability
-- Prediction Journal
-- Human + AI Review
-- Learned Experience
-- Anti-Overfitting
-- Horizon-based Decision Engine
+복잡계라고 불려온 금융시장, 경제정책, 기업경영, 지정학, 전쟁·안보 등의 문제를 대상으로 대규모 외부기억, Ontology/Knowledge Graph, Causal Reasoning, Scenario/Counterfactual Simulation, Probability Calibration, Explainable Probability, Prediction Journal, Human+AI Review, Learned Experience, Anti-Overfitting을 결합합니다.
 
 첫 번째 Reference Domain은 삼성전자우 미래추론 시스템입니다.
 
-## 현재 문서
+## Canonical PRD
 
-- `docs/universal_ai_future_reasoning_prd_v0.9.html`
-- `docs/samsung_preferred_future_reasoning_prd_v0.9.html`
+현재 구현의 기준 문서는 `docs/samsung_preferred_future_reasoning_prd_v1.1.html` 입니다.
 
-## 현재 상태
+v0.9 문서는 역사적 참고자료이며 신규 Plan/Design/Implementation의 기준으로 사용하지 않습니다.
 
-v0.9는 구현 이전의 Reasoning Engine 중심 PRD입니다.
+v1.1의 핵심은 19개 Future Reasoning Engine이 방향과 확률을 판단하고, Price Wave/Reversal Engine이 단기 30분봉·중기 일봉·장기 주봉에서 Timing을 판단하며, Multi-Timeframe Alignment와 Liquidity Confirmation을 결합해 최종 ENTRY/WAIT/HOLD/SELL을 결정하는 구조입니다. 기술적 신호는 Market Regime, Capital Flow, Actor/Reflexivity로 피드백되어 Future Reasoning을 재계산합니다.
 
-핵심은 19개 Reasoning Engine의 Input → Process → Output → Memory Read/Write → Failure/Retry 구조와 Golden Test Cases입니다.
+## 개발 원칙
 
-다음 단계는 실제 코드 구조, ontology/graph seed, Supabase schema, Neo4j constraints, API, UI wireframe, ingestion과 test harness를 만드는 것입니다.
+bkit-codex PDCA를 사용합니다. Plan과 Design은 반드시 canonical PRD v1.1을 먼저 읽고 작성합니다. 첫 구현 목표는 전체 기능 완성이 아니라 하나의 실제 입력이 전체 reasoning pipeline을 통과하여 horizon별 forecast, timing, decision, explanation, Prediction Journal을 생성하는 End-to-End Vertical Slice입니다.
