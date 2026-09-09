@@ -17,3 +17,24 @@ These gaps affect semantic mapping and E11 scope fidelity, so completion is with
 - Legacy engines, technical analysis, Decision, live adapters and model profile: no diff.
 
 The new library is an opt-in contract assessment boundary. It does not activate v2 in the legacy live CLI or create a new forecast; subsequent live integration must explicitly select the released version and consume its structured states and gates.
+
+## Final Act recheck: 10/10, 100%
+
+Final implementation `816780a`, published contract tag `real-world-contract-v2.0.0` at `b9dc4a5`. RW-01 and RW-02 were reproduced by failing tests before fixes, then all four added boundary regressions passed. Provider revision ordering is now per-provider; financial period keys are mandatory for mapping and ratio derivation/E11 operands cannot mix reporting durations.
+
+| Completion condition | Evidence | Result |
+|---|---|---|
+| Horizon requirement matrix | Registry + manifest: 48 active factors × 3 horizons, five requirement states | pass |
+| Memory taxonomy | Seven families, independent-root aggregation, contradictions and unknowns | pass |
+| E11 three domains | Company / Memory Business / Industry Supply; non_applicable explicit | pass |
+| Semantic layer | Field/unit/scope/period/horizon/regime/version/cutoff validation, provider conflict guard | pass |
+| All 23 facts classified | [Individual audit](real-world-contract-refinement.mapping-audit.md): 19 direct / 4 derived / 0 still unmapped | pass |
+| New Golden tests | All 15 requested scenarios plus boundary/release regressions; 41 new tests | pass |
+| Existing 129 regressions | 170 total tests pass | pass |
+| Two live journals immutable | Original file SHA256 values above still identical | pass |
+| Existing prediction replay | Both recorded-version replays equal | pass |
+| New contract version | Published immutable tag and verified JSON release manifest | pass |
+
+[Final code CI](https://github.com/donchang07/sec_future_reasoning/actions/runs/34319281921) and [tag-target CI](https://github.com/donchang07/sec_future_reasoning/actions/runs/34319310462): Python 3.11/3.12 success. Full legacy schema/catalog validate and deterministic fixture replay also passed in CI. The unimplemented full-product Golden release gate remains closed as designed; the 80-case catalog is not represented as fully executable.
+
+No probability weight, prior, calibration, ENTRY/SELL threshold, legacy adapter or old journal was changed. The previous feature remains historically incomplete at 7/9. Completing this contract feature does not claim a new live forecast or retrospectively upgrade its result.
