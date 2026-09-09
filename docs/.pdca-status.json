@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-09-09T05:54:09.911643+00:00",
+  "lastUpdated": "2026-09-09T06:09:50.099950+00:00",
   "activeFeatures": [
     "sec-future-reasoning-v1-1",
     "reasoning-foundation",
@@ -214,11 +214,15 @@
     "real-data-minimum-slice": {
       "phase": "act",
       "matchRate": 77.77777777777777,
-      "iterationCount": 1,
+      "iterationCount": 2,
       "documents": {
         "analysis": "docs/03-analysis/real-data-minimum-slice.analysis.md",
         "act": "docs/04-report/real-data-minimum-slice.act.md",
-        "firstLiveExplainability": "docs/04-report/real-data-minimum-slice.first-live-explainability.md"
+        "firstLiveExplainability": "docs/04-report/real-data-minimum-slice.first-live-explainability.md",
+        "act2Design": "docs/02-design/features/real-data-minimum-slice.act2-design.md",
+        "act2": "docs/04-report/real-data-minimum-slice.act2.md",
+        "secondLiveExplainability": "docs/04-report/real-data-minimum-slice.second-live-explainability.md",
+        "act2Evidence": "docs/03-analysis/real-data-minimum-slice.act2-evidence.json"
       },
       "taskChain": [
         {
@@ -254,26 +258,26 @@
           "phase": "act",
           "status": "blocked",
           "createdAt": "2026-09-09T05:54:09.911643+00:00",
-          "reason": "external data required; no model tuning permitted"
+          "reason": "Official sources captured; frozen input semantics still block E11/E18; no fabricated mapping"
         }
       ],
       "timestamps": {
         "started": "2026-09-09T05:41:31.016Z",
-        "lastUpdated": "2026-09-09T05:54:09.911643+00:00"
+        "lastUpdated": "2026-09-09T06:09:50.099950+00:00"
       },
-      "status": "blocked_external_data",
+      "status": "blocked_contract_mapping",
       "completionCriteria": {
         "matched": 7,
         "blocked": 2,
         "total": 9
       },
       "blockers": [
-        "DRAM critical source unavailable",
-        "Accounting identity facts unavailable",
-        "Investor/program flow source unavailable"
+        "Official consolidated financials cannot supply original E11 single-unit identities without changing its contract",
+        "DRAM spot cannot satisfy critical dram_contract_asp index without semantic substitution",
+        "KRX foreign/institution/program flow unavailable; liquidity gate remains closed"
       ],
       "checkSummary": {
-        "testsPassed": 109,
+        "testsPassed": 129,
         "fixtureTestsPassed": 89,
         "engineInvocations": 114,
         "engineSuccess": 108,
@@ -281,7 +285,12 @@
         "insufficientEvidence": 6,
         "rawReplayEqual": true,
         "firstLiveRun": "427e887c-48e2-5b7f-af46-e64e621d6be8",
-        "implementationComplete": false
+        "implementationComplete": false,
+        "secondLiveRun": "706bf699-1d02-5671-b1c0-005dc870714f",
+        "bothJournalsReplayEqual": true,
+        "additionalFacts": 23,
+        "additionalModelMappedFactors": 0,
+        "ci": "34317775848"
       }
     }
   },
@@ -293,7 +302,7 @@
   "session": {
     "startedAt": "2026-09-09T04:15:13.803Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-09-09T05:53:15.706Z"
+    "lastActivity": "2026-09-09T06:09:06.207Z"
   },
   "history": [
     {
@@ -585,6 +594,14 @@
       "action": "act_external_data_blocked",
       "timestamp": "2026-09-09T05:54:09.911643+00:00",
       "reason": "First forward journal sealed; numeric forecast completion remains blocked by real critical evidence"
+    },
+    {
+      "feature": "real-data-minimum-slice",
+      "action": "act_iteration_2_verified_incomplete",
+      "timestamp": "2026-09-09T06:09:50.099950+00:00",
+      "run_id": "706bf699-1d02-5671-b1c0-005dc870714f",
+      "criteria": "7/9",
+      "tests": 129
     }
   ]
 }
