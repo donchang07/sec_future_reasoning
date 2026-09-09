@@ -1,1 +1,99 @@
-PLACEHOLDER
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>범용 AI 미래추론 시스템 PRD</title><style>
+:root{
+--bg:#f4f7fa;--card:#fff;--text:#152235;--muted:#65778b;--line:#d8e1ea;
+--navy:#16395f;--blue:#2f6f91;--soft:#edf5fb;--green:#eaf6ef;--amber:#fff5d9;--red:#fdeeee;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;line-height:1.66}
+.wrap{max-width:1240px;margin:auto;padding:30px 22px 80px}
+.hero{background:linear-gradient(135deg,#102e4f,#2a587f);color:#fff;border-radius:22px;padding:42px 46px}
+.hero h1{margin:0 0 10px;font-size:34px;line-height:1.2}.hero p{margin:6px 0;color:#dbe8f3}.tag{display:inline-block;font-size:12px;border:1px solid rgba(255,255,255,.25);padding:5px 9px;border-radius:999px;margin-right:6px}
+nav{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-top:18px;position:sticky;top:8px;z-index:4}
+nav a{color:var(--navy);text-decoration:none;margin-right:13px;font-size:13px}
+section{background:#fff;border:1px solid var(--line);border-radius:17px;padding:28px 32px;margin-top:20px}
+h2{color:var(--navy);font-size:24px;margin:0 0 13px} h3{color:#284763;font-size:19px;margin:22px 0 8px} h4{color:#36556f;margin:16px 0 5px}
+p{margin:7px 0 12px}.small{font-size:12px;color:var(--muted)}
+.callout{background:var(--soft);border-left:5px solid var(--blue);padding:14px 17px;border-radius:9px;margin:14px 0}
+.rule{background:#fbfcfe;border-left:4px solid #8aa8bf;padding:12px 15px;border-radius:8px;margin:9px 0}.rule b{display:block;color:#203b59}.id{font-size:12px;color:var(--blue);font-weight:700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#fbfcfe;border:1px solid var(--line);border-radius:13px;padding:16px}
+table{width:100%;border-collapse:collapse;margin:12px 0}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f0f4f8;color:#29445f}
+pre{background:#101923;color:#dbe7f2;border-radius:11px;padding:16px;overflow:auto;font-size:12.5px;line-height:1.5}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.viz{margin:15px 0;border:1px solid var(--line);border-radius:14px;padding:13px;background:#fbfcfe;overflow-x:auto}
+.vt{font-weight:700;color:#294663;margin:2px 4px 8px}.viz svg{width:100%;min-width:820px;height:auto}.viz rect{fill:#fff;stroke:#91a4b6;stroke-width:1.4}.viz text{text-anchor:middle;fill:#182333;font-size:13px}.viz text.sm{font-size:11px;fill:#66778c}.viz path.edge{fill:none;stroke:#60758a;stroke-width:2}
+.chip{display:inline-block;background:#eef3f7;border:1px solid #d8e1ea;padding:3px 8px;border-radius:999px;font-size:12px;margin:2px 3px 2px 0}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
+@media(max-width:800px){.wrap{padding:14px 10px 50px}.hero{padding:28px 22px}.hero h1{font-size:27px}.grid2,.grid3{grid-template-columns:1fr}section{padding:21px 18px}nav{position:static}}
+</style><style>.registry{width:100%;border-collapse:collapse;font-size:12px}.registry th,.registry td{padding:8px;border-bottom:1px solid #d8e1ea;vertical-align:top}.registry th{background:#eef3f7;color:#29445f;position:sticky;top:0}.registry .mod{font-weight:700;color:#17395f;white-space:nowrap}.legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.legend span{background:#eef3f7;border:1px solid #d8e1ea;border-radius:999px;padding:4px 9px;font-size:12px}.wire{border:1px solid #d8e1ea;border-radius:12px;padding:14px;background:#fbfcfe;margin:12px 0;overflow:auto}.wire svg{width:100%;min-width:900px;height:auto}.wire rect{fill:#fff;stroke:#91a4b6;stroke-width:1.3}.wire text{text-anchor:middle;fill:#182333;font-size:12px}.wire .sm{font-size:10px;fill:#66778c}</style><style>
+.horizon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.hz{border:1px solid #d8e1ea;border-radius:12px;padding:15px;background:#fbfcfe}.hz h4{margin:0 0 7px;color:#17395f}.journal{background:#101923;color:#dbe7f2;border-radius:11px;padding:16px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+@media(max-width:800px){.horizon-grid{grid-template-columns:1fr}}
+</style></head>
+<body><div class="wrap"><header class="hero"><span class="tag">v0.9</span><span class="tag">Product Requirements Document</span><h1>범용 AI 미래추론 시스템 PRD</h1><p>미래추론 Domain PRD를 만드는 설계 원칙과 구현 Template</p></header>
+<nav><a href="#u0">역할</a><a href="#u1">원칙</a><a href="#u2">World Model</a><a href="#u3">Memory</a><a href="#u4">Reasoning</a><a href="#u5">Learning</a><a href="#u6">Domain PRD Template</a></nav>
+
+<section id="u0"><h2>0. 범용 PRD의 역할</h2>
+<div class="callout">이 문서는 구현 기술의 목록이 아니라, 앞으로 만드는 모든 미래추론 Domain PRD의 설계 헌법과 작성 Template이다.</div>
+<p>각 Domain PRD는 이 문서와 동일한 번호를 사용한다. 범용 문서가 왜와 무엇을 규정하면, Domain 문서는 같은 항목에서 실제 Entity, Factor, Module, Data, Graph, API, 화면, 계산, 검증 방법을 정의한다.</p>
+</section>
+
+<section id="u1"><h2>Part 1. Why — Domain 문제 정의 원칙</h2>
+<div class="rule"><span class="id">1-1</span><b>Vision</b>인간이 왜 이 문제를 충분히 예측하지 못했는지, AI가 기억·계산·학제간 통합 한계를 어떻게 보완할지를 정의한다.</div>
+<div class="rule"><span class="id">1-2</span><b>Core Hypothesis</b>관측 가능한 Factor, 상호작용, 시간지연, 행위자 행동을 충분히 기억하고 추론하면 기존보다 유용한 확률예측이 가능한지를 검증 가능한 가설로 만든다.</div>
+<div class="rule"><span class="id">1-3</span><b>Prediction Objective</b>예측대상, Horizon, 출력형태, 의사결정 목적을 명시한다.</div>
+<div class="rule"><span class="id">1-4</span><b>Limits</b>완벽한 예측은 주장하지 않는다. Unknown Unknowns, Reflexivity, 구조적 단절, 전략적 기만을 확률과 Confidence에 반영한다.</div>
+</section>
+
+<section id="u2"><h2>Part 2. World Model — 현실 표현 원칙</h2>
+<div class="viz"><div class="vt">범용 역할 분담</div><svg viewBox="0 0 1100 220"><defs><marker id="uarr" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#60758a"/></marker></defs>
+<g><rect x="35" y="65" width="180" height="70" rx="12"/><rect x="250" y="65" width="180" height="70" rx="12"/><rect x="465" y="65" width="180" height="70" rx="12"/><rect x="680" y="65" width="180" height="70" rx="12"/><rect x="895" y="65" width="170" height="70" rx="12"/></g>
+<g><text x="125" y="91">Ontology</text><text x="125" y="113" class="sm">개념·의미 정의</text><text x="340" y="91">Knowledge Graph</text><text x="340" y="113" class="sm">Fact·관계·Evidence</text><text x="555" y="91">Causal Layer</text><text x="555" y="113" class="sm">방향·강도·Lag</text><text x="770" y="91">Probability</text><text x="770" y="113" class="sm">불확실성·Update</text><text x="980" y="91">Simulation</text><text x="980" y="113" class="sm">시간·Feedback</text></g>
+<g marker-end="url(#uarr)"><path class="edge" d="M215 100 H250"/><path class="edge" d="M430 100 H465"/><path class="edge" d="M645 100 H680"/><path class="edge" d="M860 100 H895"/></g></svg></div>
+<div class="rule"><span class="id">2-1</span><b>Existing Knowledge as Building Blocks</b>기존 통계, 경제학, 게임이론, 시나리오, 시스템 시뮬레이션을 나열하지 않는다. 각 추론기능을 구현하기 위해 필요한 부분만 사용한다.</div>
+<div class="rule"><span class="id">2-2</span><b>Ontology & Knowledge Graph</b>Ontology는 Entity와 관계의 의미체계를 정의한다. Ontology 자체는 확률적 예측기가 아니므로 실제 Fact, Evidence, Edge 방향·강도·Confidence·Time Lag·Regime은 Knowledge Graph와 별도 인과·확률 계층에서 관리한다.</div>
+<div class="rule"><span class="id">2-3</span><b>Causal World Model</b>Entity, Factor, State, Event, Cause, Effect, Interaction, Feedback, Outcome을 표현한다.</div>
+<div class="rule"><span class="id">2-4</span><b>Modular Decomposition</b>거대한 Black Box를 인과영역별 Module로 분해하고 각 Module은 Input, State, Output, Confidence, Update Frequency를 가진다.</div>
+<div class="rule"><span class="id">2-5</span><b>Factor & Time</b>Direction, Importance, Leading/Lagging, Lag, Duration, Acceleration, Decay를 정의한다.</div>
+<div class="rule"><span class="id">2-6</span><b>Interaction & Unknowns</b>비선형 상호작용, Feedback, Threshold, Regime Change를 허용하고 설명되지 않는 오류에서 Missing Factor를 추가한다.</div>
+</section>
+
+<section id="u3"><h2>Part 3. Data & Memory — 기억 원칙</h2>
+<div class="rule"><span class="id">3-1</span><b>Continuous Data</b>각 Module이 Raw/Processed Data, Source, Timestamp, Confidence, Revision History를 지속 저장한다.</div>
+<div class="rule"><span class="id">3-2</span><b>Fact Verification</b>Fact와 Opinion을 분리하고 Source hierarchy, Cross-validation, Conflict를 관리한다.</div>
+<div class="rule"><span class="id">3-3</span><b>Long-Term Memory</b>LLM 자체 기억이 아니라 Time-Series DB, Relational DB, Knowledge Graph, Prediction Journal, Learned Experience를 외부 기억으로 사용한다.</div>
+<div class="rule"><span class="id">3-4</span><b>Prediction Journal</b>예측 당시 Data version, Graph version, Module State, Probability, Confidence, 찬반 Evidence를 Snapshot으로 고정한다.</div>
+</section>
+
+<section id="u4"><h2>Part 4. Reasoning & Simulation — 추론 원칙</h2>
+<div class="rule"><span class="id">4-1</span><b>Current State</b>먼저 각 Module의 State, Direction, Momentum, Regime, Confidence를 추정한다.</div>
+<div class="rule"><span class="id">4-2</span><b>Causal Reasoning</b>복수 원인, 상쇄·증폭, Feedback을 추적 가능한 Graph로 전파한다.</div>
+<div class="rule"><span class="id">4-3</span><b>Scenario & Simulation</b>Base/Upside/Downside/Tail Risk와 What-if/Counterfactual을 제공한다.</div>
+<div class="rule"><span class="id">4-4</span><b>Probability</b>새 Evidence로 확률을 Update하며 특정 알고리즘 하나에 종속되지 않는다.</div>
+<div class="rule"><span class="id">4-5</span><b>Explainable Probability</b>왜 65%인지, 왜 80%나 50%가 아닌지 Module/Factor/Interaction/Historical Experience의 기여로 설명한다.</div>
+<div class="rule"><span class="id">4-6</span><b>What Would Change My Mind?</b>판단을 뒤집는 Trigger와 재계산 결과를 사전에 보여준다.</div>
+<div class="rule"><span class="id">4-7</span><b>Challenger</b>AI와 인간의 Main Hypothesis를 모두 반대 Evidence로 검증한다.</div>
+</section>
+
+<section id="u5"><h2>Part 5. Review & Learning — 학습 원칙</h2>
+<div class="viz"><div class="vt">지속 학습 폐쇄루프</div><svg viewBox="0 0 1100 220"><defs><marker id="uarr2" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#60758a"/></marker></defs><g>
+<rect x="25" y="55" width="140" height="65" rx="11"/><rect x="185" y="55" width="140" height="65" rx="11"/><rect x="345" y="55" width="140" height="65" rx="11"/><rect x="505" y="55" width="140" height="65" rx="11"/><rect x="665" y="55" width="140" height="65" rx="11"/><rect x="825" y="55" width="140" height="65" rx="11"/></g><g>
+<text x="95" y="82">Forecast</text><text x="95" y="103" class="sm">예측</text><text x="255" y="82">Reality</text><text x="255" y="103" class="sm">실제 결과</text><text x="415" y="82">Review</text><text x="415" y="103" class="sm">오류 분해</text><text x="575" y="82">Experience</text><text x="575" y="103" class="sm">교훈 저장</text><text x="735" y="82">Relevance</text><text x="735" y="103" class="sm">과적합 제한</text><text x="895" y="82">Next Forecast</text><text x="895" y="103" class="sm">재추론</text></g>
+<g marker-end="url(#uarr2)"><path class="edge" d="M165 87 H185"/><path class="edge" d="M325 87 H345"/><path class="edge" d="M485 87 H505"/><path class="edge" d="M645 87 H665"/><path class="edge" d="M805 87 H825"/><path class="edge" d="M895 120 C895 185,95 185,95 120"/></g></svg></div>
+<div class="rule"><span class="id">5-1</span><b>Actual Outcome</b>결과와 중간 Factor 변화를 기록한다.</div>
+<div class="rule"><span class="id">5-2</span><b>Human + AI Review</b>Factor, Direction, Weight, Lag, Interaction, Missing Factor, Regime을 분해 검증한다.</div>
+<div class="rule"><span class="id">5-3</span><b>Learned Experience</b>검증된 교훈을 Evidence-linked Experience로 저장한다.</div>
+<div class="rule"><span class="id">5-4</span><b>Anti-Overfitting</b>Similarity, Recency, Sample Size, Regime Match, Source Reliability로 과거 경험의 적용을 제한하고 이번 확률에 미친 영향을 공개한다.</div>
+<div class="rule"><span class="id">5-5</span><b>Continuous Improvement</b>Accuracy뿐 아니라 Calibration과 Explanation Quality가 시간에 따라 개선되는지 측정한다.</div>
+</section>
+
+<section id="u6"><h2>Part 6. Domain PRD Template — 구현 문서가 반드시 포함할 것</h2>
+<table><tr><th>항목</th><th>Domain PRD에서 구체화할 내용</th></tr>
+<tr><td>6-1 Modules</td><td>실제 Module 명, Input, State, Output, Update Frequency, Dependency.</td></tr>
+<tr><td>6-2 Data Architecture</td><td>실제 DB, table/schema, graph node/edge, ingestion, retention.</td></tr>
+<tr><td>6-3 API/Orchestration</td><td>Agent/Job/API contract, orchestration 순서, failure/retry.</td></tr>
+<tr><td>6-4 UI</td><td>High-resolution System Map, Module drill-down, Factor detail, Scenario mode.</td></tr>
+<tr><td>6-5 DevOps</td><td>Git repository, branches, migrations, CI/CD, secrets, staging/production.</td></tr>
+<tr><td>6-6 Validation</td><td>Backtest, Forward Test, calibration metric, acceptance criteria.</td></tr></table>
+<div class="callout">새 Domain PRD는 이 Template을 복사해 같은 번호에서 구체 구현을 채운다. 범용 원칙은 Domain의 편의를 위해 삭제하지 않는다.</div>
+</section>
+<footer>범용 AI 미래추론 시스템 PRD · v0.9 · 2026-09-09</footer></div></body></html>
