@@ -1,4 +1,6 @@
-# reasoning-foundation — 완료 보고
+# reasoning-foundation — 초기 완료 보고 (재검토로 재개)
+
+> **현재 상태 정정:** 추가 Check에서 네 가지 계약·검증 결함을 재현하여 foundation을 Act 대상으로 재개했다. 아래는 최초 완료 보고 이력이며 최신 판정은 [Check 분석](../03-analysis/sec-future-reasoning-v1-1.analysis.md)에 있다.
 
 > 2026-09-09 · P1 완료 · 전체 v1.1 Do 진행 중
 

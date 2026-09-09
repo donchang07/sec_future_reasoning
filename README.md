@@ -35,3 +35,5 @@ bkit-codex PDCA를 사용합니다. Plan과 Design은 반드시 canonical PRD v1
 P1 `reasoning-foundation`: typed Engine 계약, 버전·cutoff·확률/ledger·Journal 검증, 49 Factor Registry, Golden 80개 카탈로그와 schema 검사 CLI를 구현했습니다. [설치와 실행 안내](docs/FOUNDATION.md)를 참고하세요.
 
 전체 제품 Do는 진행 중입니다. 실제 추론 엔진 실행·DB·API/UI는 다음 기능이며, 미실행 Golden 카탈로그는 release gate를 통과하지 않습니다.
+
+최신 [Check 결과](docs/03-analysis/sec-future-reasoning-v1-1.analysis.md): 기존 테스트 50개는 통과했으나 추가 경계 검증에서 foundation 결함 4개를 확인했습니다. 전체 제품 구현은 미완성이며 다음 PDCA 단계는 Act입니다. foundation의 초기 완료 판정도 재개했습니다.

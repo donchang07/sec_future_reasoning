@@ -1,0 +1,18 @@
+{
+  "check_version": "1.0.0",
+  "checked_commit": "629af3d45054dd70d592d7118bac4912573b92af",
+  "date": "2026-09-09",
+  "existing_tests": {"passed": 50, "failed": 0},
+  "default_release_ready": false,
+  "golden_execution_status": "80_unresolved",
+  "latest_ci": "https://github.com/donchang07/sec_future_reasoning/actions/runs/34313863832",
+  "findings": [
+    {"id": "CK-01", "severity": "high", "function": "reasoning.validation.release_ready", "input": "80 distinct canonical IDs; passed; run_id=not-a-uuid; fixture_hash=not-a-hash; versions=not-a-version-bundle", "expected": "reject invalid execution metadata", "observed": true},
+    {"id": "CK-02", "severity": "high", "function": "MetaCheck and EngineResult", "input": "E19 applicable=false, reason=no inputs, publishable=true, empty evidence/checks/drivers, success confidence=1.0", "expected": "reject non-applicable publishable result", "observed": "accepted; publishable=true"},
+    {"id": "CK-03", "severity": "medium", "function": "select_as_of", "input": "same factor/source and all timestamps; r1=4.2 UUID(int=2), r2=4.8 UUID(int=1)", "expected": "explicit source revision ordering or conflict", "observed": "r1 selected by UUID tie-break"},
+    {"id": "CK-04", "severity": "medium", "function": "build_registry", "input": "samsung_eps_revision: 30d revision; dram_contract_asp: MoM", "expected": "explicit semantic comparison periods", "observed": "both previous_observation"}
+  ],
+  "coverage": {"total": 32, "match": 9, "partial": 4, "missing": 19, "strict_match_rate": 28.125},
+  "foundation_recheck": {"total": 7, "match": 3, "partial": 4, "strict_match_rate": 42.857142857142854},
+  "recommended_phase": "act"
+}

@@ -1,213 +1,256 @@
 {
-    "version":  "2.0",
-    "lastUpdated":  "2026-09-09T05:11:01.058Z",
-    "activeFeatures":  [
-                           "sec-future-reasoning-v1-1",
-                           "reasoning-foundation"
-                       ],
-    "primaryFeature":  "sec-future-reasoning-v1-1",
-    "features":  {
-                     "sec-future-reasoning-v1-1":  {
-                                                       "phase":  "do",
-                                                       "matchRate":  null,
-                                                       "iterationCount":  0,
-                                                       "documents":  {
-                                                                         "plan":  "docs/01-plan/features/sec-future-reasoning-v1-1.plan.md",
-                                                                         "design":  "docs/02-design/features/sec-future-reasoning-v1-1.design.md",
-                                                                         "designReview":  "docs/03-analysis/sec-future-reasoning-v1-1.design-review.md"
-                                                                     },
-                                                       "taskChain":  [
-                                                                         {
-                                                                             "phase":  "plan",
-                                                                             "status":  "completed",
-                                                                             "createdAt":  "2026-09-09T04:15:13.804Z",
-                                                                             "completedAt":  "2026-09-09T04:47:20.818Z"
-                                                                         },
-                                                                         {
-                                                                             "phase":  "design",
-                                                                             "status":  "completed",
-                                                                             "createdAt":  "2026-09-09T04:15:13.804Z",
-                                                                             "completedAt":  "2026-09-09T05:00:11.417Z"
-                                                                         },
-                                                                         {
-                                                                             "phase":  "do",
-                                                                             "status":  "active",
-                                                                             "createdAt":  "2026-09-09T04:15:13.804Z"
-                                                                         },
-                                                                         {
-                                                                             "phase":  "check",
-                                                                             "status":  "pending",
-                                                                             "createdAt":  "2026-09-09T04:15:13.804Z"
-                                                                         },
-                                                                         {
-                                                                             "phase":  "report",
-                                                                             "status":  "pending",
-                                                                             "createdAt":  "2026-09-09T04:15:13.804Z"
-                                                                         }
-                                                                     ],
-                                                       "timestamps":  {
-                                                                          "started":  "2026-09-09T04:15:13.808Z",
-                                                                          "lastUpdated":  "2026-09-09T05:00:11.417Z"
-                                                                      }
-                                                   },
-                     "reasoning-foundation":  {
-                                                  "phase":  "completed",
-                                                  "matchRate":  100,
-                                                  "iterationCount":  1,
-                                                  "documents":  {
-                                                                    "plan":  "docs/01-plan/features/reasoning-foundation.plan.md",
-                                                                    "design":  "docs/02-design/features/reasoning-foundation.design.md",
-                                                                    "analysis":  "docs/03-analysis/reasoning-foundation.analysis.md",
-                                                                    "report":  "docs/04-report/reasoning-foundation.report.md"
-                                                                },
-                                                  "taskChain":  [
-                                                                    {
-                                                                        "phase":  "plan",
-                                                                        "status":  "completed",
-                                                                        "createdAt":  "2026-09-09T05:02:02.154Z",
-                                                                        "completedAt":  "2026-09-09T05:02:17.333Z"
-                                                                    },
-                                                                    {
-                                                                        "phase":  "design",
-                                                                        "status":  "completed",
-                                                                        "createdAt":  "2026-09-09T05:02:02.154Z",
-                                                                        "completedAt":  "2026-09-09T05:02:53.084Z"
-                                                                    },
-                                                                    {
-                                                                        "phase":  "do",
-                                                                        "status":  "completed",
-                                                                        "createdAt":  "2026-09-09T05:02:02.154Z",
-                                                                        "completedAt":  "2026-09-09T05:10:53.4261196Z"
-                                                                    },
-                                                                    {
-                                                                        "phase":  "check",
-                                                                        "status":  "completed",
-                                                                        "createdAt":  "2026-09-09T05:02:02.154Z",
-                                                                        "completedAt":  "2026-09-09T05:11:01.7095284Z"
-                                                                    },
-                                                                    {
-                                                                        "phase":  "report",
-                                                                        "status":  "completed",
-                                                                        "createdAt":  "2026-09-09T05:02:02.154Z",
-                                                                        "completedAt":  "2026-09-09T05:11:01.7145303Z"
-                                                                    }
-                                                                ],
-                                                  "timestamps":  {
-                                                                     "started":  "2026-09-09T05:02:02.158Z",
-                                                                     "lastUpdated":  "2026-09-09T05:11:01.058Z"
-                                                                 },
-                                                  "completedAt":  "2026-09-09T05:11:01.048Z"
-                                              }
-                 },
-    "pipeline":  {
-                     "currentPhase":  1,
-                     "level":  "Enterprise",
-                     "phaseHistory":  [
-
-                                      ]
-                 },
-    "session":  {
-                    "startedAt":  "2026-09-09T04:15:13.803Z",
-                    "onboardingCompleted":  false,
-                    "lastActivity":  "2026-09-09T05:11:01.058Z"
-                },
-    "history":  [
-                    {
-                        "feature":  "sec-future-reasoning-v1-1",
-                        "from":  "plan",
-                        "to":  "design",
-                        "timestamp":  "2026-09-09T04:47:20.812Z"
-                    },
-                    {
-                        "feature":  "sec-future-reasoning-v1-1",
-                        "action":  "phase_complete",
-                        "phase":  "plan",
-                        "nextPhase":  "design",
-                        "timestamp":  "2026-09-09T04:47:20.813Z"
-                    },
-                    {
-                        "feature":  "sec-future-reasoning-v1-1",
-                        "from":  "design",
-                        "to":  "design",
-                        "timestamp":  "2026-09-09T04:48:59.630Z"
-                    },
-                    {
-                        "feature":  "sec-future-reasoning-v1-1",
-                        "from":  "design",
-                        "to":  "do",
-                        "timestamp":  "2026-09-09T05:00:11.408Z"
-                    },
-                    {
-                        "feature":  "sec-future-reasoning-v1-1",
-                        "action":  "phase_complete",
-                        "phase":  "design",
-                        "nextPhase":  "do",
-                        "timestamp":  "2026-09-09T05:00:11.410Z"
-                    },
-                    {
-                        "feature":  "reasoning-foundation",
-                        "from":  "plan",
-                        "to":  "design",
-                        "timestamp":  "2026-09-09T05:02:17.325Z"
-                    },
-                    {
-                        "feature":  "reasoning-foundation",
-                        "action":  "phase_complete",
-                        "phase":  "plan",
-                        "nextPhase":  "design",
-                        "timestamp":  "2026-09-09T05:02:17.326Z"
-                    },
-                    {
-                        "feature":  "reasoning-foundation",
-                        "from":  "design",
-                        "to":  "design",
-                        "timestamp":  "2026-09-09T05:02:17.362Z"
-                    },
-                    {
-                        "feature":  "reasoning-foundation",
-                        "from":  "design",
-                        "to":  "do",
-                        "timestamp":  "2026-09-09T05:02:53.076Z"
-                    },
-                    {
-                        "feature":  "reasoning-foundation",
-                        "action":  "phase_complete",
-                        "phase":  "design",
-                        "nextPhase":  "do",
-                        "timestamp":  "2026-09-09T05:02:53.078Z"
-                    },
-                    {
-                        "feature":  "reasoning-foundation",
-                        "from":  "check",
-                        "to":  "act",
-                        "timestamp":  "2026-09-09T05:10:53.551Z"
-                    },
-                    {
-                        "feature":  "reasoning-foundation",
-                        "action":  "phase_complete",
-                        "phase":  "check",
-                        "nextPhase":  "act",
-                        "timestamp":  "2026-09-09T05:10:53.552Z"
-                    },
-                    {
-                        "feature":  "reasoning-foundation",
-                        "from":  "act",
-                        "to":  "report",
-                        "timestamp":  "2026-09-09T05:11:00.942Z"
-                    },
-                    {
-                        "feature":  "reasoning-foundation",
-                        "action":  "phase_complete",
-                        "phase":  "act",
-                        "nextPhase":  "report",
-                        "timestamp":  "2026-09-09T05:11:00.944Z"
-                    },
-                    {
-                        "feature":  "reasoning-foundation",
-                        "action":  "phase_complete",
-                        "phase":  "report",
-                        "nextPhase":  "completed",
-                        "timestamp":  "2026-09-09T05:11:01.050Z"
-                    }
-                ]
+  "version": "2.0",
+  "lastUpdated": "2026-09-09T05:18:05.182228+00:00",
+  "activeFeatures": [
+    "sec-future-reasoning-v1-1",
+    "reasoning-foundation"
+  ],
+  "primaryFeature": "sec-future-reasoning-v1-1",
+  "features": {
+    "sec-future-reasoning-v1-1": {
+      "phase": "act",
+      "matchRate": 28.125,
+      "iterationCount": 1,
+      "documents": {
+        "plan": "docs/01-plan/features/sec-future-reasoning-v1-1.plan.md",
+        "design": "docs/02-design/features/sec-future-reasoning-v1-1.design.md",
+        "designReview": "docs/03-analysis/sec-future-reasoning-v1-1.design-review.md",
+        "analysis": "docs/03-analysis/sec-future-reasoning-v1-1.analysis.md"
+      },
+      "taskChain": [
+        {
+          "phase": "plan",
+          "status": "completed",
+          "createdAt": "2026-09-09T04:15:13.804Z",
+          "completedAt": "2026-09-09T04:47:20.818Z"
+        },
+        {
+          "phase": "design",
+          "status": "completed",
+          "createdAt": "2026-09-09T04:15:13.804Z",
+          "completedAt": "2026-09-09T05:00:11.417Z"
+        },
+        {
+          "phase": "do",
+          "status": "active",
+          "createdAt": "2026-09-09T04:15:13.804Z"
+        },
+        {
+          "phase": "check",
+          "status": "completed",
+          "createdAt": "2026-09-09T04:15:13.804Z",
+          "completedAt": "2026-09-09T05:18:05.182228+00:00"
+        },
+        {
+          "phase": "report",
+          "status": "pending",
+          "createdAt": "2026-09-09T04:15:13.804Z"
+        },
+        {
+          "phase": "act",
+          "status": "active",
+          "createdAt": "2026-09-09T05:18:05.182228+00:00"
+        }
+      ],
+      "timestamps": {
+        "started": "2026-09-09T04:15:13.808Z",
+        "lastUpdated": "2026-09-09T05:18:05.182228+00:00"
+      },
+      "checkSummary": {
+        "checkedCommit": "629af3d45054dd70d592d7118bac4912573b92af",
+        "match": 9,
+        "partial": 4,
+        "missing": 19,
+        "findings": [
+          "CK-01",
+          "CK-02",
+          "CK-03",
+          "CK-04"
+        ],
+        "implementationComplete": false
+      }
+    },
+    "reasoning-foundation": {
+      "phase": "act",
+      "matchRate": 42.857142857142854,
+      "iterationCount": 1,
+      "documents": {
+        "plan": "docs/01-plan/features/reasoning-foundation.plan.md",
+        "design": "docs/02-design/features/reasoning-foundation.design.md",
+        "analysis": "docs/03-analysis/reasoning-foundation.analysis.md",
+        "report": "docs/04-report/reasoning-foundation.report.md",
+        "recheck": "docs/03-analysis/sec-future-reasoning-v1-1.analysis.md"
+      },
+      "taskChain": [
+        {
+          "phase": "plan",
+          "status": "completed",
+          "createdAt": "2026-09-09T05:02:02.154Z",
+          "completedAt": "2026-09-09T05:02:17.333Z"
+        },
+        {
+          "phase": "design",
+          "status": "completed",
+          "createdAt": "2026-09-09T05:02:02.154Z",
+          "completedAt": "2026-09-09T05:02:53.084Z"
+        },
+        {
+          "phase": "do",
+          "status": "completed",
+          "createdAt": "2026-09-09T05:02:02.154Z",
+          "completedAt": "2026-09-09T05:10:53.4261196Z"
+        },
+        {
+          "phase": "check",
+          "status": "completed",
+          "createdAt": "2026-09-09T05:02:02.154Z",
+          "completedAt": "2026-09-09T05:18:05.182228+00:00"
+        },
+        {
+          "phase": "report",
+          "status": "pending",
+          "createdAt": "2026-09-09T05:02:02.154Z"
+        },
+        {
+          "phase": "act",
+          "status": "active",
+          "createdAt": "2026-09-09T05:18:05.182228+00:00"
+        }
+      ],
+      "timestamps": {
+        "started": "2026-09-09T05:02:02.158Z",
+        "lastUpdated": "2026-09-09T05:18:05.182228+00:00"
+      }
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Enterprise",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-09-09T04:15:13.803Z",
+    "onboardingCompleted": false,
+    "lastActivity": "2026-09-09T05:17:51.507Z"
+  },
+  "history": [
+    {
+      "feature": "sec-future-reasoning-v1-1",
+      "from": "plan",
+      "to": "design",
+      "timestamp": "2026-09-09T04:47:20.812Z"
+    },
+    {
+      "feature": "sec-future-reasoning-v1-1",
+      "action": "phase_complete",
+      "phase": "plan",
+      "nextPhase": "design",
+      "timestamp": "2026-09-09T04:47:20.813Z"
+    },
+    {
+      "feature": "sec-future-reasoning-v1-1",
+      "from": "design",
+      "to": "design",
+      "timestamp": "2026-09-09T04:48:59.630Z"
+    },
+    {
+      "feature": "sec-future-reasoning-v1-1",
+      "from": "design",
+      "to": "do",
+      "timestamp": "2026-09-09T05:00:11.408Z"
+    },
+    {
+      "feature": "sec-future-reasoning-v1-1",
+      "action": "phase_complete",
+      "phase": "design",
+      "nextPhase": "do",
+      "timestamp": "2026-09-09T05:00:11.410Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "from": "plan",
+      "to": "design",
+      "timestamp": "2026-09-09T05:02:17.325Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "action": "phase_complete",
+      "phase": "plan",
+      "nextPhase": "design",
+      "timestamp": "2026-09-09T05:02:17.326Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "from": "design",
+      "to": "design",
+      "timestamp": "2026-09-09T05:02:17.362Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "from": "design",
+      "to": "do",
+      "timestamp": "2026-09-09T05:02:53.076Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "action": "phase_complete",
+      "phase": "design",
+      "nextPhase": "do",
+      "timestamp": "2026-09-09T05:02:53.078Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "from": "check",
+      "to": "act",
+      "timestamp": "2026-09-09T05:10:53.551Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "action": "phase_complete",
+      "phase": "check",
+      "nextPhase": "act",
+      "timestamp": "2026-09-09T05:10:53.552Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "from": "act",
+      "to": "report",
+      "timestamp": "2026-09-09T05:11:00.942Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "action": "phase_complete",
+      "phase": "act",
+      "nextPhase": "report",
+      "timestamp": "2026-09-09T05:11:00.944Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "action": "phase_complete",
+      "phase": "report",
+      "nextPhase": "completed",
+      "timestamp": "2026-09-09T05:11:01.050Z"
+    },
+    {
+      "feature": "sec-future-reasoning-v1-1",
+      "from": "check",
+      "to": "act",
+      "timestamp": "2026-09-09T05:17:51.502Z"
+    },
+    {
+      "feature": "sec-future-reasoning-v1-1",
+      "action": "phase_complete",
+      "phase": "check",
+      "nextPhase": "act",
+      "timestamp": "2026-09-09T05:17:51.502Z"
+    },
+    {
+      "feature": "reasoning-foundation",
+      "action": "reopened_after_check",
+      "from": "completed",
+      "to": "act",
+      "timestamp": "2026-09-09T05:18:05.182228+00:00",
+      "reason": "CK-01 through CK-04 reproduced; initial completion superseded"
+    }
+  ]
 }
