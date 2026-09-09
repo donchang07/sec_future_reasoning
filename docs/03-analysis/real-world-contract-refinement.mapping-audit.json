@@ -1,0 +1,1765 @@
+{
+  "artifact_type": "contract_classification_audit",
+  "contract_version": "real-world-contract-v2.0.0",
+  "mapping_version": "semantic-mapping-v1.0.0",
+  "new_prediction_created": false,
+  "cutoff_used_only_for_semantic_audit": "2026-09-09T06:08:43.703255+00:00",
+  "counts": {
+    "directly mappable": 19,
+    "derived evidence mappable": 4
+  },
+  "rows": [
+    {
+      "source_id": "samsung_bs",
+      "source_field": "samsung_total_assets",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "64221e07331629971eaaddecbc4eba0cc6524cff7487abfd91e5859c1368ee37",
+      "value": 759480516.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Long financial solvency anchor; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_total_assets",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_total_assets",
+        "economic_meaning": "Long financial solvency anchor",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": 759480516.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_bs",
+      "source_field": "samsung_total_liabilities",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "64221e07331629971eaaddecbc4eba0cc6524cff7487abfd91e5859c1368ee37",
+      "value": 180170840.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Long financial solvency anchor; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_total_liabilities",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_total_liabilities",
+        "economic_meaning": "Long financial solvency anchor",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": 180170840.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_bs",
+      "source_field": "samsung_total_equity",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "64221e07331629971eaaddecbc4eba0cc6524cff7487abfd91e5859c1368ee37",
+      "value": 579309676.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Long financial solvency anchor; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_total_equity",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_total_equity",
+        "economic_meaning": "Long financial solvency anchor",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": 579309676.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_cf",
+      "source_field": "samsung_operating_cash",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32",
+      "value": 145355192.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Cash generation; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_operating_cash",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_operating_cash",
+        "economic_meaning": "Cash generation",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": 145355192.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_cf",
+      "source_field": "samsung_ppe_acquisition",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32",
+      "value": -31234818.0,
+      "old_journal_untouched": true,
+      "disposition": "derived evidence mappable",
+      "reason": "Accounting diagnostics; do not duplicate coverage; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_ppe_acquisition",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_capex_ppe_cash",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "cash_outflow_magnitude",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": 31234818.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_cf",
+      "source_field": "samsung_investing_cash",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32",
+      "value": -90850006.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Accounting diagnostics; do not duplicate coverage; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_investing_cash",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_investing_cash",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": -90850006.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_cf",
+      "source_field": "samsung_financing_cash",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32",
+      "value": -23340596.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Accounting diagnostics; do not duplicate coverage; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_financing_cash",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_financing_cash",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": -23340596.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_cf",
+      "source_field": "samsung_fx_cash_effect",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32",
+      "value": 3895414.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Accounting diagnostics; do not duplicate coverage; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_fx_cash_effect",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_fx_cash_effect",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": 3895414.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_cf",
+      "source_field": "samsung_cash_change",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32",
+      "value": 35060004.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Accounting diagnostics; do not duplicate coverage; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_cash_change",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_cash_change",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": 35060004.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_cf",
+      "source_field": "samsung_cash_begin",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32",
+      "value": 57856378.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Accounting diagnostics; do not duplicate coverage; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_cash_begin",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_cash_begin",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": 57856378.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_cf",
+      "source_field": "samsung_cash_end",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32",
+      "value": 92916382.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Accounting diagnostics; do not duplicate coverage; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_cash_end",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_cash_end",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": 92916382.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_soi",
+      "source_field": "samsung_revenue",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "1b5fd170d31da759a7a8963972e35ace529d4c5f16527c99074f62a07b3b968e",
+      "value": 305372914.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Accounting diagnostics; do not duplicate coverage; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_revenue",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_revenue",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": 305372914.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "samsung_soi",
+      "source_field": "samsung_operating_profit",
+      "source_unit": "krw_million",
+      "original_mapping": "unmapped",
+      "source_ref": "1b5fd170d31da759a7a8963972e35ace529d4c5f16527c99074f62a07b3b968e",
+      "value": 146725209.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "Accounting diagnostics; do not duplicate coverage; value only, no directional comparator",
+      "mapping": {
+        "source_field": "samsung_operating_profit",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_operating_profit",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "factor_value": 146725209.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "dram_spot",
+      "source_field": "dram_spot_ddr5_16gb_2gx8_4800_5600",
+      "source_unit": "usd_per_chip",
+      "original_mapping": "unmapped",
+      "source_ref": "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088",
+      "value": 54.5,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "SKU spot only; no long realization assumption; value only, no directional comparator",
+      "mapping": {
+        "source_field": "dram_spot_ddr5_16gb_2gx8_4800_5600",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "factor_value": 54.5,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "dram_spot",
+      "source_field": "dram_spot_ddr5_16gb_2gx8_ett",
+      "source_unit": "usd_per_chip",
+      "original_mapping": "unmapped",
+      "source_ref": "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088",
+      "value": 24.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "SKU spot only; no long realization assumption; value only, no directional comparator",
+      "mapping": {
+        "source_field": "dram_spot_ddr5_16gb_2gx8_ett",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "factor_value": 24.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "dram_spot",
+      "source_field": "dram_spot_ddr4_16gb_2gx8_3200",
+      "source_unit": "usd_per_chip",
+      "original_mapping": "unmapped",
+      "source_ref": "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088",
+      "value": 91.0,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "SKU spot only; no long realization assumption; value only, no directional comparator",
+      "mapping": {
+        "source_field": "dram_spot_ddr4_16gb_2gx8_3200",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "factor_value": 91.0,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "dram_spot",
+      "source_field": "dram_spot_ddr4_16gb_2gx8_ett",
+      "source_unit": "usd_per_chip",
+      "original_mapping": "unmapped",
+      "source_ref": "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088",
+      "value": 12.213,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "SKU spot only; no long realization assumption; value only, no directional comparator",
+      "mapping": {
+        "source_field": "dram_spot_ddr4_16gb_2gx8_ett",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "factor_value": 12.213,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "dram_spot",
+      "source_field": "dram_spot_ddr4_8gb_1gx8_3200",
+      "source_unit": "usd_per_chip",
+      "original_mapping": "unmapped",
+      "source_ref": "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088",
+      "value": 45.321,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "SKU spot only; no long realization assumption; value only, no directional comparator",
+      "mapping": {
+        "source_field": "dram_spot_ddr4_8gb_1gx8_3200",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "factor_value": 45.321,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "dram_spot",
+      "source_field": "dram_spot_ddr4_8gb_1gx8_ett",
+      "source_unit": "usd_per_chip",
+      "original_mapping": "unmapped",
+      "source_ref": "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088",
+      "value": 5.13,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "SKU spot only; no long realization assumption; value only, no directional comparator",
+      "mapping": {
+        "source_field": "dram_spot_ddr4_8gb_1gx8_ett",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "factor_value": 5.13,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "dram_spot",
+      "source_field": "dram_spot_ddr3_4gb_512mx8_1600_1866",
+      "source_unit": "usd_per_chip",
+      "original_mapping": "unmapped",
+      "source_ref": "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088",
+      "value": 13.81,
+      "old_journal_untouched": true,
+      "disposition": "directly mappable",
+      "reason": "SKU spot only; no long realization assumption; value only, no directional comparator",
+      "mapping": {
+        "source_field": "dram_spot_ddr3_4gb_512mx8_1600_1866",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "factor_value": 13.81,
+      "signal": null,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "exports_10",
+      "source_field": "semiconductor_export_demand",
+      "source_unit": "usd_million",
+      "original_mapping": "unmapped",
+      "source_ref": "2a766cbca78a04908254a94ee6db4cf399c87075227841ace5b04a4c4bcf2096",
+      "value": 9952.0,
+      "old_journal_untouched": true,
+      "disposition": "derived evidence mappable",
+      "reason": "Broad nominal export demand proxy; explicit comparable-period signal",
+      "mapping": {
+        "source_field": "semiconductor_export_demand",
+        "source_unit": "usd_million",
+        "factor_id": "semiconductor_export_momentum",
+        "economic_meaning": "Broad nominal export demand proxy",
+        "transform": "reported_yoy",
+        "mapping_confidence": 0.8,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "semiconductor_exports"
+      },
+      "factor_value": 155.4,
+      "signal": 1.0,
+      "selected_for_state": false
+    },
+    {
+      "source_id": "exports_20",
+      "source_field": "semiconductor_export_demand",
+      "source_unit": "usd_million",
+      "original_mapping": "unmapped",
+      "source_ref": "c0c0939e7fa7cef27e9ebaee19f0d1873779f63927237d87957de1d2418a2931",
+      "value": 26032.0,
+      "old_journal_untouched": true,
+      "disposition": "derived evidence mappable",
+      "reason": "Broad nominal export demand proxy; explicit comparable-period signal",
+      "mapping": {
+        "source_field": "semiconductor_export_demand",
+        "source_unit": "usd_million",
+        "factor_id": "semiconductor_export_momentum",
+        "economic_meaning": "Broad nominal export demand proxy",
+        "transform": "reported_yoy",
+        "mapping_confidence": 0.8,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "semiconductor_exports"
+      },
+      "factor_value": 198.8,
+      "signal": 1.0,
+      "selected_for_state": true
+    },
+    {
+      "source_id": "exports_month",
+      "source_field": "semiconductor_export_demand",
+      "source_unit": "usd_million",
+      "original_mapping": "unmapped",
+      "source_ref": "ecac01fbf10a876e4595fa8f50f574f6a2b810e3e022854ac1815d75c6ad3767",
+      "value": 41172.0,
+      "old_journal_untouched": true,
+      "disposition": "derived evidence mappable",
+      "reason": "Broad nominal export demand proxy; explicit comparable-period signal",
+      "mapping": {
+        "source_field": "semiconductor_export_demand",
+        "source_unit": "usd_million",
+        "factor_id": "semiconductor_export_momentum",
+        "economic_meaning": "Broad nominal export demand proxy",
+        "transform": "reported_yoy",
+        "mapping_confidence": 0.8,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "semiconductor_exports"
+      },
+      "factor_value": 176.3,
+      "signal": 1.0,
+      "selected_for_state": true
+    }
+  ],
+  "mapped_evidence": [
+    {
+      "evidence_id": "7dda10f66ec1d4b87c48a46ddf6d9f08ea049a5547f19832cf2206762c176733",
+      "factor_id": "dram_spot_price",
+      "value": 13.81,
+      "unit": "usd_per_chip",
+      "signal": null,
+      "root_id": "dram_spot_family:2026-09-09",
+      "series_id": "dram_spot_ddr3_4gb_512mx8_1600_1866",
+      "source_refs": [
+        "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088"
+      ],
+      "effective_at": "2026-09-09T03:00:00Z",
+      "collected_at": "2026-09-09T06:08:41.653779Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "memory_spot",
+      "reporting_period": null,
+      "mapping": {
+        "source_field": "dram_spot_ddr3_4gb_512mx8_1600_1866",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "b9ee978caef82c99f5d4dcf0fce942d32aea66a3e42e62e9268b44dc1d860dad",
+      "factor_id": "dram_spot_price",
+      "value": 91.0,
+      "unit": "usd_per_chip",
+      "signal": null,
+      "root_id": "dram_spot_family:2026-09-09",
+      "series_id": "dram_spot_ddr4_16gb_2gx8_3200",
+      "source_refs": [
+        "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088"
+      ],
+      "effective_at": "2026-09-09T03:00:00Z",
+      "collected_at": "2026-09-09T06:08:41.653779Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "memory_spot",
+      "reporting_period": null,
+      "mapping": {
+        "source_field": "dram_spot_ddr4_16gb_2gx8_3200",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "203a526dc8765963d743da819decaede4f9c42c04e450c0bb4a8633dea6639c1",
+      "factor_id": "dram_spot_price",
+      "value": 12.213,
+      "unit": "usd_per_chip",
+      "signal": null,
+      "root_id": "dram_spot_family:2026-09-09",
+      "series_id": "dram_spot_ddr4_16gb_2gx8_ett",
+      "source_refs": [
+        "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088"
+      ],
+      "effective_at": "2026-09-09T03:00:00Z",
+      "collected_at": "2026-09-09T06:08:41.653779Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "memory_spot",
+      "reporting_period": null,
+      "mapping": {
+        "source_field": "dram_spot_ddr4_16gb_2gx8_ett",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "b5d168237b3f14e790ecd58ebf10d948f5dc24ae695b06edd1479d9e20ea6b46",
+      "factor_id": "dram_spot_price",
+      "value": 45.321,
+      "unit": "usd_per_chip",
+      "signal": null,
+      "root_id": "dram_spot_family:2026-09-09",
+      "series_id": "dram_spot_ddr4_8gb_1gx8_3200",
+      "source_refs": [
+        "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088"
+      ],
+      "effective_at": "2026-09-09T03:00:00Z",
+      "collected_at": "2026-09-09T06:08:41.653779Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "memory_spot",
+      "reporting_period": null,
+      "mapping": {
+        "source_field": "dram_spot_ddr4_8gb_1gx8_3200",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "2c5b4c17e92dc94b359b7396c7a59c6b11c5b8221de615cb80708e458f33b468",
+      "factor_id": "dram_spot_price",
+      "value": 5.13,
+      "unit": "usd_per_chip",
+      "signal": null,
+      "root_id": "dram_spot_family:2026-09-09",
+      "series_id": "dram_spot_ddr4_8gb_1gx8_ett",
+      "source_refs": [
+        "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088"
+      ],
+      "effective_at": "2026-09-09T03:00:00Z",
+      "collected_at": "2026-09-09T06:08:41.653779Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "memory_spot",
+      "reporting_period": null,
+      "mapping": {
+        "source_field": "dram_spot_ddr4_8gb_1gx8_ett",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "8e0acfc03a298d0783c5b43db84213b013fc99d855bd7e6c0aecc9493d5b0051",
+      "factor_id": "dram_spot_price",
+      "value": 54.5,
+      "unit": "usd_per_chip",
+      "signal": null,
+      "root_id": "dram_spot_family:2026-09-09",
+      "series_id": "dram_spot_ddr5_16gb_2gx8_4800_5600",
+      "source_refs": [
+        "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088"
+      ],
+      "effective_at": "2026-09-09T03:00:00Z",
+      "collected_at": "2026-09-09T06:08:41.653779Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "memory_spot",
+      "reporting_period": null,
+      "mapping": {
+        "source_field": "dram_spot_ddr5_16gb_2gx8_4800_5600",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "c22fa7a25473216474610e07bb4b1a866c6580bd33d9227da8036ecf6e62f5ad",
+      "factor_id": "dram_spot_price",
+      "value": 24.0,
+      "unit": "usd_per_chip",
+      "signal": null,
+      "root_id": "dram_spot_family:2026-09-09",
+      "series_id": "dram_spot_ddr5_16gb_2gx8_ett",
+      "source_refs": [
+        "4f7d93cff6d52fa80dd5a323a75a03d836ca6df2eb9e07d3da8be401f0faa088"
+      ],
+      "effective_at": "2026-09-09T03:00:00Z",
+      "collected_at": "2026-09-09T06:08:41.653779Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "memory_spot",
+      "reporting_period": null,
+      "mapping": {
+        "source_field": "dram_spot_ddr5_16gb_2gx8_ett",
+        "source_unit": "usd_per_chip",
+        "factor_id": "dram_spot_price",
+        "economic_meaning": "SKU spot only; no long realization assumption",
+        "transform": "identity",
+        "mapping_confidence": 0.95,
+        "valid_horizon": [
+          "1w",
+          "1m"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "memory_spot"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "333bbcc4cda63ee49d4ec05a44cb02d4cb252eb470096e43d05ddbcf1aca6cbe",
+      "factor_id": "samsung_capex_ppe_cash",
+      "value": 31234818.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_capex_ppe_cash:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_ppe_acquisition",
+      "source_refs": [
+        "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.400324Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_ppe_acquisition",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_capex_ppe_cash",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "cash_outflow_magnitude",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "3dbefbaafaed607024273257d4b5513038e58f94142f76e65a58212faf2b06db",
+      "factor_id": "samsung_cash_begin",
+      "value": 57856378.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_cash_begin:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_cash_begin",
+      "source_refs": [
+        "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.400324Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_cash_begin",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_cash_begin",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "8b033c511d36f2c3c9290203d378bdee45d0dff2adb2530a7f3701a91712449f",
+      "factor_id": "samsung_cash_change",
+      "value": 35060004.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_cash_change:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_cash_change",
+      "source_refs": [
+        "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.400324Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_cash_change",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_cash_change",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "62306062a0d20f4d51ccdad052c905aeb22743cc870f2507093401055ad1647c",
+      "factor_id": "samsung_cash_end",
+      "value": 92916382.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_cash_end:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_cash_end",
+      "source_refs": [
+        "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.400324Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_cash_end",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_cash_end",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "348763a8383fd2a20a9afe8880c4ce6344dee73e8dae5326c4d348fa1cb34ee4",
+      "factor_id": "samsung_financing_cash",
+      "value": -23340596.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_financing_cash:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_financing_cash",
+      "source_refs": [
+        "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.400324Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_financing_cash",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_financing_cash",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "e28fe9eb8e7ccff5aa67f3e83b6fa6d6049bc5cd82d489644009bb616c50500f",
+      "factor_id": "samsung_fx_cash_effect",
+      "value": 3895414.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_fx_cash_effect:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_fx_cash_effect",
+      "source_refs": [
+        "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.400324Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_fx_cash_effect",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_fx_cash_effect",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "7798b949fccdf957b71b19343e128d610334733d63c39ece9bc69408d2d66de4",
+      "factor_id": "samsung_investing_cash",
+      "value": -90850006.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_investing_cash:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_investing_cash",
+      "source_refs": [
+        "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.400324Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_investing_cash",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_investing_cash",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "21a953d6a7550f89aab1063970eb675fc9427336fa2a02a86cd08b106654c201",
+      "factor_id": "samsung_operating_cash",
+      "value": 145355192.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_operating_cash:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_operating_cash",
+      "source_refs": [
+        "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.400324Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_operating_cash",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_operating_cash",
+        "economic_meaning": "Cash generation",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "a78a61e69be924bf020d793d4e9f2991347a4e6203848fd00477425dd51088d6",
+      "factor_id": "samsung_operating_margin",
+      "value": 48.04787925624602,
+      "unit": "percent",
+      "signal": null,
+      "root_id": "company:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_operating_margin",
+      "source_refs": [
+        "1b5fd170d31da759a7a8963972e35ace529d4c5f16527c99074f62a07b3b968e"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.426322Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_operating_profit+samsung_revenue",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_operating_margin",
+        "economic_meaning": "Earnings level/revision with explicit period",
+        "transform": "ratio_margin",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "ebcfed23c24901fc90bd3ad0596c7249e521115badfee4fee628c1695cc86d41",
+      "factor_id": "samsung_operating_profit",
+      "value": 146725209.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_operating_profit:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_operating_profit",
+      "source_refs": [
+        "1b5fd170d31da759a7a8963972e35ace529d4c5f16527c99074f62a07b3b968e"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.426322Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_operating_profit",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_operating_profit",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "feb720fcfa949e2fdc1834921e358be97b07aef0b590f656b777401f9552c798",
+      "factor_id": "samsung_revenue",
+      "value": 305372914.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_revenue:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_revenue",
+      "source_refs": [
+        "1b5fd170d31da759a7a8963972e35ace529d4c5f16527c99074f62a07b3b968e"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.426322Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_revenue",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_revenue",
+        "economic_meaning": "Accounting diagnostics; do not duplicate coverage",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "d39bb6a4e46ea5813d3f0f1ec48aecfde8815f5b23966ede9d159c678796a74f",
+      "factor_id": "samsung_total_assets",
+      "value": 759480516.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_total_assets:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_total_assets",
+      "source_refs": [
+        "64221e07331629971eaaddecbc4eba0cc6524cff7487abfd91e5859c1368ee37"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.428322Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_total_assets",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_total_assets",
+        "economic_meaning": "Long financial solvency anchor",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "e8d845aaab8715e0f16e2355258c56eb2a2d7a81cbd82bc0b643291324ce58b8",
+      "factor_id": "samsung_total_equity",
+      "value": 579309676.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_total_equity:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_total_equity",
+      "source_refs": [
+        "64221e07331629971eaaddecbc4eba0cc6524cff7487abfd91e5859c1368ee37"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.428322Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_total_equity",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_total_equity",
+        "economic_meaning": "Long financial solvency anchor",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "d11aec0ef4696400b179be6c10c4f9036d2478f895a571511502676a90ca0ec0",
+      "factor_id": "samsung_total_liabilities",
+      "value": 180170840.0,
+      "unit": "krw_million",
+      "signal": null,
+      "root_id": "samsung_total_liabilities:2026-06-30T14:59:59+00:00",
+      "series_id": "samsung_total_liabilities",
+      "source_refs": [
+        "64221e07331629971eaaddecbc4eba0cc6524cff7487abfd91e5859c1368ee37"
+      ],
+      "effective_at": "2026-06-30T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.428322Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "company_consolidated",
+      "reporting_period": "2026-H1",
+      "mapping": {
+        "source_field": "samsung_total_liabilities",
+        "source_unit": "krw_million",
+        "factor_id": "samsung_total_liabilities",
+        "economic_meaning": "Long financial solvency anchor",
+        "transform": "identity",
+        "mapping_confidence": 1.0,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "company_consolidated"
+      },
+      "derived_signals": {}
+    },
+    {
+      "evidence_id": "82cfbdca20a9271803226a40f7321ae8082705e330e2c81d799f8837bb4ec8b2",
+      "factor_id": "semiconductor_export_momentum",
+      "value": 176.3,
+      "unit": "percent",
+      "signal": 1.0,
+      "root_id": "kcs_exports:2026-07",
+      "series_id": "kcs_semiconductor_exports",
+      "source_refs": [
+        "ecac01fbf10a876e4595fa8f50f574f6a2b810e3e022854ac1815d75c6ad3767"
+      ],
+      "effective_at": "2026-07-31T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:41.906439Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "semiconductor_exports",
+      "reporting_period": null,
+      "mapping": {
+        "source_field": "semiconductor_export_demand",
+        "source_unit": "usd_million",
+        "factor_id": "semiconductor_export_momentum",
+        "economic_meaning": "Broad nominal export demand proxy",
+        "transform": "reported_yoy",
+        "mapping_confidence": 0.8,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "semiconductor_exports"
+      },
+      "derived_signals": {
+        "yoy": 176.3,
+        "workday_adjusted_yoy": null,
+        "acceleration_pp": null
+      }
+    },
+    {
+      "evidence_id": "a2cf1888eeecb571dbbee132307fee4c46f19ac6466e02bd18a56c8d66d83526",
+      "factor_id": "semiconductor_export_momentum",
+      "value": 198.8,
+      "unit": "percent",
+      "signal": 1.0,
+      "root_id": "kcs_exports:2026-08",
+      "series_id": "kcs_semiconductor_exports",
+      "source_refs": [
+        "c0c0939e7fa7cef27e9ebaee19f0d1873779f63927237d87957de1d2418a2931"
+      ],
+      "effective_at": "2026-08-20T14:59:59Z",
+      "collected_at": "2026-09-09T06:08:42.165696Z",
+      "data_mode": "live_forward",
+      "horizon": "1w",
+      "economic_scope": "semiconductor_exports",
+      "reporting_period": null,
+      "mapping": {
+        "source_field": "semiconductor_export_demand",
+        "source_unit": "usd_million",
+        "factor_id": "semiconductor_export_momentum",
+        "economic_meaning": "Broad nominal export demand proxy",
+        "transform": "reported_yoy",
+        "mapping_confidence": 0.8,
+        "valid_horizon": [
+          "1w",
+          "1m",
+          "1y"
+        ],
+        "valid_regime": [
+          "*"
+        ],
+        "mapping_version": "semantic-mapping-v1.0.0",
+        "economic_scope": "semiconductor_exports"
+      },
+      "derived_signals": {
+        "yoy": 198.8,
+        "workday_adjusted_yoy": null,
+        "acceleration_pp": null
+      }
+    }
+  ],
+  "batch_hash": "c98293df45178a738c050a97230b6a3e31ff5b95197ed73f93a2c22a12d90085",
+  "constraints": {
+    "engine_id": "E11",
+    "version": "e11-real-world-v2.0.0",
+    "company": {
+      "status": "passed",
+      "checks": [
+        {
+          "name": "balance_sheet",
+          "status": "passed",
+          "lhs": 759480516.0,
+          "rhs": 759480516.0,
+          "residual": 0.0,
+          "missing": [],
+          "source_refs": [
+            "1b5fd170d31da759a7a8963972e35ace529d4c5f16527c99074f62a07b3b968e",
+            "64221e07331629971eaaddecbc4eba0cc6524cff7487abfd91e5859c1368ee37",
+            "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32"
+          ]
+        },
+        {
+          "name": "cash_components",
+          "status": "passed",
+          "lhs": 35060004.0,
+          "rhs": 35060004.0,
+          "residual": 0.0,
+          "missing": [],
+          "source_refs": [
+            "1b5fd170d31da759a7a8963972e35ace529d4c5f16527c99074f62a07b3b968e",
+            "64221e07331629971eaaddecbc4eba0cc6524cff7487abfd91e5859c1368ee37",
+            "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32"
+          ]
+        },
+        {
+          "name": "cash_rollforward",
+          "status": "passed",
+          "lhs": 35060004.0,
+          "rhs": 35060004.0,
+          "residual": 0.0,
+          "missing": [],
+          "source_refs": [
+            "1b5fd170d31da759a7a8963972e35ace529d4c5f16527c99074f62a07b3b968e",
+            "64221e07331629971eaaddecbc4eba0cc6524cff7487abfd91e5859c1368ee37",
+            "e553ab7d808a45001c1626adb16f7048afccb938aa486d8759f10f549b259a32"
+          ]
+        },
+        {
+          "name": "reported_fcf_identity",
+          "status": "non_applicable",
+          "lhs": null,
+          "rhs": null,
+          "residual": null,
+          "missing": [
+            "reported_free_cash_flow",
+            "capex_intangibles"
+          ],
+          "source_refs": []
+        }
+      ],
+      "missing": [
+        "capex_intangibles",
+        "reported_free_cash_flow"
+      ],
+      "metrics": {
+        "operating_cash_flow": 145355192.0,
+        "capex_ppe_cash": 31234818.0,
+        "capex_total_cash": null,
+        "free_cash_flow": null,
+        "cash_debt_ratio": null
+      }
+    },
+    "memory": {
+      "status": "non_applicable",
+      "checks": [
+        {
+          "name": "memory_revenue_identity",
+          "status": "non_applicable",
+          "lhs": null,
+          "rhs": null,
+          "residual": null,
+          "missing": [
+            "revenue",
+            "volume",
+            "asp"
+          ],
+          "source_refs": []
+        }
+      ],
+      "missing": [
+        "asp",
+        "revenue",
+        "volume"
+      ],
+      "metrics": {}
+    },
+    "industry": {
+      "status": "non_applicable",
+      "checks": [
+        {
+          "name": "production_capacity",
+          "status": "non_applicable",
+          "lhs": null,
+          "rhs": null,
+          "residual": null,
+          "missing": [
+            "production",
+            "capacity"
+          ],
+          "source_refs": []
+        },
+        {
+          "name": "bit_supply_bound",
+          "status": "non_applicable",
+          "lhs": null,
+          "rhs": null,
+          "residual": null,
+          "missing": [
+            "bit_supply",
+            "capacity",
+            "yield_rate",
+            "bits_per_wafer"
+          ],
+          "source_refs": []
+        },
+        {
+          "name": "yield_rate",
+          "status": "non_applicable",
+          "lhs": null,
+          "rhs": null,
+          "residual": null,
+          "missing": [
+            "yield_rate"
+          ],
+          "source_refs": []
+        },
+        {
+          "name": "new_capacity",
+          "status": "non_applicable",
+          "lhs": null,
+          "rhs": null,
+          "residual": null,
+          "missing": [
+            "new_capacity"
+          ],
+          "source_refs": []
+        }
+      ],
+      "missing": [
+        "bit_supply",
+        "bits_per_wafer",
+        "capacity",
+        "new_capacity",
+        "production",
+        "yield_rate"
+      ],
+      "metrics": {}
+    },
+    "fatal": false
+  },
+  "still_unavailable": [
+    "full_cash_capex",
+    "full_free_cash_flow",
+    "debt_ratio",
+    "memory_segment_identity",
+    "industry_supply_identity"
+  ],
+  "note": "No historical forecast recalculated. Old unmapped fields remain unchanged; this is a new versioned audit.",
+  "source_journal_sha256": "ffe85d54f1e805c898bfc31d941b66c680b2950cbe515716c5942be9e2a15cae",
+  "source_journal_file_sha256": "c88e2cc2aa6bffbd2360616013f964e207b6d36a1f42af2ecbd9f3473a406d5e"
+}
