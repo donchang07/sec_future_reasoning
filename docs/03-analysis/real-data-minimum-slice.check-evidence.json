@@ -1,0 +1,240 @@
+{
+  "feature": "real-data-minimum-slice",
+  "completion": "partial_blocked",
+  "checked_commit": "7c36073d74afc16ae21c44717ae12da2d90fa377",
+  "run_id": "427e887c-48e2-5b7f-af46-e64e621d6be8",
+  "prediction_timestamp": "2026-09-09T05:51:04.715969+00:00",
+  "data_mode": "live_forward",
+  "raw_snapshot_hash": "e8794c232727717feef50b95d845943b94788ce685ecac7521a43210b72be3c3",
+  "journal_sha256": "b74c172436e164e3989885d4a031970e66a5ae92ccb7a738ae31ddc3652e03cf",
+  "core_sha256": {
+    "decision.py": "63c5b4a3193481e0d863f3122ebe8fc20543ef0e759bd35ad5ecac9d5664bb34",
+    "engines.py": "74949c6bbbfcdc335f0f3b6a643672c62a8f6aa1a943a4636137a6420daa0d18",
+    "technical.py": "1514bb5dd637b20158cd2d3784d8967d627003ede431fd5a16fef306b8819f30"
+  },
+  "source_status": [
+    {
+      "source_id": "preferred_30m",
+      "instrument": "005935.KS",
+      "provider": "Yahoo Finance",
+      "authority": "public_vendor_fallback",
+      "raw_sha256": "a06e66248fea16e07b8ba1f49448faa9c9b11986ad8f9b751d80a0c710675304",
+      "status": "fresh",
+      "latest_effective_at": "2026-09-09T05:30:00Z",
+      "collected_at": "2026-09-09T05:51:03.751683Z",
+      "released_at": null,
+      "age_hours": 0.3513099913888889,
+      "rows": 263,
+      "excluded": {
+        "incomplete": 1,
+        "invalid": 0,
+        "off_grid": 1
+      },
+      "used_by_model": true,
+      "reason": null
+    },
+    {
+      "source_id": "preferred_daily",
+      "instrument": "005935.KS",
+      "provider": "Yahoo Finance",
+      "authority": "public_vendor_fallback",
+      "raw_sha256": "149d98acb7bb0f8a70e351aa6bcc764d460c59fdea59032a4ad17d4400cbba8b",
+      "status": "fresh",
+      "latest_effective_at": "2026-09-08T06:30:00Z",
+      "collected_at": "2026-09-09T05:51:04.650355Z",
+      "released_at": null,
+      "age_hours": 23.351309991388888,
+      "rows": 4931,
+      "excluded": {
+        "incomplete": 1,
+        "invalid": 4,
+        "off_grid": 0
+      },
+      "used_by_model": true,
+      "reason": null
+    },
+    {
+      "source_id": "common_daily",
+      "instrument": "005930.KS",
+      "provider": "Yahoo Finance",
+      "authority": "public_vendor_fallback",
+      "raw_sha256": "e6ad5ced6253dd57230e45434e1cada7b1fe93c3248b16ba98a7eff4daacf8ff",
+      "status": "fresh",
+      "latest_effective_at": "2026-09-08T06:30:00Z",
+      "collected_at": "2026-09-09T05:51:04.158652Z",
+      "released_at": null,
+      "age_hours": 23.351309991388888,
+      "rows": 4933,
+      "excluded": {
+        "incomplete": 1,
+        "invalid": 2,
+        "off_grid": 0
+      },
+      "used_by_model": true,
+      "reason": null
+    },
+    {
+      "source_id": "treasury_10y",
+      "instrument": "daily_par_yield_10y",
+      "provider": "US Treasury",
+      "authority": "official_original",
+      "raw_sha256": "fd268a7821a9e1d92ff817eb6b2a9b684f0b998baed60e381aad15694453a5a6",
+      "status": "fresh",
+      "latest_effective_at": "2026-09-09T03:59:59Z",
+      "collected_at": "2026-09-09T05:51:03.781911Z",
+      "released_at": null,
+      "age_hours": 1.8515877691666667,
+      "rows": 172,
+      "excluded": {},
+      "used_by_model": true,
+      "reason": null
+    },
+    {
+      "source_id": "usdkrw",
+      "instrument": "KRW=X",
+      "provider": "Yahoo Finance",
+      "authority": "public_vendor_fallback",
+      "raw_sha256": "9cc9b15aaac314c2b70e106b48fc51b889f511d13c3cd118330fd239af2f95f4",
+      "status": "fresh",
+      "latest_effective_at": "2026-09-08T22:59:59Z",
+      "collected_at": "2026-09-09T05:51:04.326133Z",
+      "released_at": null,
+      "age_hours": 6.851587769166667,
+      "rows": 218,
+      "excluded": {
+        "incomplete": 2,
+        "invalid": 43,
+        "off_grid": 0
+      },
+      "used_by_model": true,
+      "reason": null
+    },
+    {
+      "source_id": "kospi",
+      "instrument": "%5EKS11",
+      "provider": "Yahoo Finance",
+      "authority": "public_vendor_fallback",
+      "raw_sha256": "ffed448c14f211b655bc1c98b541722e68358b52f7c86be2f09c8fe3ee1ee837",
+      "status": "fresh",
+      "latest_effective_at": "2026-09-08T06:30:00Z",
+      "collected_at": "2026-09-09T05:51:04.327131Z",
+      "released_at": null,
+      "age_hours": 23.351309991388888,
+      "rows": 243,
+      "excluded": {
+        "incomplete": 1,
+        "invalid": 0,
+        "off_grid": 0
+      },
+      "used_by_model": false,
+      "reason": null
+    },
+    {
+      "source_id": "dxy",
+      "instrument": "DX-Y.NYB",
+      "provider": "Yahoo Finance",
+      "authority": "public_vendor_fallback",
+      "raw_sha256": "87fc7a152fdfa01191b5403fcf24a6d972027d24e68276dd740054b4e3773efc",
+      "status": "fresh",
+      "latest_effective_at": "2026-09-09T03:59:59Z",
+      "collected_at": "2026-09-09T05:51:04.715969Z",
+      "released_at": null,
+      "age_hours": 1.8515877691666667,
+      "rows": 251,
+      "excluded": {
+        "incomplete": 1,
+        "invalid": 52,
+        "off_grid": 0
+      },
+      "used_by_model": false,
+      "reason": null
+    },
+    {
+      "source_id": "foreign_net_buy",
+      "instrument": "foreign_net_buy",
+      "provider": "not_connected",
+      "authority": "unavailable",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unavailable",
+      "latest_effective_at": null,
+      "collected_at": "2026-09-09T05:51:04.326133Z",
+      "released_at": null,
+      "age_hours": null,
+      "rows": 0,
+      "excluded": {},
+      "used_by_model": false,
+      "reason": "ValueError: No verified source credentials/series; unavailable"
+    },
+    {
+      "source_id": "institution_net_buy",
+      "instrument": "institution_net_buy",
+      "provider": "not_connected",
+      "authority": "unavailable",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unavailable",
+      "latest_effective_at": null,
+      "collected_at": "2026-09-09T05:51:04.326133Z",
+      "released_at": null,
+      "age_hours": null,
+      "rows": 0,
+      "excluded": {},
+      "used_by_model": false,
+      "reason": "ValueError: No verified source credentials/series; unavailable"
+    },
+    {
+      "source_id": "program_net_buy",
+      "instrument": "program_net_buy",
+      "provider": "not_connected",
+      "authority": "unavailable",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unavailable",
+      "latest_effective_at": null,
+      "collected_at": "2026-09-09T05:51:04.326133Z",
+      "released_at": null,
+      "age_hours": null,
+      "rows": 0,
+      "excluded": {},
+      "used_by_model": false,
+      "reason": "ValueError: No verified source credentials/series; unavailable"
+    },
+    {
+      "source_id": "dram_contract_asp",
+      "instrument": "dram_contract_asp",
+      "provider": "not_connected",
+      "authority": "unavailable",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "unavailable",
+      "latest_effective_at": null,
+      "collected_at": "2026-09-09T05:51:04.326133Z",
+      "released_at": null,
+      "age_hours": null,
+      "rows": 0,
+      "excluded": {},
+      "used_by_model": false,
+      "reason": "ValueError: No verified source credentials/series; unavailable"
+    }
+  ],
+  "bar_counts": {
+    "1d": 4931,
+    "1mo": 239,
+    "1w": 1042,
+    "30m": 263
+  },
+  "execution_count": 114,
+  "success": 108,
+  "non_applicable": 30,
+  "insufficient_evidence": 6,
+  "pytest_passed": 109,
+  "prior_fixture_tests_passed": 89,
+  "raw_replay_equal": true,
+  "completion_criteria": {
+    "matched": 7,
+    "blocked": 2,
+    "total": 9
+  },
+  "blockers": [
+    "numeric_forecast_unavailable_critical_inputs_missing",
+    "accounting_identity_inputs_unavailable"
+  ],
+  "ci_url": "https://github.com/donchang07/sec_future_reasoning/actions/runs/34316550373"
+}
