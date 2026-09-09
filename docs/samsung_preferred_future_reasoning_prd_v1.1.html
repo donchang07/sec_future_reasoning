@@ -1,0 +1,32 @@
+Canonical PRD v1.1 is being published from the design artifact created in the ChatGPT architecture session. This file is the implementation baseline for the SEC Future Reasoning project.
+
+Core v1.1 requirements:
+- Preserve all v1.0/v0.9 product philosophy, 49-factor registry, 19 Future Reasoning Engines, ontology/knowledge graph, Neo4j, Supabase, prediction journal, explainability, and Golden Test principles.
+- The 19 Future Reasoning Engines determine direction probability and confidence for short (<=1 week), medium (~1 month), and long (~1 year) horizons.
+- Price Wave/Reversal is a separate timing layer, never an independent buy/sell engine.
+- Short timing uses 30-minute bars with daily context; medium uses daily bars with weekly context; long uses weekly bars with monthly context.
+- Bottom reversal considers oversold recovery, first/second low, double-bottom geometry, RSI bullish divergence, selling-volume contraction, volatility contraction, neckline breakout, fast/medium/slow trend reclaim, and liquidity/flow confirmation.
+- Top reversal is symmetric: overbought exhaustion, double top, RSI bearish divergence, volume/flow deterioration, neckline breakdown, and trend loss.
+- Multi-Timeframe Alignment determines whether the primary wave is structurally aligned with the higher timeframe.
+- Liquidity Confirmation uses foreign, institution, program, volume, and semiconductor relative flow.
+- Final ENTRY requires Future Upside >=80%, Bottom Reversal >=75%, Timeframe Alignment >=70%, Liquidity Confirmation >=60%, Model Confidence >=70%, and no fatal Challenger finding.
+- Final SELL requires Future Downside >=70%, Top Reversal >=65%, adequate confidence, and structural/liquidity confirmation. Thresholds are Policy v1.1 hypotheses subject to forward testing.
+- A technical reversal alone must never create ENTRY/SELL when the 19-engine direction layer does not confirm it.
+- Conversely, strong future direction without timing confirmation produces WAIT/HOLD, not entry/exit.
+- Technical wave evidence feeds back into Market Regime, Capital Flow, and Actor/Reflexivity reasoning, after which the Future Reasoning forecast is recomputed before the final decision.
+- Forecast and Decision Policy remain separate so decision thresholds cannot contaminate forecast probabilities.
+- Position-aware actions remain: the same forecast may yield WAIT for an uninvested user and HOLD for an invested user.
+- The system must support different simultaneous horizon signals, e.g. short SELL, medium HOLD, long ENTRY-preparation, without treating them as contradictory.
+- All engine-to-engine communication uses typed structured artifacts, not free-form LLM text.
+- Prediction Journal snapshots are immutable and versioned by data cutoff, ontology, graph, model, prompt, calibration, and decision-policy versions.
+- Golden tests must cover direction/timing agreement and disagreement, horizon divergence, false bottoms/tops, RSI/price divergence, neckline failures, liquidity non-confirmation, missing/stale/conflicting data, historical overfit, priced-in events, structural breaks, threshold boundaries, and feedback/recomputation.
+
+Implementation architecture:
+Real World/Data -> 19 Future Reasoning Engines -> Direction Probability by Horizon
+Market Price Data -> Price Wave/Reversal -> Timing Probability by Horizon
+Primary + Higher Timeframe -> Multi-Timeframe Alignment
+Foreign/Institution/Program/Volume -> Liquidity Confirmation
+Timing evidence -> feedback to Market Regime/Capital Flow/Actor-Reflexivity -> Future Reasoning recomputation
+Then Direction + Timing + Alignment + Liquidity + Confidence + Challenger -> Decision Engine -> ENTRY/WAIT/HOLD/SELL -> Prediction Journal -> Reality Review -> Learned Experience.
+
+This v1.1 document is the canonical implementation baseline. Historical v0.9 files are reference/history only.
