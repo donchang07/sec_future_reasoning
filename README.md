@@ -32,6 +32,8 @@ bkit-codex PDCA를 사용합니다. Plan과 Design은 반드시 canonical PRD v1
 
 ## 현재 구현
 
+실데이터 후속 기능 `real-data-minimum-slice`는 첫 live_forward 수집·Wave·Journal·replay를 구현했습니다. 기존 89개 포함 테스트 109개가 통과했습니다. DRAM/수급/회계 근거 부족으로 최종 확률은 `insufficient_evidence`이며 **Act에서 외부 데이터 확보 대기** 상태입니다. [실행법](docs/REAL_DATA.md), [실데이터 Check](docs/03-analysis/real-data-minimum-slice.analysis.md), [Act와 남은 조건](docs/04-report/real-data-minimum-slice.act.md)을 참고하세요.
+
 Foundation 계약과 E01–E19 최소 알고리즘을 구현했습니다. 합성 삼성전자우 fixture가 1주·1개월·1년 각각에서 추론→Wave/Alignment/Liquidity→기술 feedback 1회→Decision→Prediction Journal까지 실행됩니다. 114개 중간 EngineResult를 조회하고 contribution ledger와 전체 replay로 결과를 검증합니다.
 
 - [설치·fixture 실행·Journal 조회](docs/VERTICAL_SLICE.md)
