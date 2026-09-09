@@ -9,3 +9,4 @@ Pygments==2.21.0
 pytest==9.0.2
 typing-inspection==0.4.4
 typing_extensions==4.16.0
+tzdata==2026.3

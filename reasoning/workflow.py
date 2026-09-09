@@ -19,7 +19,7 @@ def source_identity():
     return digest.hexdigest(),commit
 
 
-def run_fixture(fixture: Fixture) -> RunJournal:
+def run_fixture(fixture: Fixture, runner_class=EngineRunner) -> RunJournal:
     source_hash,commit=source_identity();fixture_hash=canonical_hash(fixture)
     graph_hash=hashlib.sha256(''.join(e.model_dump_json() for e in fixture.edges).encode()).hexdigest()
     model=f'slice-v1:{source_hash}'
@@ -29,10 +29,10 @@ def run_fixture(fixture: Fixture) -> RunJournal:
         engines=tuple(EngineVersion(engine_id=e,version=model) for e in ENGINE_IDS))
     run_id=uid(f'{fixture_hash}/{canonical_hash(versions)}');records=[];horizons=[]
     for horizon in ('1w','1m','1y'):
-        baseline=EngineRunner(fixture,versions,run_id,horizon,0)
+        baseline=runner_class(fixture,versions,run_id,horizon,0)
         for engine in ENGINE_IDS:records.append(Execution(horizon=horizon,generation=0,engine_id=engine,result=baseline.execute(engine)))
         technical=technical_evidence(fixture,horizon,run_id)
-        final=EngineRunner(fixture,versions,run_id,horizon,1,technical)
+        final=runner_class(fixture,versions,run_id,horizon,1,technical)
         for engine in ENGINE_IDS:records.append(Execution(horizon=horizon,generation=1,engine_id=engine,result=final.execute(engine)))
         initial_forecast=baseline.get('E18').forecast if 'E18' in baseline.artifacts else None
         forecast=final.get('E18').forecast if 'E18' in final.artifacts else None
@@ -51,5 +51,5 @@ def run_fixture(fixture: Fixture) -> RunJournal:
         explanation+=f'One technical feedback pass; {decision.action}; gates: {", ".join(decision.reasons)}. Research fixture, unvalidated calibration.'
         horizons.append(HorizonOutput(horizon=horizon,initial=initial_forecast,final=forecast,positive_paths=positive,
             negative_paths=negative,technical=technical,decision=decision,explanation=explanation))
-    return RunJournal(run_id=run_id,data_cutoff=fixture.data_cutoff,versions=versions,fixture_hash=fixture_hash,source_hash=source_hash,
+    return RunJournal(data_mode=fixture.data_mode,run_id=run_id,data_cutoff=fixture.data_cutoff,versions=versions,fixture_hash=fixture_hash,source_hash=source_hash,
         input_fixture=fixture,observations=tuple(o for o in fixture.observations if o.available_at<=fixture.data_cutoff),horizons=tuple(horizons),executions=tuple(records))

@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Literal
 from uuid import UUID
 from pydantic import AwareDatetime, model_validator
-from .schemas.contracts import Contract, VersionBundle, Forecast, Observation, canonical_hash, canonical_json, ENGINE_IDS
+from .schemas.contracts import Contract, VersionBundle, Forecast, Observation, canonical_hash, canonical_json, ENGINE_IDS, DataMode
 from .schemas.artifacts import EngineResult, CausalPath
 from .technical import TechnicalEvidence
 from .decision import Decision
@@ -29,7 +29,8 @@ class HorizonOutput(Contract):
 
 
 class RunJournal(Contract):
-    schema_version: Literal['1.0.0'] = '1.0.0'
+    schema_version: Literal['1.0.0','1.1.0'] = '1.1.0'
+    data_mode: DataMode = 'synthetic_fixture'
     run_id: UUID
     data_cutoff: AwareDatetime
     versions: VersionBundle
@@ -42,8 +43,17 @@ class RunJournal(Contract):
 
     @model_validator(mode='after')
     def verify_structure(self):
-        if canonical_hash(self.input_fixture)!=self.fixture_hash or self.input_fixture.data_cutoff!=self.data_cutoff:
+        if self.schema_version=='1.0.0':
+            if self.data_mode!='synthetic_fixture' or self.input_fixture.data_mode!='synthetic_fixture':
+                raise ValueError('legacy journal cannot acquire a real data mode')
+            for o in self.observations+self.input_fixture.observations:
+                if o.collected_at is not None or o.released_at is not None or o.effective_at is not None or o.source_ref is not None:
+                    raise ValueError('legacy journal cannot acquire unsealed provenance')
+        fixture_hash=legacy_hash(self.input_fixture) if self.schema_version=='1.0.0' else canonical_hash(self.input_fixture)
+        if fixture_hash!=self.fixture_hash or self.input_fixture.data_cutoff!=self.data_cutoff:
             raise ValueError('fixture identity mismatch')
+        if self.input_fixture.data_mode!=self.data_mode or any(o.data_mode!=self.data_mode for o in self.observations):
+            raise ValueError('mixed data mode in journal')
         expected={(h,g,e) for h in ('1w','1m','1y') for g in (0,1) for e in ENGINE_IDS}
         actual=[(r.horizon,r.generation,r.engine_id) for r in self.executions]
         if len(actual)!=114 or set(actual)!=expected: raise ValueError('execution matrix incomplete')
@@ -82,7 +92,8 @@ class SealedRun(Contract):
 
     @model_validator(mode='after')
     def verify(self):
-        if self.sha256!=canonical_hash(self.snapshot):raise ValueError('journal hash mismatch')
+        expected=legacy_hash(self.snapshot) if self.snapshot.schema_version=='1.0.0' else canonical_hash(self.snapshot)
+        if self.sha256!=expected:raise ValueError('journal hash mismatch')
         return self
 
     @classmethod
@@ -101,3 +112,15 @@ def write_journal(path: Path,journal: SealedRun):
 
 
 def read_journal(path: Path):return SealedRun.model_validate_json(path.read_text(encoding='utf-8'))
+
+
+def legacy_hash(model):
+    """Verify original 1.0 bytes without rewriting or resealing the old snapshot."""
+    import hashlib,json
+    new_fields={'data_mode','released_at','collected_at','effective_at','source_ref','market_timezone','time_precision'}
+    def strip(value):
+        if isinstance(value,dict):return {k:strip(v) for k,v in value.items() if k not in new_fields}
+        if isinstance(value,list):return [strip(v) for v in value]
+        return value
+    raw=strip(json.loads(canonical_json(model)))
+    return hashlib.sha256(json.dumps(raw,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()

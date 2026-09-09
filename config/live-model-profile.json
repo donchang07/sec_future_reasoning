@@ -1,0 +1,523 @@
+{
+  "factors": [
+    {
+      "factor_id": "us_10y_yield",
+      "module": "macro",
+      "baseline": 4.0,
+      "scale": 1.0,
+      "sign": -1,
+      "root_group": "us_10y_yield",
+      "critical": true,
+      "unit": "percent",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "usdkrw",
+      "module": "macro",
+      "baseline": 1350.0,
+      "scale": 150.0,
+      "sign": -1,
+      "root_group": "usdkrw",
+      "critical": true,
+      "unit": "krw_per_usd",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "hyperscaler_capex",
+      "module": "ai_demand",
+      "baseline": 200000.0,
+      "scale": 50000.0,
+      "sign": 1,
+      "root_group": "hyperscaler_capex",
+      "critical": false,
+      "unit": "usd_million",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "gpu_demand_growth",
+      "module": "ai_demand",
+      "baseline": 15.0,
+      "scale": 20.0,
+      "sign": 1,
+      "root_group": "gpu_demand_growth",
+      "critical": false,
+      "unit": "percent",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "dram_contract_asp",
+      "module": "memory",
+      "baseline": 100.0,
+      "scale": 20.0,
+      "sign": 1,
+      "root_group": "dram_contract_asp",
+      "critical": true,
+      "unit": "index",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "hbm_demand",
+      "module": "memory",
+      "baseline": 100.0,
+      "scale": 30.0,
+      "sign": 1,
+      "root_group": "hbm_demand",
+      "critical": false,
+      "unit": "index",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "cxmt_memory_capacity",
+      "module": "supply",
+      "baseline": 100000.0,
+      "scale": 30000.0,
+      "sign": -1,
+      "root_group": "cxmt_memory_capacity",
+      "critical": false,
+      "unit": "wafers_per_month",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "samsung_eps",
+      "module": "earnings",
+      "baseline": 6000.0,
+      "scale": 1500.0,
+      "sign": 1,
+      "root_group": "samsung_eps",
+      "critical": false,
+      "unit": "krw_per_share",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "samsung_eps_revision",
+      "module": "earnings",
+      "baseline": 0.0,
+      "scale": 10.0,
+      "sign": 1,
+      "root_group": "samsung_eps_revision",
+      "critical": false,
+      "unit": "percent",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "foreign_net_buy",
+      "module": "capital_flow",
+      "baseline": 0.0,
+      "scale": 100000.0,
+      "sign": 1,
+      "root_group": "foreign_net_buy",
+      "critical": false,
+      "unit": "krw_million",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "institution_net_buy",
+      "module": "capital_flow",
+      "baseline": 0.0,
+      "scale": 100000.0,
+      "sign": 1,
+      "root_group": "institution_net_buy",
+      "critical": false,
+      "unit": "krw_million",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "program_net_buy",
+      "module": "capital_flow",
+      "baseline": 0.0,
+      "scale": 100000.0,
+      "sign": 1,
+      "root_group": "program_net_buy",
+      "critical": false,
+      "unit": "krw_million",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "semiconductor_relative_flow",
+      "module": "capital_flow",
+      "baseline": 0.0,
+      "scale": 0.1,
+      "sign": 1,
+      "root_group": "semiconductor_relative_flow",
+      "critical": false,
+      "unit": "ratio",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "samsung_forward_per",
+      "module": "valuation",
+      "baseline": 12.0,
+      "scale": 4.0,
+      "sign": -1,
+      "root_group": "samsung_forward_per",
+      "critical": false,
+      "unit": "ratio",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "equity_discount_rate",
+      "module": "valuation",
+      "baseline": 8.0,
+      "scale": 2.0,
+      "sign": -1,
+      "root_group": "equity_discount_rate",
+      "critical": false,
+      "unit": "percent",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "samsung_common_price",
+      "module": "preferred",
+      "baseline": 65000.0,
+      "scale": 10000.0,
+      "sign": 1,
+      "root_group": "samsung_common_price",
+      "critical": false,
+      "unit": "krw_per_share",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "samsung_preferred_price",
+      "module": "preferred",
+      "baseline": 52000.0,
+      "scale": 8000.0,
+      "sign": 1,
+      "root_group": "samsung_preferred_price",
+      "critical": true,
+      "unit": "krw_per_share",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "preferred_volume_z",
+      "module": "market_regime",
+      "baseline": 0.0,
+      "scale": 2.0,
+      "sign": 1,
+      "root_group": "preferred_volume_z",
+      "critical": false,
+      "unit": "z_score",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "preferred_trend_alignment",
+      "module": "market_regime",
+      "baseline": 0.0,
+      "scale": 1.0,
+      "sign": 1,
+      "root_group": "preferred_trend_alignment",
+      "critical": false,
+      "unit": "score",
+      "max_age_days": 45.0
+    },
+    {
+      "factor_id": "preferred_rsi_14",
+      "module": "market_regime",
+      "baseline": 50.0,
+      "scale": 30.0,
+      "sign": 1,
+      "root_group": "preferred_rsi_14",
+      "critical": false,
+      "unit": "rsi",
+      "max_age_days": 45.0
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "us_10y_yield_to_macro",
+      "source": "us_10y_yield",
+      "target": "module:macro",
+      "sign": -1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "usdkrw_to_macro",
+      "source": "usdkrw",
+      "target": "module:macro",
+      "sign": -1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "hyperscaler_capex_to_ai_demand",
+      "source": "hyperscaler_capex",
+      "target": "module:ai_demand",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "gpu_demand_growth_to_ai_demand",
+      "source": "gpu_demand_growth",
+      "target": "module:ai_demand",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "dram_contract_asp_to_memory",
+      "source": "dram_contract_asp",
+      "target": "module:memory",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "hbm_demand_to_memory",
+      "source": "hbm_demand",
+      "target": "module:memory",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "cxmt_memory_capacity_to_supply",
+      "source": "cxmt_memory_capacity",
+      "target": "module:supply",
+      "sign": -1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "samsung_eps_to_earnings",
+      "source": "samsung_eps",
+      "target": "module:earnings",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "samsung_eps_revision_to_earnings",
+      "source": "samsung_eps_revision",
+      "target": "module:earnings",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "foreign_net_buy_to_capital_flow",
+      "source": "foreign_net_buy",
+      "target": "module:capital_flow",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "institution_net_buy_to_capital_flow",
+      "source": "institution_net_buy",
+      "target": "module:capital_flow",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "program_net_buy_to_capital_flow",
+      "source": "program_net_buy",
+      "target": "module:capital_flow",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "semiconductor_relative_flow_to_capital_flow",
+      "source": "semiconductor_relative_flow",
+      "target": "module:capital_flow",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "samsung_forward_per_to_valuation",
+      "source": "samsung_forward_per",
+      "target": "module:valuation",
+      "sign": -1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "equity_discount_rate_to_valuation",
+      "source": "equity_discount_rate",
+      "target": "module:valuation",
+      "sign": -1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "samsung_common_price_to_preferred",
+      "source": "samsung_common_price",
+      "target": "module:preferred",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "samsung_preferred_price_to_preferred",
+      "source": "samsung_preferred_price",
+      "target": "module:preferred",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "preferred_volume_z_to_market_regime",
+      "source": "preferred_volume_z",
+      "target": "module:market_regime",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "preferred_trend_alignment_to_market_regime",
+      "source": "preferred_trend_alignment",
+      "target": "module:market_regime",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "preferred_rsi_14_to_market_regime",
+      "source": "preferred_rsi_14",
+      "target": "module:market_regime",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "ai_demand_to_price",
+      "source": "module:ai_demand",
+      "target": "preferred_price",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "capital_flow_to_price",
+      "source": "module:capital_flow",
+      "target": "preferred_price",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "earnings_to_price",
+      "source": "module:earnings",
+      "target": "preferred_price",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "macro_to_price",
+      "source": "module:macro",
+      "target": "preferred_price",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "market_regime_to_price",
+      "source": "module:market_regime",
+      "target": "preferred_price",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "memory_to_price",
+      "source": "module:memory",
+      "target": "preferred_price",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "preferred_to_price",
+      "source": "module:preferred",
+      "target": "preferred_price",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "supply_to_price",
+      "source": "module:supply",
+      "target": "preferred_price",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    },
+    {
+      "edge_id": "valuation_to_price",
+      "source": "module:valuation",
+      "target": "preferred_price",
+      "sign": 1,
+      "strength": 0.9,
+      "confidence": 0.95,
+      "lag_days": 0.0,
+      "duration_days": 1.0
+    }
+  ],
+  "seed": 240901,
+  "origin": "Frozen model metadata from fixture slice; no observations, bars, events or accounting values",
+  "core_sha256": {
+    "engines.py": "74949c6bbbfcdc335f0f3b6a643672c62a8f6aa1a943a4636137a6420daa0d18",
+    "technical.py": "1514bb5dd637b20158cd2d3784d8967d627003ede431fd5a16fef306b8819f30",
+    "decision.py": "63c5b4a3193481e0d863f3122ebe8fc20543ef0e759bd35ad5ecac9d5664bb34"
+  }
+}

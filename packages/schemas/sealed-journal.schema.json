@@ -1600,6 +1600,16 @@
           "title": "Artifacts",
           "type": "array"
         },
+        "data_mode": {
+          "default": "synthetic_fixture",
+          "enum": [
+            "synthetic_fixture",
+            "historical_replay",
+            "live_forward"
+          ],
+          "title": "Data Mode",
+          "type": "string"
+        },
         "forecast": {
           "$ref": "#/$defs/Forecast"
         },
@@ -1865,10 +1875,60 @@
           "title": "Available At",
           "type": "string"
         },
+        "collected_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Collected At"
+        },
+        "data_mode": {
+          "default": "synthetic_fixture",
+          "enum": [
+            "synthetic_fixture",
+            "historical_replay",
+            "live_forward"
+          ],
+          "title": "Data Mode",
+          "type": "string"
+        },
+        "effective_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective At"
+        },
         "factor_id": {
           "pattern": "^[a-z][a-z0-9_-]*$",
           "title": "Factor Id",
           "type": "string"
+        },
+        "market_timezone": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Market Timezone"
         },
         "observation_id": {
           "format": "uuid",
@@ -1885,6 +1945,19 @@
           "title": "Published At",
           "type": "string"
         },
+        "released_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Released At"
+        },
         "revision_id": {
           "minLength": 1,
           "pattern": "\\S",
@@ -1894,6 +1967,29 @@
         "source_id": {
           "pattern": "^[a-z][a-z0-9_-]*$",
           "title": "Source Id",
+          "type": "string"
+        },
+        "source_ref": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Ref"
+        },
+        "time_precision": {
+          "default": "second",
+          "enum": [
+            "date",
+            "second"
+          ],
+          "title": "Time Precision",
           "type": "string"
         },
         "unit": {

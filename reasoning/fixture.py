@@ -2,7 +2,7 @@
 from typing import Annotated, Literal
 from datetime import timedelta
 from pydantic import AwareDatetime, Field, model_validator
-from .schemas.contracts import Contract, Observation, Number, Probability, ModuleId, Slug
+from .schemas.contracts import Contract, Observation, Number, Probability, ModuleId, Slug, DataMode
 
 
 class FactorSpec(Contract):
@@ -76,6 +76,7 @@ class Accounting(Contract):
 
 
 class Fixture(Contract):
+    data_mode: DataMode = 'synthetic_fixture'
     fixture_version: str
     data_cutoff: AwareDatetime
     factors: tuple[FactorSpec,...]
@@ -84,7 +85,7 @@ class Fixture(Contract):
     edges: tuple[Edge,...]
     bars: dict[str,tuple[Bar,...]]
     history: tuple[HistoryCase,...]
-    accounting: Accounting
+    accounting: Accounting | None
     held: bool = False
     seed: int = 240901
 
@@ -94,6 +95,8 @@ class Fixture(Contract):
         if len(specs) != len(self.factors):
             raise ValueError('duplicate factor')
         for o in self.observations:
+            if o.data_mode != self.data_mode:
+                raise ValueError('mixed data mode in input batch')
             if o.factor_id not in specs or o.unit != specs[o.factor_id].unit:
                 raise ValueError('unknown factor or unit mismatch')
         for bars in self.bars.values():

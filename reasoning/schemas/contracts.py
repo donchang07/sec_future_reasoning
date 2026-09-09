@@ -21,6 +21,7 @@ Count = Annotated[int, Field(strict=True, ge=0)]
 EngineId = Literal["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10",
                    "E11", "E12", "E13", "E14", "E15", "E16", "E17", "E18", "E19"]
 ENGINE_IDS = tuple(f"E{i:02}" for i in range(1, 20))
+DataMode = Literal['synthetic_fixture', 'historical_replay', 'live_forward']
 Horizon = Literal["1d", "1w", "1m", "3m", "1y"]
 ModuleId = Literal["macro", "ai_demand", "memory", "supply", "earnings", "capital_flow",
                    "valuation", "preferred", "market_regime"]
@@ -60,6 +61,13 @@ class VersionBundle(Contract):
 
 
 class Observation(Contract):
+    data_mode: DataMode = 'synthetic_fixture'
+    released_at: AwareDatetime | None = None
+    collected_at: AwareDatetime | None = None
+    effective_at: AwareDatetime | None = None
+    source_ref: Text | None = None
+    market_timezone: Text | None = None
+    time_precision: Literal['date','second'] = 'second'
     observation_id: UUID
     factor_id: Slug
     source_id: Slug
@@ -74,6 +82,15 @@ class Observation(Contract):
     def chronology(self):
         if not self.observed_at <= self.published_at <= self.available_at:
             raise ValueError("observation chronology must be observed <= published <= available")
+        if self.data_mode != 'synthetic_fixture':
+            if self.collected_at is None or self.effective_at is None or not self.source_ref or not self.market_timezone:
+                raise ValueError('real observation needs collection/effective time and provenance')
+            if self.available_at < self.collected_at or self.effective_at > self.available_at:
+                raise ValueError('real observation known-at chronology')
+            if self.released_at is not None and self.released_at > self.collected_at:
+                raise ValueError('release cannot follow collection')
+            if self.released_at is None and self.published_at < self.collected_at:
+                raise ValueError('unknown release cannot be backdated')
         return self
 
 
@@ -195,6 +212,7 @@ def canonical_hash(model: Contract) -> str:
 
 
 class JournalSnapshot(Contract):
+    data_mode: DataMode = 'synthetic_fixture'
     forecast: Forecast
     observations: tuple[Observation, ...]
     artifacts: tuple[Artifact, ...] = ()
@@ -206,6 +224,8 @@ class JournalSnapshot(Contract):
         if len({x.artifact_id for x in self.artifacts}) != len(self.artifacts):
             raise ValueError("duplicate artifact in journal")
         for observation in self.observations:
+            if observation.data_mode != self.data_mode:
+                raise ValueError('mixed data mode in journal')
             if observation.available_at > self.forecast.data_cutoff:
                 raise ValueError("journal contains evidence unavailable at cutoff")
         for artifact in self.artifacts:
