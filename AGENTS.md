@@ -24,5 +24,8 @@ Golden test cases are release gates. Add tests before changing causal rules, hor
 ## Repository workflow
 Use docs/01-plan, docs/02-design, docs/03-analysis, and docs/04-report for PDCA artifacts. Keep implementation aligned with the PRD and run gap analysis after significant changes.
 
+### Document publishing and autonomy
+Publish newly created or updated project documents to the configured GitHub origin as each document is completed, including PDCA status updates. Check the staged scope and exclude secrets and unrelated local changes. Complete the current PDCA phase without routine confirmation questions; resolve reversible design choices using the PRD and record assumptions. User authorization covers document commits and pushes. Required tool and environment approval controls still apply.
+
 ## Security
 Never commit API keys, Supabase service-role keys, Neo4j passwords, brokerage credentials, or private data. Use environment variables and example files with placeholders only.

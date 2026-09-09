@@ -1,0 +1,873 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>삼성전자우 AI 미래추론 시스템 PRD</title><style>
+:root{
+--bg:#f4f7fa;--card:#fff;--text:#152235;--muted:#65778b;--line:#d8e1ea;
+--navy:#16395f;--blue:#2f6f91;--soft:#edf5fb;--green:#eaf6ef;--amber:#fff5d9;--red:#fdeeee;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;line-height:1.66}
+.wrap{max-width:1240px;margin:auto;padding:30px 22px 80px}
+.hero{background:linear-gradient(135deg,#102e4f,#2a587f);color:#fff;border-radius:22px;padding:42px 46px}
+.hero h1{margin:0 0 10px;font-size:34px;line-height:1.2}.hero p{margin:6px 0;color:#dbe8f3}.tag{display:inline-block;font-size:12px;border:1px solid rgba(255,255,255,.25);padding:5px 9px;border-radius:999px;margin-right:6px}
+nav{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-top:18px;position:sticky;top:8px;z-index:4}
+nav a{color:var(--navy);text-decoration:none;margin-right:13px;font-size:13px}
+section{background:#fff;border:1px solid var(--line);border-radius:17px;padding:28px 32px;margin-top:20px}
+h2{color:var(--navy);font-size:24px;margin:0 0 13px} h3{color:#284763;font-size:19px;margin:22px 0 8px} h4{color:#36556f;margin:16px 0 5px}
+p{margin:7px 0 12px}.small{font-size:12px;color:var(--muted)}
+.callout{background:var(--soft);border-left:5px solid var(--blue);padding:14px 17px;border-radius:9px;margin:14px 0}
+.rule{background:#fbfcfe;border-left:4px solid #8aa8bf;padding:12px 15px;border-radius:8px;margin:9px 0}.rule b{display:block;color:#203b59}.id{font-size:12px;color:var(--blue);font-weight:700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#fbfcfe;border:1px solid var(--line);border-radius:13px;padding:16px}
+table{width:100%;border-collapse:collapse;margin:12px 0}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f0f4f8;color:#29445f}
+pre{background:#101923;color:#dbe7f2;border-radius:11px;padding:16px;overflow:auto;font-size:12.5px;line-height:1.5}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.viz{margin:15px 0;border:1px solid var(--line);border-radius:14px;padding:13px;background:#fbfcfe;overflow-x:auto}
+.vt{font-weight:700;color:#294663;margin:2px 4px 8px}.viz svg{width:100%;min-width:820px;height:auto}.viz rect{fill:#fff;stroke:#91a4b6;stroke-width:1.4}.viz text{text-anchor:middle;fill:#182333;font-size:13px}.viz text.sm{font-size:11px;fill:#66778c}.viz path.edge{fill:none;stroke:#60758a;stroke-width:2}
+.chip{display:inline-block;background:#eef3f7;border:1px solid #d8e1ea;padding:3px 8px;border-radius:999px;font-size:12px;margin:2px 3px 2px 0}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px}
+@media(max-width:800px){.wrap{padding:14px 10px 50px}.hero{padding:28px 22px}.hero h1{font-size:27px}.grid2,.grid3{grid-template-columns:1fr}section{padding:21px 18px}nav{position:static}}
+ .tests{font-size:10.5px}.tests td,.tests th{padding:5px}.engine{border:1px solid #d8e1ea;border-radius:12px;margin:14px 0;padding:12px}.io{display:grid;grid-template-columns:1fr 1.45fr 1fr;gap:8px}.io>div{border:1px solid #e2e8ee;background:#fbfcfe;border-radius:8px;padding:9px}@media(max-width:850px){.io{grid-template-columns:1fr}}</style><style>.registry{width:100%;border-collapse:collapse;font-size:12px}.registry th,.registry td{padding:8px;border-bottom:1px solid #d8e1ea;vertical-align:top}.registry th{background:#eef3f7;color:#29445f;position:sticky;top:0}.registry .mod{font-weight:700;color:#17395f;white-space:nowrap}.legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.legend span{background:#eef3f7;border:1px solid #d8e1ea;border-radius:999px;padding:4px 9px;font-size:12px}.wire{border:1px solid #d8e1ea;border-radius:12px;padding:14px;background:#fbfcfe;margin:12px 0;overflow:auto}.wire svg{width:100%;min-width:900px;height:auto}.wire rect{fill:#fff;stroke:#91a4b6;stroke-width:1.3}.wire text{text-anchor:middle;fill:#182333;font-size:12px}.wire .sm{font-size:10px;fill:#66778c}</style><style>
+.horizon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.hz{border:1px solid #d8e1ea;border-radius:12px;padding:15px;background:#fbfcfe}.hz h4{margin:0 0 7px;color:#17395f}.journal{background:#101923;color:#dbe7f2;border-radius:11px;padding:16px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+@media(max-width:800px){.horizon-grid{grid-template-columns:1fr}}
+</style><style>.eng{border:1px solid #d8e1ea;border-radius:10px;margin:12px 0;padding:13px}.eng h3{margin:0 0 8px;color:#17395f}.io{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:8px}.io div{background:#fbfcfe;border:1px solid #e0e6ed;border-radius:8px;padding:9px}.tc{font-size:11px}.tc td,.tc th{padding:6px}@media(max-width:800px){.io{grid-template-columns:1fr}}</style></head>
+<body><div class="wrap"><header class="hero"><span class="tag">v1.1</span><span class="tag">Product Requirements Document</span><h1>삼성전자우 AI 미래추론 시스템 PRD</h1><p>Ontology·Knowledge Graph·Neo4j·Supabase·Vercel·GitHub·화면까지 내려간 실제 구축 사양</p></header>
+<nav><a href="#s1">목표</a><a href="#s2">World Model</a><a href="#s3">Ontology/Graph</a><a href="#s4">Supabase</a><a href="#s5">Engine</a><a href="#s6">API</a><a href="#s7">화면</a><a href="#s8">GitHub/Vercel</a><a href="#s9">검증</a></nav>
+
+<section id="s1"><h2>1. 제품 목표와 Output</h2>
+<div class="callout">삼성전자우 가격을 직접 맞히는 모델이 아니라, 가격을 만들어내는 경제·산업·기업·수급·Valuation 시스템을 지속 관측하고 가능한 미래를 확률로 설명하는 AI Future Reasoning System을 구축한다.</div>
+<table><tr><th>Horizon</th><th>필수 Output</th></tr>
+<tr><td>1 Day</td><td>상승/하락/횡보, 장중 Risk Event, Flow/Regime 중심.</td></tr>
+<tr><td>1 Week</td><td>Macro Event, 수급, 기술적 Regime, 단기 Catalyst.</td></tr>
+<tr><td>1 Month</td><td>금리·환율·Memory 가격·Earnings revision·외국인.</td></tr>
+<tr><td>3 Months</td><td>AI Demand, Memory supply/demand, EPS, Valuation, Policy path.</td></tr></table>
+<p>각 Horizon은 Probability 3개 합계 100%, Price Range, Model Confidence, Top Positive Drivers, Top Negative Drivers, What Would Change My Mind를 반환한다.</p>
+</section>
+
+<section id="s2"><h2>2. 9개 Module과 전체 Causal System</h2>
+<div class="viz"><div class="vt">삼성전자우 9-Module World Model</div><svg viewBox="0 0 1250 600"><defs><marker id="sa" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#60758a"/></marker></defs>
+<g><rect x="35" y="40" width="190" height="78" rx="12"/><rect x="270" y="40" width="190" height="78" rx="12"/><rect x="505" y="40" width="190" height="78" rx="12"/><rect x="740" y="40" width="190" height="78" rx="12"/><rect x="975" y="40" width="190" height="78" rx="12"/>
+<rect x="155" y="250" width="190" height="78" rx="12"/><rect x="430" y="250" width="190" height="78" rx="12"/><rect x="705" y="250" width="190" height="78" rx="12"/><rect x="980" y="250" width="190" height="78" rx="12"/><rect x="470" y="460" width="320" height="92" rx="15"/></g>
+<g><text x="130" y="68">Macro</text><text x="130" y="91" class="sm">Rates · FX · CPI · Oil</text><text x="365" y="68">AI Demand</text><text x="365" y="91" class="sm">CAPEX · Usage · GPU</text><text x="600" y="68">Memory</text><text x="600" y="91" class="sm">HBM · DRAM · ASP</text><text x="835" y="68">Supply</text><text x="835" y="91" class="sm">Fab · CXMT · Bit</text><text x="1070" y="68">Market Regime</text><text x="1070" y="91" class="sm">Trend · Vol · Heat</text>
+<text x="250" y="278">Samsung Earnings</text><text x="250" y="301" class="sm">Margin · EPS · FCF</text><text x="525" y="278">Capital Flow</text><text x="525" y="301" class="sm">Foreign · Institution</text><text x="800" y="278">Valuation</text><text x="800" y="301" class="sm">PER · PBR · Risk Premium</text><text x="1075" y="278">Preferred Share</text><text x="1075" y="301" class="sm">Discount · Dividend</text><text x="630" y="492">Final Forecast Engine</text><text x="630" y="518" class="sm">1D · 1W · 1M · 3M Probability + Price Range + Confidence</text></g>
+<g marker-end="url(#sa)"><path class="edge" d="M365 118 C365 180,250 180,250 250"/><path class="edge" d="M600 118 C600 180,250 180,250 250"/><path class="edge" d="M835 118 C835 185,600 185,600 118"/><path class="edge" d="M130 118 C130 190,525 190,525 250"/><path class="edge" d="M130 118 C130 190,800 190,800 250"/><path class="edge" d="M1070 118 C1070 190,800 190,800 250"/><path class="edge" d="M250 328 C250 400,540 400,540 460"/><path class="edge" d="M525 328 V460"/><path class="edge" d="M800 328 C800 400,690 400,690 460"/><path class="edge" d="M1075 328 C1075 410,750 410,750 460"/></g></svg></div>
+<table><tr><th>Module</th><th>대표 Factor</th><th>Update</th><th>Output</th></tr>
+<tr><td>Macro</td><td>US 2Y/10Y, Fed, CPI, Employment, DXY, USD/KRW, Oil</td><td>실시간/발표</td><td>macro_state, confidence, edge_shocks</td></tr>
+<tr><td>AI Demand</td><td>Hyperscaler CAPEX, GPU/HBM demand, AI revenue/usage</td><td>일/분기/Event</td><td>ai_demand_state</td></tr>
+<tr><td>Memory</td><td>HBM, DRAM ASP, Inventory, bit growth</td><td>주/월</td><td>memory_cycle_state</td></tr>
+<tr><td>Supply</td><td>Samsung/SKH/Micron/CXMT capacity, fab schedule</td><td>월/분기</td><td>supply_pressure_state</td></tr>
+<tr><td>Earnings</td><td>Revenue, margin, EPS, FCF, revisions</td><td>일/분기</td><td>earnings_state</td></tr>
+<tr><td>Capital Flow</td><td>외국인·기관·프로그램·환율</td><td>일/장중</td><td>flow_state</td></tr>
+<tr><td>Valuation</td><td>PER, PBR, ERP, discount rate</td><td>일</td><td>valuation_state</td></tr>
+<tr><td>Preferred</td><td>Common/Preferred spread, dividend, liquidity</td><td>일</td><td>preferred_relative_state</td></tr>
+<tr><td>Market Regime</td><td>Trend, volatility, volume, overheat</td><td>장중/일</td><td>regime_state</td></tr></table>
+</section>
+
+<section id="s3"><h2>3. Ontology → Knowledge Graph → Neo4j 구현</h2>
+<h3>3.1 Ontology는 코드와 문서로 먼저 정의</h3>
+<p>Ontology는 확률을 계산하지 않는다. 공통 의미를 고정하는 역할만 한다. 초기 v1.1에서는 OWL/RDF를 강제하지 않고 YAML/JSON Schema로 관리한 뒤 Neo4j Label/Relationship 모델로 투영한다.</p>
+<pre>ontology/
+  entities.yaml
+  factors.yaml
+  relationships.yaml
+  modules.yaml
+  evidence_types.yaml
+  regimes.yaml
+
+EntityType:
+  Company: [SamsungElectronics, SKHynix, Micron, CXMT]
+  Security: [SamsungCommon, SamsungPreferred]
+  MacroVariable: [US10Y, DXY, USDKRW, CPI]
+  IndustryVariable: [DRAM_ASP, HBM_Demand, Inventory]
+  Event: [FOMC, CPIRelease, EarningsRelease]
+  Module: [Macro, Memory, Valuation, ...]</pre>
+
+<h3>3.2 Neo4j Node/Relationship Schema</h3>
+<div class="viz"><div class="vt">Neo4j Sample Graph</div><svg viewBox="0 0 1100 360"><defs><marker id="sb" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#60758a"/></marker></defs>
+<g><rect x="35" y="45" width="170" height="70" rx="11"/><rect x="250" y="45" width="170" height="70" rx="11"/><rect x="465" y="45" width="170" height="70" rx="11"/><rect x="680" y="45" width="170" height="70" rx="11"/><rect x="895" y="45" width="170" height="70" rx="11"/><rect x="465" y="235" width="200" height="78" rx="12"/></g>
+<g><text x="120" y="71">AI_CAPEX</text><text x="120" y="94" class="sm">Factor</text><text x="335" y="71">HBM_Demand</text><text x="335" y="94" class="sm">Factor</text><text x="550" y="71">DRAM_ASP</text><text x="550" y="94" class="sm">Factor</text><text x="765" y="71">Samsung_EPS</text><text x="765" y="94" class="sm">Factor</text><text x="980" y="71">Fair_Value</text><text x="980" y="94" class="sm">State</text><text x="565" y="264">SamsungPreferred</text><text x="565" y="287" class="sm">Security</text></g>
+<g marker-end="url(#sb)"><path class="edge" d="M205 80 H250"/><path class="edge" d="M420 80 H465"/><path class="edge" d="M635 80 H680"/><path class="edge" d="M850 80 H895"/><path class="edge" d="M980 115 C980 190,630 190,630 235"/></g></svg></div>
+<pre>Node labels
+(:Entity {id, type, name})
+(:Factor {id, name, unit, module_id})
+(:Module {id, name})
+(:Evidence {id, source_type, source_ref, observed_at, confidence})
+(:Event {id, event_type, occurred_at})
+(:Regime {id, name})
+(:Forecast {id, horizon, created_at})
+
+Relationship types
+(:Factor)-[:AFFECTS {
+  direction: 1|-1,
+  strength: 0.0..1.0,
+  confidence: 0.0..1.0,
+  lag_hours: integer,
+  regime_scope: string,
+  valid_from: datetime,
+  valid_to: datetime|null
+}]->(:Factor|:State)
+
+(:Evidence)-[:SUPPORTS|CONTRADICTS]->(:Factor|:Relationship)
+(:Factor)-[:BELONGS_TO]->(:Module)
+(:Forecast)-[:USES_GRAPH_VERSION]->(:GraphVersion)</pre>
+
+<h3>3.3 초기 Cypher 제약/인덱스</h3>
+<pre>CREATE CONSTRAINT factor_id_unique IF NOT EXISTS
+FOR (n:Factor) REQUIRE n.id IS UNIQUE;
+
+CREATE CONSTRAINT module_id_unique IF NOT EXISTS
+FOR (n:Module) REQUIRE n.id IS UNIQUE;
+
+CREATE INDEX factor_name_idx IF NOT EXISTS
+FOR (n:Factor) ON (n.name);</pre>
+<p class="small">Neo4j는 schema-free/open-schema 특성을 가지므로 v1.1에서는 안정적인 id/핵심 필드만 constraint로 고정하고 Factor/Edge는 확장 가능하게 둔다.</p>
+</section>
+
+<section id="s4"><h2>4. Supabase 운영 DB 설계</h2>
+<div class="callout">Neo4j가 관계의 기억이라면 Supabase/Postgres는 시간과 운영의 기억이다.</div>
+<h3>4.1 핵심 Table</h3>
+<table><tr><th>Table</th><th>핵심 컬럼</th><th>용도</th></tr>
+<tr><td>factor_definitions</td><td>factor_id, module_id, unit, cadence</td><td>Factor master</td></tr>
+<tr><td>factor_observations</td><td>factor_id, observed_at, value, source_id, confidence</td><td>시계열 Raw/Processed</td></tr>
+<tr><td>events</td><td>event_type, occurred_at, payload, source</td><td>FOMC/CPI/실적 등</td></tr>
+<tr><td>module_states</td><td>module_id, as_of, score, direction, confidence, explanation</td><td>Module Snapshot</td></tr>
+<tr><td>forecasts</td><td>horizon, up_prob, down_prob, flat_prob, price_low/high, confidence</td><td>예측 결과</td></tr>
+<tr><td>forecast_contributions</td><td>forecast_id, factor_id/module_id, contribution_pp</td><td>왜 65%인지</td></tr>
+<tr><td>prediction_journals</td><td>forecast_id, graph_version, data_cutoff, main_hypothesis</td><td>사후변경 금지 Snapshot</td></tr>
+<tr><td>actual_outcomes</td><td>forecast_id, realized_return, realized_path</td><td>실제결과</td></tr>
+<tr><td>reviews</td><td>forecast_id, reviewer, error_type, notes</td><td>Human+AI 검증</td></tr>
+<tr><td>learned_experiences</td><td>pattern, regime, lesson, reliability</td><td>경험 기억</td></tr></table>
+
+<h3>4.2 SQL Sample</h3>
+<pre>create table factor_observations (
+  id bigint generated always as identity primary key,
+  factor_id text not null,
+  observed_at timestamptz not null,
+  value numeric,
+  value_json jsonb,
+  source_id text,
+  confidence numeric check (confidence between 0 and 1),
+  created_at timestamptz default now(),
+  unique(factor_id, observed_at, source_id)
+);
+
+create index factor_obs_lookup
+on factor_observations(factor_id, observed_at desc);</pre>
+
+<h3>4.3 Scheduler</h3>
+<p>Supabase Cron 또는 외부 scheduler가 ingestion job을 호출한다. 데이터 수집 → validation → observation insert → affected module 재계산 → forecast invalidation → new forecast 생성의 순서다.</p>
+<pre>08:00 KST  macro_daily
+15:40 KST  korea_close_flow
+22:00 KST  industry_daily
+on_event   FOMC / CPI / earnings
+weekly     memory_supply_refresh
+monthly    model_calibration</pre>
+</section>
+
+<section id="s5"><h2>5. Reasoning/Simulation Engine</h2>
+<h3>5.1 Python Service 구조</h3>
+<pre>services/
+  ingestion/
+  verification/
+  modules/
+    macro.py
+    ai_demand.py
+    memory.py
+    supply.py
+    earnings.py
+    capital_flow.py
+    valuation.py
+    preferred.py
+    market_regime.py
+  graph/
+    neo4j_repository.py
+    causal_propagation.py
+  probability/
+    prior.py
+    bayesian_update.py
+    calibration.py
+  simulation/
+    scenarios.py
+    monte_carlo.py
+    counterfactual.py
+  learning/
+    similarity.py
+    review.py
+    experience_weighting.py
+  api/
+    forecast.py
+    graph.py
+    modules.py</pre>
+
+<h3>5.2 공통 Module Contract</h3>
+<pre>{
+  "module_id": "memory",
+  "as_of": "2026-09-09T09:00:00+09:00",
+  "state_score": 88,
+  "direction": "positive",
+  "confidence": 0.90,
+  "top_factors": [
+    {"factor_id":"dram_asp","contribution":6.0},
+    {"factor_id":"hbm_demand","contribution":5.0}
+  ],
+  "outgoing_effects": [
+    {"target":"earnings","effect":0.71,"lag_days":30}
+  ]
+}</pre>
+
+<h3>5.3 Probability 계산 규칙 v1.1</h3>
+<p>처음부터 복잡한 Bayesian Network를 강제하지 않는다. v1.1는 설명 가능성을 우선하여 calibrated log-odds + causal contributions + historical relevance adjustment로 시작하고, 실제 Forward Test가 쌓이면 Bayesian Network/structural causal model로 교체 가능하게 한다.</p>
+<pre>1. Horizon별 prior 산출
+2. 최신 Module State → evidence likelihood 변환
+3. Causal Graph로 중복/상쇄/lag 적용
+4. Historical Experience는 relevance gate 통과분만 적용
+5. Challenger penalty 적용
+6. up/down/flat normalize
+7. calibration layer 적용
+8. 모든 delta를 forecast_contributions에 저장</pre>
+</section>
+
+<section id="s6"><h2>6. API와 Agent Orchestration</h2>
+<h3>6.1 API</h3>
+<table><tr><th>Endpoint</th><th>기능</th></tr>
+<tr><td>GET /api/forecast?horizon=1m</td><td>현재 확률·가격범위·Confidence·Top Drivers</td></tr>
+<tr><td>GET /api/system-map</td><td>9 Module 및 활성 Edge</td></tr>
+<tr><td>GET /api/modules/{id}</td><td>Module State와 Factor drill-down</td></tr>
+<tr><td>GET /api/factors/{id}</td><td>시계열·Evidence·History·Causal neighbors</td></tr>
+<tr><td>POST /api/scenarios</td><td>What-if Factor override 후 재시뮬레이션</td></tr>
+<tr><td>GET /api/forecast/{id}/explain</td><td>왜 65%인지 Contribution/Path 반환</td></tr>
+<tr><td>POST /api/reviews</td><td>Human review 저장</td></tr></table>
+
+<h3>6.2 Orchestration</h3>
+<div class="viz"><div class="vt">Job Orchestration</div><svg viewBox="0 0 1150 220"><defs><marker id="sc" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#60758a"/></marker></defs><g>
+<rect x="25" y="65" width="150" height="65" rx="11"/><rect x="195" y="65" width="150" height="65" rx="11"/><rect x="365" y="65" width="150" height="65" rx="11"/><rect x="535" y="65" width="150" height="65" rx="11"/><rect x="705" y="65" width="150" height="65" rx="11"/><rect x="875" y="65" width="150" height="65" rx="11"/></g><g>
+<text x="100" y="91">Ingest</text><text x="100" y="111" class="sm">API/News/Market</text><text x="270" y="91">Verify</text><text x="270" y="111" class="sm">Fact/Conflict</text><text x="440" y="91">Update State</text><text x="440" y="111" class="sm">Affected Modules</text><text x="610" y="91">Propagate</text><text x="610" y="111" class="sm">Neo4j Causal</text><text x="780" y="91">Forecast</text><text x="780" y="111" class="sm">Probability</text><text x="950" y="91">Journal</text><text x="950" y="111" class="sm">Immutable Snapshot</text></g>
+<g marker-end="url(#sc)"><path class="edge" d="M175 97 H195"/><path class="edge" d="M345 97 H365"/><path class="edge" d="M515 97 H535"/><path class="edge" d="M685 97 H705"/><path class="edge" d="M855 97 H875"/></g></svg></div>
+</section>
+
+<section id="s7"><h2>7. 화면 정의 — High-Resolution Causal UI</h2>
+<h3>7.1 Screen A: System Map</h3>
+<div class="viz"><div class="vt">System Map Sample</div><svg viewBox="0 0 1300 620"><defs><marker id="sd" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#60758a"/></marker></defs>
+<g><rect x="30" y="30" width="180" height="78" rx="12"/><rect x="250" y="30" width="180" height="78" rx="12"/><rect x="470" y="30" width="180" height="78" rx="12"/><rect x="690" y="30" width="180" height="78" rx="12"/><rect x="910" y="30" width="180" height="78" rx="12"/>
+<rect x="145" y="240" width="190" height="80" rx="12"/><rect x="410" y="240" width="190" height="80" rx="12"/><rect x="675" y="240" width="190" height="80" rx="12"/><rect x="940" y="240" width="190" height="80" rx="12"/>
+<rect x="425" y="450" width="350" height="110" rx="15"/></g>
+<g><text x="120" y="57">Macro</text><text x="120" y="79" class="sm">-62 · Conf .84 · -8%p</text><text x="340" y="57">AI Demand</text><text x="340" y="79" class="sm">+74 · .78 · +7%p</text><text x="560" y="57">Memory</text><text x="560" y="79" class="sm">+88 · .90 · +12%p</text><text x="780" y="57">Supply</text><text x="780" y="79" class="sm">+28 · .70 · +3%p</text><text x="1000" y="57">Regime</text><text x="1000" y="79" class="sm">+20 · .72 · -2%p</text>
+<text x="240" y="268">Earnings</text><text x="240" y="291" class="sm">+6%p</text><text x="505" y="268">Capital Flow</text><text x="505" y="291" class="sm">+5%p</text><text x="770" y="268">Valuation</text><text x="770" y="291" class="sm">-4%p</text><text x="1035" y="268">Preferred</text><text x="1035" y="291" class="sm">+3%p</text><text x="600" y="482">1 Month Forecast</text><text x="600" y="512">상승 65% · 하락 30% · 횡보 5%</text><text x="600" y="538" class="sm">Confidence .79 · Δ vs yesterday +4%p</text></g>
+<g marker-end="url(#sd)"><path class="edge" d="M340 108 C340 180,240 180,240 240"/><path class="edge" d="M560 108 C560 180,240 180,240 240"/><path class="edge" d="M120 108 C120 180,505 180,505 240"/><path class="edge" d="M120 108 C120 180,770 180,770 240"/><path class="edge" d="M780 108 C780 180,770 180,770 240"/><path class="edge" d="M1000 108 C1000 180,1035 180,1035 240"/><path class="edge" d="M240 320 C240 400,500 400,500 450"/><path class="edge" d="M505 320 V450"/><path class="edge" d="M770 320 C770 400,680 400,680 450"/><path class="edge" d="M1035 320 C1035 410,740 410,740 450"/></g></svg></div>
+<p>각 Module 카드에는 State, Confidence, Contribution, Update Time, Trend arrow를 표시한다. Edge는 방향, sign, strength, lag를 tooltip과 detail panel에 제공한다.</p>
+
+<h3>7.2 Screen B: Module Detail</h3>
+<div class="grid2"><div class="card"><h4>좌측: Factor Graph</h4><p>Memory 클릭 시 HBM Demand, DRAM ASP, Inventory, Bit Growth, Samsung Capacity, CXMT Capacity를 노드로 표시한다. 각 노드에 최신값, 단위, 방향, Module 기여 ±%p를 보여준다.</p></div>
+<div class="card"><h4>우측: Module State Panel</h4><p>State +88, Confidence .90, 최근 30일 변화, Top 3 positive/negative factors, downstream impact, next scheduled update를 표시한다.</p></div></div>
+
+<h3>7.3 Screen C: Factor Detail</h3>
+<table><tr><th>영역</th><th>표시</th></tr>
+<tr><td>Header</td><td>DRAM ASP, latest, change, percentile, confidence, source freshness.</td></tr>
+<tr><td>Chart</td><td>시계열 + FOMC/실적/가격변화 Event marker.</td></tr>
+<tr><td>Incoming/Outgoing</td><td>어디서 영향을 받고 어디로 전달하는지 causal neighbors.</td></tr>
+<tr><td>Contribution</td><td>Module 기여 +6%p, Final Forecast 기여 +4.5%p.</td></tr>
+<tr><td>History</td><td>유사사례 수, similarity, 당시 outcome, 현재 반영 weight.</td></tr>
+<tr><td>Evidence</td><td>공식/산업/뉴스 source, support/contradict, confidence.</td></tr></table>
+
+<h3>7.4 Screen D: Why 65%?</h3>
+<table><tr><th>Step</th><th>Contribution</th></tr>
+<tr><td>Prior</td><td>50%</td></tr><tr><td>Memory</td><td>+12%p</td></tr><tr><td>AI Demand</td><td>+7%p</td></tr><tr><td>Capital Flow</td><td>+5%p</td></tr><tr><td>Earnings</td><td>+6%p</td></tr><tr><td>Macro</td><td>-8%p</td></tr><tr><td>Valuation/Regime</td><td>-5%p</td></tr><tr><td>Historical Experience</td><td>-4%p</td></tr><tr><td>Interaction/Calibration</td><td>+2%p</td></tr><tr><th>Final</th><th>65%</th></tr></table>
+
+<h3>7.5 Screen E: Scenario Lab</h3>
+<p>슬라이더/입력으로 US10Y, USDKRW, DRAM ASP, AI CAPEX, CXMT capacity 등을 변경한다. 변경 즉시 영향받는 Factor→Module→Forecast Edge가 강조되고 기존 65%가 새 확률로 변하는 과정을 보여준다.</p>
+</section>
+
+<section id="s8"><h2>8. GitHub + Vercel + 환경 구성</h2>
+<h3>8.1 GitHub Repository</h3>
+<pre>future-reasoning-samsung/
+  apps/
+    web/                  # Next.js
+    reasoning-api/        # Python API
+  packages/
+    schemas/              # JSON Schema / ontology
+    ui/
+  infra/
+    supabase/
+      migrations/
+      seed.sql
+    neo4j/
+      constraints.cypher
+      seed.cypher
+  docs/
+    prd/
+    ontology/
+    causal-model/
+  .github/
+    workflows/
+      test.yml
+      deploy-staging.yml
+      deploy-production.yml</pre>
+
+<h3>8.2 Branch/Environment</h3>
+<table><tr><th>Branch</th><th>Environment</th><th>Rule</th></tr>
+<tr><td>feature/*</td><td>local/preview</td><td>PR required</td></tr>
+<tr><td>develop</td><td>staging</td><td>자동 test + preview deploy</td></tr>
+<tr><td>main</td><td>production</td><td>required review + migration check</td></tr></table>
+
+<h3>8.3 Secrets</h3>
+<pre>SUPABASE_URL
+SUPABASE_PUBLISHABLE_KEY
+SUPABASE_SERVICE_ROLE_KEY      # server only
+NEO4J_URI
+NEO4J_USERNAME
+NEO4J_PASSWORD
+LLM_API_KEY
+INGESTION_API_KEYS...</pre>
+<p>Service Role/Neo4j password는 브라우저로 노출하지 않는다. GitHub Environment secrets와 Vercel Environment Variables에서 dev/staging/prod를 분리한다.</p>
+
+<h3>8.4 Vercel</h3>
+<p>Next.js Web을 Vercel에 배포한다. Preview Deployment는 PR마다 생성하고 production은 main merge 후 배포한다. 화면이 호출하는 민감 API는 server route 또는 별도 Python service를 경유한다. 정기 작업은 Supabase Cron을 기본으로 사용하고 UI와 밀접한 단순 job만 Vercel Cron 후보로 둔다.</p>
+</section>
+
+<section id="s9"><h2>9. 구현 순서와 Acceptance Criteria</h2>
+<h3>9.1 Sprint 순서</h3>
+<ol>
+<li>Repository + Supabase + Neo4j + Vercel staging 생성.</li>
+<li>Ontology YAML과 9개 Module/Factor master 정의.</li>
+<li>Supabase migrations와 Neo4j constraints/seed 적용.</li>
+<li>5개 핵심 Factor부터 ingestion: Samsung common/preferred, US10Y, USDKRW, foreign flow.</li>
+<li>System Map read-only UI 구현.</li>
+<li>Memory/Macro Module engine 구현.</li>
+<li>Forecast v0.1 + Why Probability 화면 구현.</li>
+<li>Prediction Journal 자동 저장.</li>
+<li>Memory/Supply/Earnings/Valuation 확장.</li>
+<li>Scenario Lab + Human Review + Learned Experience 구현.</li>
+</ol>
+
+<h3>9.2 MVP Acceptance</h3>
+<table><tr><th>기능</th><th>완료 조건</th></tr>
+<tr><td>System Map</td><td>9개 Module과 주요 Edge가 한 화면에 보이고 Module 클릭 가능.</td></tr>
+<tr><td>Factor Detail</td><td>최신값, 시계열, Evidence, causal neighbors, contribution 표시.</td></tr>
+<tr><td>Forecast</td><td>1W/1M/3M up/down/flat 합계 100%, confidence 별도.</td></tr>
+<tr><td>Explainability</td><td>왜 현재 확률인지, 왜 80/50이 아닌지 contribution으로 재현.</td></tr>
+<tr><td>Scenario</td><td>최소 5개 Factor override 후 재계산 가능.</td></tr>
+<tr><td>Journal</td><td>Forecast마다 data cutoff, graph version, contributions 저장.</td></tr>
+<tr><td>Review</td><td>Actual outcome과 Human+AI review 입력 가능.</td></tr>
+<tr><td>DevOps</td><td>PR preview, staging, production 분리 및 secrets 미노출.</td></tr></table>
+</section>
+<footer>삼성전자우 AI 미래추론 시스템 PRD · v1.1 · 2026-09-09</footer><section><h2>15. v1.1 Canonical Integration</h2>
+<div class="callout">이 문서는 기존 PRD의 제품철학, 9개 Module, Ontology/Knowledge Graph/Neo4j, Supabase, Factor Registry, 화면정의, Horizon Decision Policy, Prediction Journal을 유지하면서 19개 Reasoning Engine의 실행명세와 충분한 Test Suite를 하나의 문서로 통합한 정식 v1.1입니다.</div>
+<pre>Product Philosophy
+→ 49 Factor Registry / Data
+→ Ontology / Knowledge Graph
+→ 19 Reasoning Engines
+→ Scenario / Simulation
+→ Probability / Explanation
+→ Short / Medium / Long Decision
+→ High-resolution UI
+→ Prediction Journal
+→ Human + AI Review
+→ Learned Experience
+→ Test / Forward Validation
+↺</pre></section><section><h2>2. 19개 Engine 상세</h2><p>각 Engine은 Input → Memory Read → Internal Process → Output → Memory Write → Next → Failure/Retry를 명시합니다.</p></section>
+
+    <section class="engine">
+      <h2>1. Data Interpretation Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>raw observations</td></tr>
+        <tr><th>MEMORY READ</th><td>observations</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>level/change/velocity/acceleration/percentile/context 계산</td></tr>
+        <tr><th>OUTPUT</th><td>FactorSignal[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>factor_signals</td></tr>
+        <tr><th>NEXT</th><td>Event Understanding</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>2. Event Understanding Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>공시·뉴스·Event</td></tr>
+        <tr><th>MEMORY READ</th><td>ontology/source registry</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>LLM structured extraction + ontology validation</td></tr>
+        <tr><th>OUTPUT</th><td>StructuredEvent[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>events/evidence</td></tr>
+        <tr><th>NEXT</th><td>Expectation &amp; Surprise</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>3. Expectation &amp; Surprise Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Event + consensus</td></tr>
+        <tr><th>MEMORY READ</th><td>consensus history</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>Actual-Expected, revision, guidance surprise</td></tr>
+        <tr><th>OUTPUT</th><td>SurpriseObject[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>event_surprises</td></tr>
+        <tr><th>NEXT</th><td>Priced-in Estimation</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>4. Priced-in Estimation Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Surprise + pre-event market path</td></tr>
+        <tr><th>MEMORY READ</th><td>market history</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>이미 반영된 정도와 residual shock 추정</td></tr>
+        <tr><th>OUTPUT</th><td>PricedInEstimate</td></tr>
+        <tr><th>MEMORY WRITE</th><td>priced_in_estimates</td></tr>
+        <tr><th>NEXT</th><td>Situation Understanding</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>5. Situation Understanding Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Signals + Events + residual shocks</td></tr>
+        <tr><th>MEMORY READ</th><td>current graph/prior state</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>dominant themes, positive/negative forces, conflicts</td></tr>
+        <tr><th>OUTPUT</th><td>SituationState</td></tr>
+        <tr><th>MEMORY WRITE</th><td>situation_states</td></tr>
+        <tr><th>NEXT</th><td>State Estimation</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>6. State Estimation Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Situation + module observations</td></tr>
+        <tr><th>MEMORY READ</th><td>factor registry/recent states</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>9개 Module state/direction/momentum/regime/confidence</td></tr>
+        <tr><th>OUTPUT</th><td>ModuleState[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>module_states</td></tr>
+        <tr><th>NEXT</th><td>Hypothesis Generation</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>7. Hypothesis Generation Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Situation + States + horizon</td></tr>
+        <tr><th>MEMORY READ</th><td>domain knowledge</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>상승/하락/횡보 Main/Alternative hypothesis 생성</td></tr>
+        <tr><th>OUTPUT</th><td>Hypothesis[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>hypotheses</td></tr>
+        <tr><th>NEXT</th><td>Causal Expansion</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>8. Causal Expansion Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Hypothesis + horizon + regime</td></tr>
+        <tr><th>MEMORY READ</th><td>Neo4j graph</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>Neo4j traversal, lag/regime/confidence filter, duplicate path 제거</td></tr>
+        <tr><th>OUTPUT</th><td>CausalPath[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>causal_path_runs</td></tr>
+        <tr><th>NEXT</th><td>Interaction Reasoning</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>9. Interaction Reasoning Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>CausalPaths + States</td></tr>
+        <tr><th>MEMORY READ</th><td>interaction rules</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>상쇄·증폭·threshold·double count·path competition</td></tr>
+        <tr><th>OUTPUT</th><td>AdjustedPath[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>interaction_runs</td></tr>
+        <tr><th>NEXT</th><td>Actor &amp; Reflexivity</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>10. Actor &amp; Reflexivity Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Paths + actor state</td></tr>
+        <tr><th>MEMORY READ</th><td>actor profiles</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>Fed/외국인/기업 행동과 momentum/forced-flow feedback</td></tr>
+        <tr><th>OUTPUT</th><td>ActorResponse[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>actor_runs</td></tr>
+        <tr><th>NEXT</th><td>Constraint &amp; Identity</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>11. Constraint &amp; Identity Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>ActorResponse + variables</td></tr>
+        <tr><th>MEMORY READ</th><td>financial/capacity facts</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>capacity/cash/supply-demand/accounting 제약 검사</td></tr>
+        <tr><th>OUTPUT</th><td>ConstraintResult[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>constraint_runs</td></tr>
+        <tr><th>NEXT</th><td>Temporal Reasoning</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>12. Temporal Reasoning Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Valid paths + horizon</td></tr>
+        <tr><th>MEMORY READ</th><td>edge lag history</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>lag/duration/decay/acceleration, 1D/1W/1M/1Y 분리</td></tr>
+        <tr><th>OUTPUT</th><td>TemporalPath[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>temporal_runs</td></tr>
+        <tr><th>NEXT</th><td>Historical Analogy</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>13. Historical Analogy Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Current vector + horizon + regime</td></tr>
+        <tr><th>MEMORY READ</th><td>journals/experience</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>similarity/recency/sample/regime + influence cap</td></tr>
+        <tr><th>OUTPUT</th><td>HistoricalEvidence</td></tr>
+        <tr><th>MEMORY WRITE</th><td>analogy_runs</td></tr>
+        <tr><th>NEXT</th><td>Challenger</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>14. Challenger Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Main hypothesis + paths</td></tr>
+        <tr><th>MEMORY READ</th><td>evidence/history</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>반대가설, 반증 evidence, confirmation bias 검사</td></tr>
+        <tr><th>OUTPUT</th><td>ChallengeReport</td></tr>
+        <tr><th>MEMORY WRITE</th><td>challenge_runs</td></tr>
+        <tr><th>NEXT</th><td>Scenario Generation</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>15. Scenario Generation Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Hypotheses + paths + challenge</td></tr>
+        <tr><th>MEMORY READ</th><td>constraints/distributions</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>Base/Upside/Downside/Tail/User scenario</td></tr>
+        <tr><th>OUTPUT</th><td>Scenario[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>scenarios</td></tr>
+        <tr><th>NEXT</th><td>Consistency Validation</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>16. Scenario Consistency Validation Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Scenarios</td></tr>
+        <tr><th>MEMORY READ</th><td>constraints/identities</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>회계·인과·시간·actor 내부모순 검사</td></tr>
+        <tr><th>OUTPUT</th><td>ValidatedScenario[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>scenario_validation</td></tr>
+        <tr><th>NEXT</th><td>Simulation</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>17. Simulation Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Validated scenarios</td></tr>
+        <tr><th>MEMORY READ</th><td>time-series/graph</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>Python causal/numerical/Monte Carlo/agent simulation</td></tr>
+        <tr><th>OUTPUT</th><td>SimulationResult[]</td></tr>
+        <tr><th>MEMORY WRITE</th><td>simulation_runs</td></tr>
+        <tr><th>NEXT</th><td>Probability &amp; Calibration</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>18. Probability, Aggregation &amp; Calibration Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>Simulation + history + challenge</td></tr>
+        <tr><th>MEMORY READ</th><td>calibrator versions</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>scenario likelihood 통합, normalize, calibration, delta 저장</td></tr>
+        <tr><th>OUTPUT</th><td>Forecast + Contributions</td></tr>
+        <tr><th>MEMORY WRITE</th><td>forecasts/contributions</td></tr>
+        <tr><th>NEXT</th><td>Meta-Reasoning</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+    <section class="engine">
+      <h2>19. Meta-Reasoning, Explanation &amp; Error-Learning Engine</h2>
+      <table>
+        <tr><th>INPUT</th><td>모든 artifact + forecast</td></tr>
+        <tr><th>MEMORY READ</th><td>all artifacts/journals</td></tr>
+        <tr><th>INTERNAL PROCESS</th><td>약한 가정/과의존/missing data/bias 점검; 사후 오류단계 분류</td></tr>
+        <tr><th>OUTPUT</th><td>MetaCheck + Explanation + ErrorDiagnosis</td></tr>
+        <tr><th>MEMORY WRITE</th><td>meta_checks/reviews/experience</td></tr>
+        <tr><th>NEXT</th><td>Decision Engine / Retry</td></tr>
+        <tr><th>FAILURE / RETRY</th><td>필수 Evidence 부족, Source conflict, Confidence 미달 시 임의 숫자를 만들지 않고 insufficient_evidence/conflict를 반환하며 필요한 이전 단계로 재진입.</td></tr>
+      </table>
+    </section>
+
+<section><h2>20. Comprehensive Test Suite — 70 Golden Cases</h2>
+<div class="callout">v1.1의 핵심 Release Gate입니다. 정상시장뿐 아니라 데이터 결측, Source 충돌, 구조변화, 과적합, Actor 반응, 회계 모순, Horizon divergence, Decision threshold 경계값까지 테스트합니다.</div>
+<div style="overflow:auto;max-height:1300px"><table class="tests"><tr><th>ID</th><th>Scenario</th><th>Inputs</th><th>Horizon</th><th>Expected</th><th>Signal</th></tr><tr><td>T01</td><td>Benign macro + memory boom</td><td>10Y4.4; KRW1330; DRAM+12; AI strong; foreign buy</td><td>1M</td><td>UP 80-90</td><td>ENTRY</td></tr><tr><td>T02</td><td>Hawkish FOMC</td><td>10Y5.05; KRW1390; hawkish; foreign sell</td><td>1W</td><td>DOWN 70-82</td><td>SELL</td></tr><tr><td>T03</td><td>Dovish hike priced-in</td><td>25bp expected; 10Y→4.6; memory strong</td><td>1W</td><td>UP 55-70</td><td>WAIT/HOLD</td></tr><tr><td>T04</td><td>Hot CPI surprise</td><td>CPI +0.4pp; 10Y+18bp; KRW weak</td><td>1W</td><td>DOWN 65-78</td><td>WATCH/SELL</td></tr><tr><td>T05</td><td>Strong jobs benign inflation</td><td>jobs strong; CPI benign</td><td>1W</td><td>mixed 45-60 UP</td><td>WAIT</td></tr><tr><td>T06</td><td>Oil shock</td><td>WTI +15%; yields↑</td><td>1W</td><td>DOWN 55-70</td><td>WATCH</td></tr><tr><td>T07</td><td>FX shock</td><td>DXY↑; KRW1420; foreign sell</td><td>1W</td><td>DOWN 70+</td><td>SELL</td></tr><tr><td>T08</td><td>Foreign buy divergence</td><td>market weak; Samsung foreign heavy buy</td><td>1W</td><td>UP &gt; baseline</td><td>WAIT/ENTRY</td></tr><tr><td>T09</td><td>Foreign sell divergence</td><td>price↑; foreign heavy sell</td><td>1W</td><td>turning risk↑</td><td>WATCH SELL</td></tr><tr><td>T10</td><td>DRAM contract +20</td><td>inventory low; HBM strong</td><td>1M</td><td>UP 75-88</td><td>ENTRY boundary</td></tr><tr><td>T11</td><td>DRAM spot rollover</td><td>spot -12%; contract flat</td><td>1M</td><td>UP falls</td><td>HOLD/WATCH</td></tr><tr><td>T12</td><td>Inventory spike</td><td>inventory high; ASP weak</td><td>1M</td><td>DOWN 65-78</td><td>SELL boundary</td></tr><tr><td>T13</td><td>HBM surge</td><td>AI CAPEX strong; HBM orders↑</td><td>3M</td><td>UP 75-88</td><td>ENTRY boundary</td></tr><tr><td>T14</td><td>HBM disappointment</td><td>AI CAPEX strong; HBM orders↓</td><td>3M</td><td>UP below baseline</td><td>WAIT</td></tr><tr><td>T15</td><td>AI capex acceleration</td><td>CAPEX +40%; ROI stable</td><td>1Y</td><td>UP 75-90</td><td>ENTRY boundary</td></tr><tr><td>T16</td><td>AI debt stress</td><td>CAPEX +40%; ROI weak; yields↑</td><td>1Y</td><td>UP 45-60</td><td>WAIT</td></tr><tr><td>T17</td><td>Weak monetization</td><td>usage↑; revenue/margin weak</td><td>1Y</td><td>UP reduced</td><td>WAIT</td></tr><tr><td>T18</td><td>CXMT early ramp</td><td>capacity +35%; early ramp</td><td>1Y</td><td>DOWN 55-70</td><td>WATCH</td></tr><tr><td>T19</td><td>CXMT delayed</td><td>capacity plan; ramp +2Y</td><td>1W</td><td>minimal effect</td><td>HOLD/WAIT</td></tr><tr><td>T20</td><td>Samsung capex surge</td><td>current shortage; capex↑</td><td>1W vs1Y</td><td>short UP &gt; long UP</td><td>different</td></tr><tr><td>T21</td><td>Supply discipline</td><td>SKH/Micron capex controlled</td><td>1Y</td><td>UP higher</td><td>HOLD/ENTRY</td></tr><tr><td>T22</td><td>Yield improvement</td><td>effective supply↑ faster</td><td>1Y</td><td>UP lower</td><td>WAIT</td></tr><tr><td>T23</td><td>EPS revision +20</td><td>rates stable</td><td>1M</td><td>UP 80+</td><td>ENTRY</td></tr><tr><td>T24</td><td>EPS strong + rate 5.2</td><td>EPS+20; 10Y5.2</td><td>1M</td><td>UP 45-60</td><td>WAIT</td></tr><tr><td>T25</td><td>FCF deterioration</td><td>earnings↑; FCF↓</td><td>1Y</td><td>confidence/UP reduced</td><td>WAIT</td></tr><tr><td>T26</td><td>Shareholder return surprise</td><td>cash return↑</td><td>1M</td><td>Preferred UP boost</td><td>ENTRY boundary</td></tr><tr><td>T27</td><td>Extreme pref discount</td><td>discount wide; common stable</td><td>1M</td><td>relative UP</td><td>ENTRY if overall</td></tr><tr><td>T28</td><td>Pref discount closes</td><td>discount normalizes</td><td>1M</td><td>support fades</td><td>HOLD</td></tr><tr><td>T29</td><td>Breakout + volume + flow</td><td>20/60 positive; vol z high; foreign buy</td><td>1W</td><td>UP 70-85</td><td>ENTRY boundary</td></tr><tr><td>T30</td><td>Overbought no flow</td><td>RSI high; volume fades; foreign sell</td><td>1W</td><td>DOWN risk↑</td><td>WATCH SELL</td></tr><tr><td>T31</td><td>Reflexive squeeze</td><td>heavy buy; momentum high</td><td>1W</td><td>UP 75-85</td><td>ENTRY boundary</td></tr><tr><td>T32</td><td>Forced deleveraging</td><td>vol spike; sell; rates↑</td><td>1W</td><td>DOWN 80+</td><td>SELL</td></tr><tr><td>T33</td><td>Missing memory data</td><td>DRAM/HBM unknown</td><td>1M</td><td>Confidence &lt;55</td><td>NO ACTION</td></tr><tr><td>T34</td><td>Conflicting sources</td><td>DRAM sources conflict</td><td>1M</td><td>confidence reduced</td><td>WAIT</td></tr><tr><td>T35</td><td>Stale data</td><td>memory data stale 60d</td><td>1M</td><td>confidence reduced</td><td>WAIT</td></tr><tr><td>T36</td><td>Priced-in hawkish</td><td>hawkish event 90% expected</td><td>1W</td><td>downside &lt; raw model</td><td>HOLD/WAIT</td></tr><tr><td>T37</td><td>Unexpected dovish</td><td>dovish surprise; 10Y↓; KRW↑</td><td>1W</td><td>UP rises sharply</td><td>ENTRY boundary</td></tr><tr><td>T38</td><td>Historical bullish trap</td><td>current neutral; past analogs bullish</td><td>1W</td><td>history capped</td><td>NO threshold jump</td></tr><tr><td>T39</td><td>Historical bearish trap</td><td>current positive; past analogs bearish</td><td>1M</td><td>history capped</td><td>No forced SELL</td></tr><tr><td>T40</td><td>Regime structural break</td><td>old rate relation stops working</td><td>1M</td><td>confidence↓; regime-change flag</td><td>WAIT</td></tr><tr><td>T41</td><td>Impossible revenue scenario</td><td>demand↓ price↓ volume↓ revenue↑</td><td>1Y</td><td>scenario rejected</td><td>N/A</td></tr><tr><td>T42</td><td>Impossible capacity ramp</td><td>fab output +50% next week</td><td>1W</td><td>scenario rejected</td><td>N/A</td></tr><tr><td>T43</td><td>Accounting cash violation</td><td>FCF negative but cash rises without financing</td><td>1Y</td><td>scenario rejected</td><td>N/A</td></tr><tr><td>T44</td><td>Actor response Fed</td><td>inflation↑ but Fed assumed dovish no reason</td><td>1M</td><td>scenario challenge/reject</td><td>N/A</td></tr><tr><td>T45</td><td>Actor response CXMT</td><td>price high; CXMT capacity constrained</td><td>1Y</td><td>supply response capped</td><td>HOLD</td></tr><tr><td>T46</td><td>Path double count</td><td>HBM and DRAM constraint same causal source</td><td>1M</td><td>duplicate contribution removed</td><td>No inflation</td></tr><tr><td>T47</td><td>Opposing paths</td><td>AI boom boosts EPS and yields</td><td>1M</td><td>mid probability 45-65</td><td>WAIT</td></tr><tr><td>T48</td><td>Lag test</td><td>new fab announced today</td><td>1D</td><td>near-zero supply effect</td><td>HOLD/WAIT</td></tr><tr><td>T49</td><td>Lag maturation</td><td>fab ramp reaches production</td><td>1Y</td><td>supply effect material</td><td>WATCH</td></tr><tr><td>T50</td><td>Turning point early warning</td><td>price↑; flow↓; ASP momentum↓; rates↑</td><td>1W</td><td>transition risk high</td><td>WATCH SELL</td></tr><tr><td>T51</td><td>False turning point</td><td>price↑; flow briefly↓; EPS/ASP accelerate</td><td>1W</td><td>warning suppressed</td><td>HOLD</td></tr><tr><td>T52</td><td>Confidence high alignment</td><td>official sources agree</td><td>1M</td><td>confidence &gt;75</td><td>policy eligible</td></tr><tr><td>T53</td><td>Confidence low rumor</td><td>rumor-only supply shock</td><td>1M</td><td>confidence &lt;50</td><td>NO ACTION</td></tr><tr><td>T54</td><td>User bullish bias</td><td>user bullish; evidence neutral</td><td>1W</td><td>no upward adjustment from user belief</td><td>WAIT</td></tr><tr><td>T55</td><td>AI anchoring bias</td><td>prior forecast bullish; new data bearish</td><td>1W</td><td>forecast updates bearish</td><td>SELL boundary</td></tr><tr><td>T56</td><td>Challenger wins</td><td>main bull but counter evidence stronger</td><td>1W</td><td>main hypothesis replaced</td><td>depends</td></tr><tr><td>T57</td><td>Challenger weak</td><td>counter lacks evidence</td><td>1M</td><td>main retained</td><td>depends</td></tr><tr><td>T58</td><td>Entry threshold 79</td><td>UP79; conf85; no challenge</td><td>1M</td><td>UP79</td><td>WAIT</td></tr><tr><td>T59</td><td>Entry threshold 80</td><td>UP80; conf75; no challenge</td><td>1M</td><td>UP80</td><td>ENTRY</td></tr><tr><td>T60</td><td>Entry low confidence</td><td>UP85; conf55</td><td>1M</td><td>UP85 conf55</td><td>NO ACTION</td></tr><tr><td>T61</td><td>Sell threshold 69</td><td>DOWN69; conf80; held</td><td>1W</td><td>DOWN69</td><td>HOLD</td></tr><tr><td>T62</td><td>Sell threshold 70</td><td>DOWN70; conf70; held</td><td>1W</td><td>DOWN70</td><td>SELL</td></tr><tr><td>T63</td><td>Sell low confidence</td><td>DOWN80; conf50</td><td>1W</td><td>DOWN80 conf50</td><td>HOLD/WATCH</td></tr><tr><td>T64</td><td>Short sell, long entry</td><td>FOMC risk high; long AI/memory strong</td><td>1W/1Y</td><td>short DOWN&gt;70; long UP&gt;80</td><td>SELL short / ENTRY long</td></tr><tr><td>T65</td><td>Short entry, long risk</td><td>flow squeeze; CXMT long risk</td><td>1W/1Y</td><td>short UP&gt;80; long UP&lt;60</td><td>ENTRY short / WAIT long</td></tr><tr><td>T66</td><td>Probability sum</td><td>arbitrary valid inputs</td><td>all</td><td>UP+DOWN+FLAT=100</td><td>N/A</td></tr><tr><td>T67</td><td>Contribution reconstruction</td><td>known contribution set</td><td>1M</td><td>final equals stored deltas/calibration</td><td>N/A</td></tr><tr><td>T68</td><td>Graph version regression</td><td>same data; graph version changed</td><td>1M</td><td>diff explained by edge/version</td><td>N/A</td></tr><tr><td>T69</td><td>Model version regression</td><td>same graph; calibrator changed</td><td>1M</td><td>diff localized to calibration</td><td>N/A</td></tr><tr><td>T70</td><td>Prediction Journal immutability</td><td>past forecast outcome known</td><td>all</td><td>original snapshot unchanged</td><td>N/A</td></tr></table></div>
+<h3>Test Layers</h3><ol><li>Unit Engine tests</li><li>Schema/contract tests</li><li>Causal path tests</li><li>Interaction/double-count tests</li><li>Temporal/lag tests</li><li>Actor/reflexivity tests</li><li>Constraint/accounting tests</li><li>Historical anti-overfit tests</li><li>Scenario consistency tests</li><li>Probability/calibration tests</li><li>Decision threshold boundary tests</li><li>Regression/version tests</li><li>Forward market tests</li></ol>
+<pre>assert schema_valid
+assert probability_sum == 1.0
+assert expected_range.contains(result)
+assert expected_causal_path exists
+assert forbidden_path absent_without_evidence
+assert confidence <= evidence_bound
+assert historical_adjustment <= cap
+assert unknown != neutral
+assert rejected_scenario.reason != null
+assert decision == policy(forecast, position, confidence)
+assert explanation reconstructs contributions
+assert journal_snapshot immutable</pre></section><section><h2>21. 19개 Engine 실제 구현 Architecture</h2>
+<div class="callout">19개 Engine은 하나의 LLM이 순서대로 문장을 쓰는 구조가 아니다. Orchestrator가 typed artifact를 상태로 보유하고, 각 Engine이 LLM·Python Quant·Neo4j·Rule/Constraint·Simulation·Experience Service 중 적합한 하부 Component를 호출하는 구조다.</div>
+
+<h3>21-1. 하부 Component Architecture</h3>
+<pre>
+                           ┌───────────────────────────────┐
+                           │ ORCHESTRATOR                  │
+                           │ LangGraph / Python State      │
+                           │ branch · retry · checkpoint   │
+                           └──────────────┬────────────────┘
+                                          │
+        ┌─────────────────┬───────────────┼──────────────┬─────────────────┐
+        ▼                 ▼               ▼              ▼                 ▼
+  LLM SERVICE        QUANT SERVICE    GRAPH SERVICE  SIMULATION       RULE SERVICE
+  Event              Factor Signal    Neo4j          Scenario         Constraint
+  Situation          Surprise         Path query     Monte Carlo      Identity
+  Hypothesis         State            Lag/Regime     Actor loop       Consistency
+  Challenger         Probability      Version        Counterfactual   Decision
+  Meta/Explain       Calibration
+        │                 │               │              │                 │
+        └─────────────────┴───────────────┼──────────────┴─────────────────┘
+                                          ▼
+        ┌─────────────────┬───────────────┼──────────────┬─────────────────┐
+        ▼                 ▼               ▼              ▼                 ▼
+   SUPABASE           NEO4J          EXPERIENCE      VERSION STORE     SOURCE STORE
+ observations       causal graph      similar cases   ontology/model   evidence
+ states             evidence edges    learned exp.    prompt/calib.    authority
+ forecasts          graph version     journals        graph version    freshness
+ reviews
+</pre>
+
+<h3>21-2. Engine → Component Mapping</h3>
+<table><tr><th>#</th><th>Engine</th><th>Primary</th><th>Secondary</th><th>Artifact</th></tr>
+<tr><td>1</td><td>Data Interpretation</td><td>Quant</td><td>Supabase</td><td>FactorSignal</td></tr>
+<tr><td>2</td><td>Event Understanding</td><td>LLM</td><td>Ontology/Source</td><td>StructuredEvent</td></tr>
+<tr><td>3</td><td>Expectation & Surprise</td><td>Quant</td><td>Consensus Store</td><td>SurpriseObject</td></tr>
+<tr><td>4</td><td>Priced-in</td><td>Quant</td><td>Market History</td><td>PricedInEstimate</td></tr>
+<tr><td>5</td><td>Situation Understanding</td><td>LLM</td><td>Rules</td><td>SituationState</td></tr>
+<tr><td>6</td><td>State Estimation</td><td>Quant</td><td>Rules</td><td>ModuleState</td></tr>
+<tr><td>7</td><td>Hypothesis</td><td>LLM</td><td>Ontology/Graph</td><td>Hypothesis</td></tr>
+<tr><td>8</td><td>Causal Expansion</td><td>Graph</td><td>Neo4j</td><td>CausalPath</td></tr>
+<tr><td>9</td><td>Interaction</td><td>Rule/Quant</td><td>Graph</td><td>AdjustedPath</td></tr>
+<tr><td>10</td><td>Actor & Reflexivity</td><td>Simulation</td><td>LLM/Rules</td><td>ActorResponse</td></tr>
+<tr><td>11</td><td>Constraint & Identity</td><td>Rules</td><td>Financial/Capacity DB</td><td>ConstraintResult</td></tr>
+<tr><td>12</td><td>Temporal</td><td>Graph/Quant</td><td>Lag Model</td><td>TemporalPath</td></tr>
+<tr><td>13</td><td>Historical Analogy</td><td>Experience</td><td>Vector+SQL</td><td>HistoricalEvidence</td></tr>
+<tr><td>14</td><td>Challenger</td><td>LLM</td><td>Independent Retrieval</td><td>ChallengeReport</td></tr>
+<tr><td>15</td><td>Scenario Generation</td><td>LLM</td><td>Distribution Store</td><td>Scenario</td></tr>
+<tr><td>16</td><td>Consistency Validation</td><td>Rules</td><td>Identity/Graph</td><td>ValidatedScenario</td></tr>
+<tr><td>17</td><td>Simulation</td><td>Simulation</td><td>Graph/Quant</td><td>SimulationResult</td></tr>
+<tr><td>18</td><td>Probability/Calibration</td><td>Quant</td><td>Calibration Store</td><td>Forecast/Contribution</td></tr>
+<tr><td>19</td><td>Meta/Error Learning</td><td>LLM Diagnostic</td><td>All Artifacts</td><td>MetaCheck/ErrorDiagnosis</td></tr></table>
+
+<h3>21-3. Engine 관계도와 Retry Loop</h3>
+<pre>
+Observation
+  ↓
+E1 Data Interpretation ── FactorSignal
+  ↓
+E2 Event Understanding ── StructuredEvent
+  ↓
+E3 Expectation/Surprise ── Surprise
+  ↓
+E4 Priced-in ── ResidualShock
+  ↓
+E5 Situation ── SituationState
+  ↓
+E6 State Estimation ── ModuleState[]
+  ↓
+E7 Hypothesis ── Bull / Bear / Sideway hypotheses
+  ↓
+E8 Causal Expansion ← Neo4j
+  ↓
+E9 Interaction ── competing/adjusted paths
+  ↓
+E10 Actor/Reflexivity ── actor response & feedback
+  ↓
+E11 Constraint/Identity ── invalid paths removed
+  ↓
+E12 Temporal ── 1D / 1W / 1M / 1Y effects
+  ├─────────────────────┐
+  ↓                     ↓
+E13 Historical       Current Evidence
+  └──────────┬──────────┘
+             ↓
+E14 Challenger
+             ↓
+E15 Scenario Generation
+             ↓
+E16 Consistency ── FAIL ──→ E15
+             │ PASS
+             ↓
+E17 Simulation
+             ↓
+E18 Probability/Calibration
+             ↓
+E19 Meta-Reasoning
+       │ PASS       │ FAIL
+       ▼            └────→ offending Engine 재실행
+ Final Forecast
+       ↓
+ Decision Engine
+       ↓
+ Reality → Review → Experience → 다음 Run
+</pre>
+
+<h3>21-4. Code / Repository Architecture</h3>
+<pre>
+sec_future_reasoning/
+├── apps/
+│   ├── web/                         # Next.js / Vercel
+│   └── reasoning_api/               # FastAPI
+├── reasoning/
+│   ├── orchestrator/
+│   │   ├── state.py
+│   │   ├── workflow.py              # LangGraph
+│   │   └── routing.py
+│   ├── engines/
+│   │   ├── e01_data_interpretation.py
+│   │   ├── e02_event_understanding.py
+│   │   ├── e03_expectation_surprise.py
+│   │   ├── e04_priced_in.py
+│   │   ├── e05_situation.py
+│   │   ├── e06_state_estimation.py
+│   │   ├── e07_hypothesis.py
+│   │   ├── e08_causal_expansion.py
+│   │   ├── e09_interaction.py
+│   │   ├── e10_actor_reflexivity.py
+│   │   ├── e11_constraint_identity.py
+│   │   ├── e12_temporal.py
+│   │   ├── e13_historical_analogy.py
+│   │   ├── e14_challenger.py
+│   │   ├── e15_scenario_generation.py
+│   │   ├── e16_consistency.py
+│   │   ├── e17_simulation.py
+│   │   ├── e18_probability_calibration.py
+│   │   └── e19_meta_reasoning.py
+│   ├── services/
+│   │   ├── llm_service.py
+│   │   ├── quant_service.py
+│   │   ├── graph_service.py
+│   │   ├── simulation_service.py
+│   │   ├── rule_service.py
+│   │   └── experience_service.py
+│   └── schemas/
+│       ├── state.py
+│       └── artifacts.py
+├── ontology/
+├── graph/
+│   ├── neo4j_repository.py
+│   ├── constraints.cypher
+│   └── seed.cypher
+├── db/supabase/migrations/
+├── ingestion/
+├── tests/
+│   ├── unit/engines/
+│   ├── causal/
+│   ├── temporal/
+│   ├── scenarios/
+│   ├── golden/
+│   └── forward/
+└── .github/workflows/
+</pre>
+
+<h3>21-5. 모든 Engine이 구현해야 하는 공통 Interface</h3>
+<pre>
+class ReasoningEngine:
+    engine_id: str
+    version: str
+
+    async def run(
+        state: ReasoningState,
+        context: EngineContext
+    ) -> EngineResult:
+        ...
+
+EngineResult:
+  status: success | insufficient_evidence | conflict | retry | failed
+  output_artifact: TypedArtifact
+  confidence: float
+  evidence_refs: list[str]
+  warnings: list[str]
+  next_engine: str
+  retry_engine: str | null
+  trace_id: str
+</pre>
+
+<h3>21-6. 구현 원칙</h3>
+<ul>
+<li>Engine 사이에는 자유형 LLM 텍스트가 아니라 Typed Artifact만 전달한다.</li>
+<li>LLM의 숨은 사고과정을 저장하는 것이 아니라 SituationState, Hypothesis, CausalPath, ChallengeReport 등 검증 가능한 구조화 결과를 저장한다.</li>
+<li>Neo4j는 관계·인과경로·Graph Version, Supabase는 시간·상태·Forecast·Journal·Review를 담당한다.</li>
+<li>Decision Policy는 E18 이후에만 적용하여 ENTRY/SELL 목표가 Forecast를 오염시키지 않게 한다.</li>
+<li>E19가 실패하면 Forecast를 내보내지 않고 오류가 난 Engine을 지정해 Retry한다.</li>
+<li>모든 Run은 data cutoff, ontology version, graph version, model version, prompt version을 고정해 재현 가능해야 한다.</li>
+</ul>
+</section>
+<section><h2>22. v1.1 Decision Architecture — Future Reasoning × Price Wave × Multi-Timeframe</h2>
+<div class="callout">v1.1의 핵심 원칙은 매수·매도를 기술적 분석만으로 결정하지 않는 것이다. 19개 Future Reasoning Engine이 방향과 확률을 판단하고, Price Wave/Reversal Engine이 해당 Horizon에서 진입·이탈 시점을 판단하며, Multi-Timeframe Alignment와 Liquidity Confirmation이 구조적 정렬을 확인한 뒤 Decision Engine이 최종 Action을 결정한다. 기술적 신호는 다시 Market Regime, Capital Flow, Reflexivity 관련 Reasoning으로 피드백되어 Future Reasoning을 재계산할 수 있다.</div>
+
+<h3>22-1. 역할 분리</h3>
+<table><tr><th>Layer</th><th>핵심 질문</th><th>주요 입력</th><th>출력</th></tr>
+<tr><td>Future Reasoning</td><td>어디로 갈 가능성이 높은가?</td><td>Macro, AI Demand, Memory, Supply, Earnings, Capital Flow, Valuation, Preferred, Market Regime</td><td>Up/Down/Flat Probability, Confidence, Causal Paths</td></tr>
+<tr><td>Price Wave / Reversal</td><td>지금 파동의 어디인가?</td><td>가격, RSI, 이동평균, 거래량, 변동성, neckline, double bottom/top</td><td>Bottom/Top Reversal Probability</td></tr>
+<tr><td>Multi-Timeframe Alignment</td><td>작은 파동과 큰 파동이 같은 방향인가?</td><td>30분봉, 일봉, 주봉, 월봉</td><td>Alignment Score</td></tr>
+<tr><td>Liquidity Confirmation</td><td>실제 자금이 그 방향을 확인하는가?</td><td>외국인, 기관, 프로그램, 거래량, sector flow</td><td>Liquidity Score</td></tr>
+<tr><td>Decision Engine</td><td>지금 행동해야 하는가?</td><td>위 네 계층 + 현재 Position</td><td>ENTRY / WAIT / HOLD / SELL</td></tr></table>
+
+<h3>22-2. Horizon별 Time Scale</h3>
+<table><tr><th>투자 유형</th><th>Forecast Horizon</th><th>Primary Wave Chart</th><th>Higher-Timeframe Context</th></tr>
+<tr><td>단기</td><td>당일~최장 1주</td><td>30분봉</td><td>일봉</td></tr>
+<tr><td>중기</td><td>약 1개월</td><td>일봉</td><td>주봉</td></tr>
+<tr><td>장기</td><td>약 1년</td><td>주봉</td><td>월봉</td></tr></table>
+
+<h3>22-3. Bottom Reversal Logic</h3>
+<p>하락파동 → 과매도 → 1차 저점 → 반등 → 2차 저점 → 가격 저점 유지 또는 higher low → RSI bullish divergence → 매도거래량 감소 → 변동성 수축 → neckline 돌파 → Fast/Medium/Slow Trend 회복 → 외국인/기관/거래량 확인 → Bottom Reversal Confirmed의 순서로 판단한다.</p>
+<p>단기에서는 30분봉, 중기에서는 일봉, 장기에서는 주봉에서 같은 논리를 적용한다. 20/60/120 period는 초기 실험값이며 절대규칙이 아니다.</p>
+
+<h3>22-4. Top Reversal Logic</h3>
+<p>상승파동 → 과매수 → 1차 고점 → 조정 → 2차 고점 → lower high 또는 RSI bearish divergence → 매수거래량 둔화 → 변동성 확대 → neckline 하향이탈 → Fast/Medium/Slow Trend 이탈 → 외국인/기관 수급 악화 → Top Reversal Confirmed의 순서로 판단한다.</p>
+
+<h3>22-5. Multi-Timeframe Alignment</h3>
+<table><tr><th>Primary</th><th>Higher Context</th><th>해석</th><th>Decision 영향</th></tr>
+<tr><td>Bottom Reversal</td><td>상위 Timeframe도 상승/바닥</td><td>다중 Timeframe 정렬</td><td>Entry Confidence 상승</td></tr>
+<tr><td>Bottom Reversal</td><td>상위 Timeframe 강한 하락</td><td>단기 반등 가능성</td><td>Entry Confidence 감액</td></tr>
+<tr><td>Top Reversal</td><td>상위 Timeframe도 하락/천장</td><td>다중 Timeframe 하락 정렬</td><td>Sell Confidence 상승</td></tr>
+<tr><td>Top Reversal</td><td>상위 Timeframe 강한 상승</td><td>단기 조정 가능성</td><td>전량 Sell보다 Horizon별 관리</td></tr></table>
+
+<h3>22-6. Future Reasoning과 Wave Engine 결합 원칙</h3>
+<table><tr><th>Future Reasoning</th><th>Wave/Reversal</th><th>결론</th></tr>
+<tr><td>상승 강함</td><td>Bottom Reversal 강함</td><td>ENTRY 후보</td></tr>
+<tr><td>상승 강함</td><td>Bottom Reversal 없음</td><td>WAIT — 방향은 맞지만 타이밍 미확인</td></tr>
+<tr><td>상승 약함</td><td>Bottom Reversal 강함</td><td>WAIT — 기술적 반등일 가능성</td></tr>
+<tr><td>하락 강함</td><td>Top Reversal 강함</td><td>SELL 후보</td></tr>
+<tr><td>하락 강함</td><td>Top Reversal 없음</td><td>WATCH — 방향 위험은 있으나 가격구조 미확인</td></tr></table>
+
+<h3>22-7. Decision Policy v1.1</h3>
+<table><tr><th>Action</th><th>초기 Gate</th></tr>
+<tr><td>ENTRY</td><td>Future Upside ≥ 80% AND Bottom Reversal ≥ 75% AND Timeframe Alignment ≥ 70% AND Liquidity Confirmation ≥ 60% AND Model Confidence ≥ 70% AND 치명적 Challenger 없음</td></tr>
+<tr><td>SELL</td><td>Future Downside ≥ 70% AND Top Reversal ≥ 65% AND Model Confidence ≥ 65%; 상위 Timeframe 강한 상승이면 Horizon별 부분 Exit/HOLD 우선 검토</td></tr>
+<tr><td>WAIT</td><td>미보유 상태에서 Direction 또는 Timing Gate 미달</td></tr>
+<tr><td>HOLD</td><td>보유 상태에서 Sell Gate 미달</td></tr></table>
+
+<h3>22-8. Feedback Loop</h3>
+<p>Wave Engine은 후처리만 하는 것이 아니다. 쌍바닥, 거래량 확장, 외국인 수급 전환, 추세선 회복은 Market Regime·Capital Flow·Reflexivity의 새로운 Evidence가 된다. 따라서 기술적 신호 발생 시 관련 Reasoning Engine을 재실행할 수 있다.</p>
+<p>예: 30분봉 Bottom Reversal + 외국인 순매수 전환 → Capital Flow State 개선 → Market Regime State 개선 → Actor/Reflexivity 경로 강화 → Future Upside Probability 재계산 → Decision Engine 재평가.</p>
+
+<h3>22-9. Position-aware Multi-Horizon Management</h3>
+<p>단기, 중기, 장기 Signal이 서로 달라도 정상이다. 단기 SELL과 장기 HOLD/ENTRY가 동시에 발생할 수 있으며 Horizon별 Position State를 별도로 관리할 수 있어야 한다.</p>
+
+<h3>22-10. 추가 Test Cases</h3>
+<table><tr><th>ID</th><th>상황</th><th>Expected</th></tr>
+<tr><td>MT01</td><td>30분봉 Bottom Reversal 강함, 일봉 하락, Future Upside 55%</td><td>WAIT — 기술적 반등만으로 Entry 금지</td></tr>
+<tr><td>MT02</td><td>30분봉 Bottom Reversal 82%, 일봉 정렬 76%, Future Upside 84%, Confidence 80%</td><td>단기 ENTRY</td></tr>
+<tr><td>MT03</td><td>일봉 Bottom Reversal 85%, 주봉 정렬 80%, Future Upside 83%</td><td>중기 ENTRY</td></tr>
+<tr><td>MT04</td><td>주봉 Bottom Reversal 82%, 월봉 정렬 78%, Future Upside 86%</td><td>장기 ENTRY</td></tr>
+<tr><td>MT05</td><td>30분봉 Top Reversal 80%, Future Downside 75%, 일봉 상승 강함</td><td>단기 SELL 또는 축소, 중장기 유지 가능</td></tr>
+<tr><td>MT06</td><td>일봉 Top Reversal 72%, Future Downside 74%, 주봉도 하락 전환</td><td>중기 SELL</td></tr>
+<tr><td>MT07</td><td>Future Upside 88%, Bottom Reversal 40%</td><td>WAIT — 방향은 좋으나 타이밍 미확인</td></tr>
+<tr><td>MT08</td><td>Bottom Reversal 90%, Future Upside 52%</td><td>WAIT — 기술적 반등일 가능성</td></tr>
+<tr><td>MT09</td><td>Bottom Reversal 이후 외국인/기관 수급 전환</td><td>Liquidity Score와 Future Reasoning 재계산</td></tr>
+<tr><td>MT10</td><td>단기 SELL, 중기 HOLD, 장기 ENTRY 조건</td><td>Horizon별 Position 독립 관리</td></tr></table>
+</section></div></body></html>
