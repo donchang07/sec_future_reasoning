@@ -1,10 +1,11 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-09-09T05:37:24.513657+00:00",
+  "lastUpdated": "2026-09-09T05:43:04.144Z",
   "activeFeatures": [
     "sec-future-reasoning-v1-1",
     "reasoning-foundation",
-    "reasoning-vertical-slice"
+    "reasoning-vertical-slice",
+    "real-data-minimum-slice"
   ],
   "primaryFeature": "sec-future-reasoning-v1-1",
   "features": {
@@ -82,7 +83,7 @@
     },
     "reasoning-foundation": {
       "phase": "completed",
-      "matchRate": 100.0,
+      "matchRate": 100,
       "iterationCount": 1,
       "documents": {
         "plan": "docs/01-plan/features/reasoning-foundation.plan.md",
@@ -149,7 +150,7 @@
     },
     "reasoning-vertical-slice": {
       "phase": "completed",
-      "matchRate": 100.0,
+      "matchRate": 100,
       "iterationCount": 1,
       "documents": {
         "analysis": "docs/03-analysis/reasoning-vertical-slice.analysis.md",
@@ -209,6 +210,44 @@
         "CK-03",
         "CK-04"
       ]
+    },
+    "real-data-minimum-slice": {
+      "phase": "design",
+      "matchRate": null,
+      "iterationCount": 0,
+      "documents": {},
+      "taskChain": [
+        {
+          "phase": "plan",
+          "status": "completed",
+          "createdAt": "2026-09-09T05:41:31.013Z",
+          "completedAt": "2026-09-09T05:43:04.144Z"
+        },
+        {
+          "phase": "design",
+          "status": "active",
+          "createdAt": "2026-09-09T05:41:31.013Z"
+        },
+        {
+          "phase": "do",
+          "status": "pending",
+          "createdAt": "2026-09-09T05:41:31.013Z"
+        },
+        {
+          "phase": "check",
+          "status": "pending",
+          "createdAt": "2026-09-09T05:41:31.013Z"
+        },
+        {
+          "phase": "report",
+          "status": "pending",
+          "createdAt": "2026-09-09T05:41:31.013Z"
+        }
+      ],
+      "timestamps": {
+        "started": "2026-09-09T05:41:31.016Z",
+        "lastUpdated": "2026-09-09T05:43:04.144Z"
+      }
     }
   },
   "pipeline": {
@@ -219,7 +258,7 @@
   "session": {
     "startedAt": "2026-09-09T04:15:13.803Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-09-09T05:36:56.048Z"
+    "lastActivity": "2026-09-09T05:43:04.144Z"
   },
   "history": [
     {
@@ -447,6 +486,19 @@
       "engineExecutions": 114,
       "ci": "34315461362",
       "note": "Status/task-chain reconciled with completed Check and report; parent remains act"
+    },
+    {
+      "feature": "real-data-minimum-slice",
+      "from": "plan",
+      "to": "design",
+      "timestamp": "2026-09-09T05:43:04.139Z"
+    },
+    {
+      "feature": "real-data-minimum-slice",
+      "action": "phase_complete",
+      "phase": "plan",
+      "nextPhase": "design",
+      "timestamp": "2026-09-09T05:43:04.141Z"
     }
   ]
 }
