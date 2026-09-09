@@ -385,9 +385,13 @@
     },
     "live-forward-v2": {
       "phase": "check",
-      "matchRate": null,
+      "matchRate": 100,
       "iterationCount": 1,
-      "documents": {},
+      "documents": {
+        "analysis": "docs/03-analysis/live-forward-v2.analysis.md",
+        "preflight": "docs/03-analysis/live-forward-v2.preflight.md",
+        "preRunLock": "docs/03-analysis/live-forward-v2.pre-run-lock.json"
+      },
       "taskChain": [
         {
           "phase": "plan",
@@ -403,8 +407,9 @@
         },
         {
           "phase": "do",
-          "status": "active",
-          "createdAt": "2026-09-09T06:36:51.626Z"
+          "status": "completed",
+          "createdAt": "2026-09-09T06:36:51.626Z",
+          "completedAt": "2026-09-09T06:42:34.193123+00:00"
         },
         {
           "phase": "check",
@@ -420,6 +425,28 @@
       "timestamps": {
         "started": "2026-09-09T06:36:51.630Z",
         "lastUpdated": "2026-09-09T06:37:43.458Z"
+      },
+      "checkSummary": {
+        "testsPassed": 187,
+        "existingTestsPassed": 170,
+        "newTests": 17,
+        "engineInvocations": 114,
+        "engineSuccess": 112,
+        "withheldE18": 2,
+        "rawReplayEqual": true,
+        "oldJournalsUnchanged": true,
+        "oldReplaysEqual": true,
+        "ci": "34320231170",
+        "runId": "e51235a7-9c47-575b-b152-dab8cee04c17",
+        "contractVersion": "real-world-contract-v2.0.0",
+        "forecastHorizons": [
+          "1w",
+          "1m"
+        ],
+        "withheldHorizons": [
+          "1y"
+        ],
+        "postResultCodeChanges": false
       }
     }
   },
