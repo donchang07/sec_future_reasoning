@@ -1,0 +1,544 @@
+{
+  "finding_id": "FE-SF08",
+  "diagnostic_version": "shadow-us10y-transmission-v1.0.0",
+  "recorded_at": "2026-09-10T23:20:09.903762+00:00",
+  "recording_mode": "retrospective_annotation_of_sealed_prediction",
+  "prospective_sample_eligible": false,
+  "model_influence": false,
+  "baseline_probability_influence": false,
+  "baseline_confidence_influence": false,
+  "baseline_decision_influence": false,
+  "run_id": "ad9cf183-cd34-512e-8386-d8436b2e28e4",
+  "prediction_sha256": "a01d2ca0e1c5bda48cb2642f4e69cbd8ca00748a916cac4abd81002b5b0640b5",
+  "journal_file_sha256": "27ef067dccf1c11cbc867a92699f36c61f9a6c6a5b5c5848cc3a315f8358d5fc",
+  "data_mode": "live_forward",
+  "prediction_cutoff": "2026-09-10T22:00:11.251454+00:00",
+  "prediction_versions": {
+    "calendar": "closed-market-bars-v1",
+    "calibration": "temperature-1.15-unvalidated-v1",
+    "code_commit": "73c30f77608813bafcecf137e413e88b3c01d7cf",
+    "engines": [
+      {
+        "engine_id": "E01",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E02",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E03",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E04",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E05",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E06",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E07",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E08",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E09",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E10",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E11",
+        "version": "e11-real-world-v2.0.0"
+      },
+      {
+        "engine_id": "E12",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E13",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E14",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E15",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E16",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E17",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E18",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      },
+      {
+        "engine_id": "E19",
+        "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+      }
+    ],
+    "graph": "fixture-dag-v1:3ca2d9a63eb0247663b7f4e2adfcf82a1fe417700ac723222b7b2ae126f096e6",
+    "model": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d",
+    "ontology": "ontology-design-v2",
+    "policy": "entry80-sell70-v1",
+    "prompt": "event-grammar-v1",
+    "source_registry": "live-forward-v2"
+  },
+  "source_journal": "docs/predictions/2026-09-11/ad9cf183-cd34-512e-8386-d8436b2e28e4/journal.json",
+  "e01_as_recorded": {
+    "acceleration": 0.08999999999999986,
+    "change": 0.1200000000000001,
+    "factor_id": "us_10y_yield",
+    "level": 4.95,
+    "normalized": 0.9500000000000002,
+    "observation_ids": [
+      "3710a87f-6ca5-5997-9cf2-a216ed76ff9c",
+      "d2634b6f-77e8-5ccf-998d-402bd918f25f",
+      "c36e636c-d1f1-5df9-842b-8b35c66c6f93",
+      "2da44664-5a02-5654-8457-fbc8c59da62d"
+    ],
+    "percentile": 1.0,
+    "quality": 1.0,
+    "unit": "percent",
+    "velocity": 0.1200000000000001
+  },
+  "diagnostics": {
+    "level_percent": 4.95,
+    "change_bp_per_observed_interval": 12.00000000000001,
+    "acceleration_bp_per_observed_interval": 8.999999999999986,
+    "interval_status": "E01 observation differences; not independently relabeled as consecutive trading days",
+    "threshold_percent": 5.0,
+    "signed_distance_to_threshold_bp": -4.999999999999982,
+    "absolute_distance_to_threshold_bp": 4.999999999999982,
+    "threshold_side": "below",
+    "fomc_proximity": {
+      "status": "unavailable",
+      "hours_until": null,
+      "hours_since": null,
+      "reason": "No cutoff-verified official calendar vintage audited for this annotation"
+    }
+  },
+  "actual_paths": [
+    {
+      "horizon": "1w",
+      "generation": 0,
+      "engine_id": "E08",
+      "items": [
+        {
+          "confidence": 0.9025,
+          "edge_ids": [
+            "us_10y_yield_to_macro",
+            "macro_to_price"
+          ],
+          "graph_version": "fixture-dag-v1:3ca2d9a63eb0247663b7f4e2adfcf82a1fe417700ac723222b7b2ae126f096e6",
+          "hypothesis_id": "93f13e2c-f63d-5b33-abb0-9a3c91963026",
+          "node_ids": [
+            "us_10y_yield",
+            "module:macro",
+            "preferred_price"
+          ],
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_evidence_group": "us_10y_yield",
+          "sign": -1,
+          "strength": 0.7695000000000002
+        }
+      ]
+    },
+    {
+      "horizon": "1w",
+      "generation": 0,
+      "engine_id": "E09",
+      "items": [
+        {
+          "adjusted_effect": -0.6944737500000001,
+          "adjustment_codes": [],
+          "competing_refs": [],
+          "original_effect": -0.6944737500000001,
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_group": "us_10y_yield"
+        }
+      ]
+    },
+    {
+      "horizon": "1w",
+      "generation": 1,
+      "engine_id": "E08",
+      "items": [
+        {
+          "confidence": 0.9025,
+          "edge_ids": [
+            "us_10y_yield_to_macro",
+            "macro_to_price"
+          ],
+          "graph_version": "fixture-dag-v1:3ca2d9a63eb0247663b7f4e2adfcf82a1fe417700ac723222b7b2ae126f096e6",
+          "hypothesis_id": "c2420ad3-3a57-5089-8f3b-38df0381e457",
+          "node_ids": [
+            "us_10y_yield",
+            "module:macro",
+            "preferred_price"
+          ],
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_evidence_group": "us_10y_yield",
+          "sign": -1,
+          "strength": 0.7695000000000002
+        }
+      ]
+    },
+    {
+      "horizon": "1w",
+      "generation": 1,
+      "engine_id": "E09",
+      "items": [
+        {
+          "adjusted_effect": -0.6944737500000001,
+          "adjustment_codes": [],
+          "competing_refs": [],
+          "original_effect": -0.6944737500000001,
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_group": "us_10y_yield"
+        }
+      ]
+    },
+    {
+      "horizon": "1m",
+      "generation": 0,
+      "engine_id": "E08",
+      "items": [
+        {
+          "confidence": 0.9025,
+          "edge_ids": [
+            "us_10y_yield_to_macro",
+            "macro_to_price"
+          ],
+          "graph_version": "fixture-dag-v1:3ca2d9a63eb0247663b7f4e2adfcf82a1fe417700ac723222b7b2ae126f096e6",
+          "hypothesis_id": "9028fc1a-0408-5beb-80a6-c403513da3a6",
+          "node_ids": [
+            "us_10y_yield",
+            "module:macro",
+            "preferred_price"
+          ],
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_evidence_group": "us_10y_yield",
+          "sign": -1,
+          "strength": 0.7695000000000002
+        }
+      ]
+    },
+    {
+      "horizon": "1m",
+      "generation": 0,
+      "engine_id": "E09",
+      "items": [
+        {
+          "adjusted_effect": -0.6944737500000001,
+          "adjustment_codes": [],
+          "competing_refs": [],
+          "original_effect": -0.6944737500000001,
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_group": "us_10y_yield"
+        }
+      ]
+    },
+    {
+      "horizon": "1m",
+      "generation": 1,
+      "engine_id": "E08",
+      "items": [
+        {
+          "confidence": 0.9025,
+          "edge_ids": [
+            "us_10y_yield_to_macro",
+            "macro_to_price"
+          ],
+          "graph_version": "fixture-dag-v1:3ca2d9a63eb0247663b7f4e2adfcf82a1fe417700ac723222b7b2ae126f096e6",
+          "hypothesis_id": "e77dc05f-223a-55f6-b470-5f8391267af7",
+          "node_ids": [
+            "us_10y_yield",
+            "module:macro",
+            "preferred_price"
+          ],
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_evidence_group": "us_10y_yield",
+          "sign": -1,
+          "strength": 0.7695000000000002
+        }
+      ]
+    },
+    {
+      "horizon": "1m",
+      "generation": 1,
+      "engine_id": "E09",
+      "items": [
+        {
+          "adjusted_effect": -0.6944737500000001,
+          "adjustment_codes": [],
+          "competing_refs": [],
+          "original_effect": -0.6944737500000001,
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_group": "us_10y_yield"
+        }
+      ]
+    },
+    {
+      "horizon": "1y",
+      "generation": 0,
+      "engine_id": "E08",
+      "items": [
+        {
+          "confidence": 0.9025,
+          "edge_ids": [
+            "us_10y_yield_to_macro",
+            "macro_to_price"
+          ],
+          "graph_version": "fixture-dag-v1:3ca2d9a63eb0247663b7f4e2adfcf82a1fe417700ac723222b7b2ae126f096e6",
+          "hypothesis_id": "52983019-17da-540e-81f0-a0cd8b51e441",
+          "node_ids": [
+            "us_10y_yield",
+            "module:macro",
+            "preferred_price"
+          ],
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_evidence_group": "us_10y_yield",
+          "sign": -1,
+          "strength": 0.7695000000000002
+        }
+      ]
+    },
+    {
+      "horizon": "1y",
+      "generation": 0,
+      "engine_id": "E09",
+      "items": [
+        {
+          "adjusted_effect": -0.6944737500000001,
+          "adjustment_codes": [],
+          "competing_refs": [],
+          "original_effect": -0.6944737500000001,
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_group": "us_10y_yield"
+        }
+      ]
+    },
+    {
+      "horizon": "1y",
+      "generation": 1,
+      "engine_id": "E08",
+      "items": [
+        {
+          "confidence": 0.9025,
+          "edge_ids": [
+            "us_10y_yield_to_macro",
+            "macro_to_price"
+          ],
+          "graph_version": "fixture-dag-v1:3ca2d9a63eb0247663b7f4e2adfcf82a1fe417700ac723222b7b2ae126f096e6",
+          "hypothesis_id": "eccc3c06-d447-546e-b821-816e4f3460b6",
+          "node_ids": [
+            "us_10y_yield",
+            "module:macro",
+            "preferred_price"
+          ],
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_evidence_group": "us_10y_yield",
+          "sign": -1,
+          "strength": 0.7695000000000002
+        }
+      ]
+    },
+    {
+      "horizon": "1y",
+      "generation": 1,
+      "engine_id": "E09",
+      "items": [
+        {
+          "adjusted_effect": -0.6944737500000001,
+          "adjustment_codes": [],
+          "competing_refs": [],
+          "original_effect": -0.6944737500000001,
+          "path_id": "us_10y_yield_to_macro/macro_to_price",
+          "root_group": "us_10y_yield"
+        }
+      ]
+    }
+  ],
+  "baseline_ledger": [
+    {
+      "horizon": "1w",
+      "stage": "initial",
+      "status": "available",
+      "rows": [
+        {
+          "after": {
+            "down": 0.3071090433316668,
+            "flat": 0.19443249101978585,
+            "up": 0.4984584656485474
+          },
+          "before": {
+            "down": 0.23108391468700049,
+            "flat": 0.19997177618369996,
+            "up": 0.5689443091292996
+          },
+          "delta_pp": [
+            -7.048584348075221,
+            7.602512864466629,
+            -0.5539285163914109
+          ],
+          "edge_ids": [
+            "us_10y_yield_to_macro",
+            "macro_to_price"
+          ],
+          "engine_id": "E12",
+          "evidence_refs": [
+            "us_10y_yield"
+          ],
+          "sequence": 4,
+          "stage": "causal",
+          "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+        }
+      ]
+    },
+    {
+      "horizon": "1w",
+      "stage": "final",
+      "status": "available",
+      "rows": [
+        {
+          "after": {
+            "down": 0.3071090433316668,
+            "flat": 0.19443249101978585,
+            "up": 0.4984584656485474
+          },
+          "before": {
+            "down": 0.23108391468700049,
+            "flat": 0.19997177618369996,
+            "up": 0.5689443091292996
+          },
+          "delta_pp": [
+            -7.048584348075221,
+            7.602512864466629,
+            -0.5539285163914109
+          ],
+          "edge_ids": [
+            "us_10y_yield_to_macro",
+            "macro_to_price"
+          ],
+          "engine_id": "E12",
+          "evidence_refs": [
+            "us_10y_yield"
+          ],
+          "sequence": 4,
+          "stage": "causal",
+          "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+        }
+      ]
+    },
+    {
+      "horizon": "1m",
+      "stage": "initial",
+      "status": "available",
+      "rows": [
+        {
+          "after": {
+            "down": 0.33484300112750554,
+            "flat": 0.2132573558039186,
+            "up": 0.4518996430685759
+          },
+          "before": {
+            "down": 0.2739876240707086,
+            "flat": 0.22058999215834782,
+            "up": 0.5054223837709435
+          },
+          "delta_pp": [
+            -5.352274070236762,
+            6.085537705679695,
+            -0.7332636354429212
+          ],
+          "edge_ids": [
+            "us_10y_yield_to_macro",
+            "macro_to_price"
+          ],
+          "engine_id": "E12",
+          "evidence_refs": [
+            "us_10y_yield"
+          ],
+          "sequence": 4,
+          "stage": "causal",
+          "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+        }
+      ]
+    },
+    {
+      "horizon": "1m",
+      "stage": "final",
+      "status": "available",
+      "rows": [
+        {
+          "after": {
+            "down": 0.33289628815058325,
+            "flat": 0.21262867114198086,
+            "up": 0.45447504070743583
+          },
+          "before": {
+            "down": 0.2722212495372336,
+            "flat": 0.21979963153209228,
+            "up": 0.5079791189306742
+          },
+          "delta_pp": [
+            -5.350407822323833,
+            6.067503861334966,
+            -0.7170960390111419
+          ],
+          "edge_ids": [
+            "us_10y_yield_to_macro",
+            "macro_to_price"
+          ],
+          "engine_id": "E12",
+          "evidence_refs": [
+            "us_10y_yield"
+          ],
+          "sequence": 4,
+          "stage": "causal",
+          "version": "slice-v1:8fdd96b221b13a8b3d6aefbbc988b3758dfcb347e20352c8b16a3dcb35db495d"
+        }
+      ]
+    },
+    {
+      "horizon": "1y",
+      "stage": "initial",
+      "status": "horizon_withheld",
+      "rows": null
+    },
+    {
+      "horizon": "1y",
+      "stage": "final",
+      "status": "horizon_withheld",
+      "rows": null
+    }
+  ],
+  "requested_path_audit": {
+    "valuation": "absent_from_recorded_us10y_baseline_paths",
+    "usdkrw": "absent_from_recorded_us10y_baseline_paths",
+    "foreign_flow": "absent_from_recorded_us10y_baseline_paths",
+    "ai_capex": "absent_from_recorded_us10y_baseline_paths",
+    "memory_demand_expectation": "absent_from_recorded_us10y_baseline_paths",
+    "fomc_risk": "absent_from_recorded_us10y_baseline_paths"
+  },
+  "interpretation": "Open hypothesis, not evidence that the Baseline underweights rates; sequential ledger differences are not independent causal effects."
+}
