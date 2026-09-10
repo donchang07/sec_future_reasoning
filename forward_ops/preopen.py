@@ -6,7 +6,8 @@ import sys
 from datetime import datetime,timezone
 from pathlib import Path
 from uuid import uuid4
-from .admission import POLICY,VERSION,KST,eligible
+from .admission import KST,eligible
+from .source_timing import POLICY,VERSION
 from .runtime import ROOT,BASELINE_ROOT,LOCK_PATH,bootstrap,operations_manifest,harvest_outcomes
 from .store import read_seal,digest
 
@@ -62,23 +63,24 @@ def run_official(store,exception_date=None,exception_reason=None,now=None):
     finally:marker.unlink()
 
 
-def legacy_worker(record):
+def legacy_worker(record,commit=LEGACY_COMMIT,script='forward_ops/worker.py'):
     manifest=record['operations_manifest']
     if not manifest or 'forward_ops/worker.py' not in manifest:raise ValueError('Missing recorded operations manifest')
     contents={}
     for path,sha in manifest.items():
         if not (path.startswith('forward_ops/') or path=='scripts/install-forward-schedule.ps1') or '..' in Path(path).parts:
             raise ValueError('Unexpected historical operations path')
-        body=subprocess.check_output(['git','show',LEGACY_COMMIT+':'+path],cwd=ROOT).decode('utf-8').replace('\r\n','\n')
+        body=subprocess.check_output(['git','show',commit+':'+path],cwd=ROOT).decode('utf-8').replace('\r\n','\n')
         if hashlib.sha256(body.encode()).hexdigest()!=sha:raise ValueError('Recorded legacy operations version mismatch')
         contents[path]=body
-    folder=ROOT/'artifacts/local/operations-versions'/LEGACY_COMMIT;folder.mkdir(parents=True,exist_ok=True)
-    target=folder/'worker.py';body=contents['forward_ops/worker.py']
-    if target.exists():
-        if target.read_text(encoding='utf-8')!=body:raise ValueError('Historical worker cache changed')
-    else:
-        with target.open('x',encoding='utf-8') as stream:stream.write(body)
-    return target
+    folder=ROOT/'artifacts/local/operations-versions'/commit
+    for path,body in contents.items():
+        target=folder/path;target.parent.mkdir(parents=True,exist_ok=True)
+        if target.exists():
+            if target.read_text(encoding='utf-8')!=body:raise ValueError('Historical worker cache changed')
+        else:
+            with target.open('x',encoding='utf-8') as stream:stream.write(body)
+    return folder/script
 
 
 def replay_any(store,run_id):
@@ -90,6 +92,9 @@ def replay_any(store,run_id):
     if version==VERSION:
         if record['operations_manifest']!=operations_manifest():raise ValueError('Operations replay version drift')
         request['policy']=record['operating_policy'];script=ROOT/'forward_ops/preopen_worker.py'
+    elif version=='forward-ops-v1.1.0':
+        request['policy']=record['operating_policy']
+        script=legacy_worker(record,'6479777b64324bdbfad843dd6cd60a6fa4ae0e58','forward_ops/preopen_worker.py')
     elif version in ('forward-ops-v1.0.0','original-live-forward-v2'):
         request['daily_date']=None
         script=(legacy_worker(record) if record.get('operations_manifest')!=operations_manifest() else ROOT/'forward_ops/worker.py') if version=='forward-ops-v1.0.0' else ROOT/'forward_ops/worker.py'

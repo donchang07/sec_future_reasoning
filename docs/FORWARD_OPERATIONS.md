@@ -14,7 +14,16 @@ Baseline은 `real-world-contract-v2.0.0`과 `73c30f77608813bafcecf137e413e88b3c0
 
 화면: http://127.0.0.1:8678. Forecast Horizon을 선택하면 기여 Ledger와 Gate, E09/E10/E11, source freshness를 조회한다. Shadow 진단과 Human Forecast, 평가 점수는 별도 영역이다. UI는 읽기 전용이며 입력은 아래 CLI를 사용한다.
 
-공식 Daily는 운영정책 `daily-preopen-v1.0.0`에 따라 매일 **07:00 KST**에 시작한다. 자동 지연·재시도는 09:00 전까지만 허용하며 그 밖에는 skipped다. 사용자 로그인·전원·네트워크가 필요하다. 같은 날짜의 `daily:YYYY-MM-DD`는 정책 버전이 달라도 한 번만 봉인한다. 주말·휴일에도 전일 가용 자료로 실행하되 기존 freshness/coverage 정책 때문에 결과가 withheld일 수 있다. 한국 가격·수급은 관측된 직전 한국 종가까지, 미국·FX는 직전 NYSE core close를 넘지 않는 기존 timestamp 의미의 자료만 사용한다. 원본 raw와 별도 admitted bundle, market_cutoffs를 함께 보관한다. 이전 16:10 정책은 역사적 기록으로만 보존한다.
+공식 Daily는 운영정책 `daily-preopen-v1.0.1`에 따라 매일 **07:00 KST**에 시작한다. 자동 지연·재시도는 09:00 전까지만 허용하며 그 밖에는 skipped다. 사용자 로그인·전원·네트워크가 필요하다. 같은 날짜의 `daily:YYYY-MM-DD`는 정책 버전이 달라도 한 번만 봉인한다. 주말·휴일에도 전일 가용 자료로 실행하되 기존 freshness/coverage 정책 때문에 결과가 withheld일 수 있다. 한국 가격·수급은 관측된 직전 한국 종가까지 사용한다. 미국 자료는 `source-timing-v1.0.1`로 수집 시각과 경제적 관측 시각, 완료 여부를 구분한다. Treasury는 실제 수집된 직전 세션의 공식 daily row에 약 15:30 ET 관측 기준을 적용한다. 검증되지 않은 DXY/FX 일봉은 이전 날짜로 조용히 대체하지 않고 unavailable로 기록한다. 원본 raw와 별도 admitted bundle, market_cutoffs를 함께 보관한다. 이전 정책과 Journal은 역사적 기록으로 보존한다.
+
+Nasdaq·SOX·미국 반도체주·WTI의 가용성은 `availability-raw.json`과 Journal의 `availability_diagnostic`에 따로 저장하며 모델에 넣지 않는다. 정규장 종료 + provider session 일치 + 유효 OHLCV를 확인한 가용 bar도 vendor가 수정할 수 있으며 final flag가 없으면 null이다. 나중에 수집한 자료로 과거 07:00 가용성을 입증하지 않는다. [Data Timing bug-fix 설계](02-design/features/us-completed-bar-timing-fix.design.md).
+
+예측을 생성하지 않고 데이터만 점검하려면 다음을 실행한다.
+
+```powershell
+.venv/Scripts/python.exe -m forward_ops.availability_audit
+.venv/Scripts/python.exe -m forward_ops.availability_audit --replay artifacts/local/availability-audits/AUDIT_ID
+```
 
 예외 실행은 명시적으로 허용된 날짜에만 `daily --exception-date YYYY-MM-DD --exception-reason "승인된 예외 사유"`로 실행한다. 날짜가 현재 KST 날짜와 다르면 거절된다. 결과 시각은 실제 수집 완료 시각이며 07:00으로 소급하지 않는다. `not_ready`는 종료 코드 2, 예약 작업은 30분 간격 최대 3회 재시도하되 09:00 이후에는 실행하지 않는다. [정책 설계 및 알려진 데이터 제한](02-design/features/daily-0700-operating-policy.design.md)을 참고한다.
 

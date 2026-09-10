@@ -2,7 +2,10 @@
 import json
 import sys
 from pathlib import Path
-from admission import project_bundle,eligible,KST
+from admission import eligible,KST
+from source_timing import POLICY
+from timing_evaluate import project,evaluate
+import availability_audit
 
 
 def main():
@@ -18,21 +21,27 @@ def main():
         from concurrent.futures import ThreadPoolExecutor
         from reasoning.act_sources import DOCUMENTS,collect_document
         with ThreadPoolExecutor(max_workers=4) as pool:documents=tuple(pool.map(collect_document,DOCUMENTS))
+        diagnostics=availability_audit.collect()
+        model.write_immutable(output/'availability-raw.json',diagnostics)
         bundle=model.InputBundle(market=model.collect_snapshot(),documents=documents,lock=request['lock'])
         model.write_immutable(output/'raw-bundle.json',bundle)
-    else:bundle=model.InputBundle.model_validate_json(Path(request['bundle_path']).read_text(encoding='utf-8'))
+    else:
+        bundle=model.InputBundle.model_validate_json(Path(request['bundle_path']).read_text(encoding='utf-8'))
+        diagnostics=json.loads((Path(request['bundle_path']).parent/'availability-raw.json').read_text(encoding='utf-8'))
     policy=request['policy'];cutoff=bundle.market.data_cutoff
+    if policy['version']!=POLICY:raise ValueError('Worker policy version mismatch')
     if cutoff.astimezone(KST).date().isoformat()!=policy['forecast_session'] or not eligible(cutoff,policy['exception_date'],policy['exception_reason']):
         model.write_immutable(output/'result.json',{'status':'not_ready','reason':'Collection finished outside authorized session/window'});return
-    try:admitted,audit=project_bundle(bundle,policy['forecast_session'])
+    try:admitted,audit=project(bundle,policy['forecast_session'])
     except ValueError as exc:
         model.write_immutable(output/'result.json',{'status':'not_ready','reason':str(exc)});return
     model.write_immutable(output/'admitted-bundle.json',admitted)
     model.write_immutable(output/'admission.json',audit)
-    journal=model.evaluate(admitted)
+    journal=evaluate(admitted,bundle)
     journal.update(operating_policy=policy,market_cutoffs=audit)
-    journal['findings']+=['OP-F01: conservative US/FX date-end timestamps retained; latest cash-session data may be excluded.',
-        'OP-F02: prior-close intraday bars remain subject to frozen freshness, including midday exceptions.']
+    journal['availability_diagnostic']=availability_audit.assess(diagnostics,cutoff)
+    journal['availability_raw_hash']=model.digest(diagnostics)
+    journal['findings']+=['OP-F02: prior-close intraday bars remain subject to frozen freshness, including midday exceptions.']
     model.verify_lock(request['lock'],baseline)
     model.write_immutable(output/'prediction-journal.json',model.seal(journal))
     (output/'explainability.md').write_text(model.report(journal),encoding='utf-8')

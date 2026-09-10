@@ -9,4 +9,4 @@ $trigger = New-ScheduledTaskTrigger -Daily -At $At
 $settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Minutes 10) -RestartCount 3 -RestartInterval (New-TimeSpan -Minutes 30) -Hidden
 $account = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
 $principal = New-ScheduledTaskPrincipal -UserId $account -LogonType Interactive -RunLevel Limited
-Register-ScheduledTask -TaskName $TaskName -Action $action -Trigger $trigger -Settings $settings -Principal $principal -Description 'daily-preopen-v1.0.0: 07:00 KST frozen v2; prior US/Korean close; immutable forward evaluation. Requires logged-in user.' -Force | Select-Object TaskName,State
+Register-ScheduledTask -TaskName $TaskName -Action $action -Trigger $trigger -Settings $settings -Principal $principal -Description 'daily-preopen-v1.0.1: 07:00 KST frozen v2; source-timing-v1.0.1; immutable forward evaluation. Requires logged-in user.' -Force | Select-Object TaskName,State
