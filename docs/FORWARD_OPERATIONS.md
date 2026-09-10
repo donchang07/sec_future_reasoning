@@ -14,7 +14,9 @@ Baseline은 `real-world-contract-v2.0.0`과 `73c30f77608813bafcecf137e413e88b3c0
 
 화면: http://127.0.0.1:8678. Forecast Horizon을 선택하면 기여 Ledger와 Gate, E09/E10/E11, source freshness를 조회한다. Shadow 진단과 Human Forecast, 평가 점수는 별도 영역이다. UI는 읽기 전용이며 입력은 아래 CLI를 사용한다.
 
-Daily는 15:50 KST 이후 현재 날짜의 완료 일봉이 있는 경우만 발행한다. 설치된 예약 실행은 16:10 KST이며 사용자 로그인·전원·네트워크가 필요하다. 같은 날짜에 다시 실행해도 이미 봉인된 Run은 바꾸지 않는다. 휴장/지연 자료는 not_ready, 주말/마감 전은 skipped다. not_ready는 종료 코드 2이며 예약 작업은 30분 간격 최대 3회 재시도한다.
+공식 Daily는 운영정책 `daily-preopen-v1.0.0`에 따라 매일 **07:00 KST**에 시작한다. 자동 지연·재시도는 09:00 전까지만 허용하며 그 밖에는 skipped다. 사용자 로그인·전원·네트워크가 필요하다. 같은 날짜의 `daily:YYYY-MM-DD`는 정책 버전이 달라도 한 번만 봉인한다. 주말·휴일에도 전일 가용 자료로 실행하되 기존 freshness/coverage 정책 때문에 결과가 withheld일 수 있다. 한국 가격·수급은 관측된 직전 한국 종가까지, 미국·FX는 직전 NYSE core close를 넘지 않는 기존 timestamp 의미의 자료만 사용한다. 원본 raw와 별도 admitted bundle, market_cutoffs를 함께 보관한다. 이전 16:10 정책은 역사적 기록으로만 보존한다.
+
+예외 실행은 명시적으로 허용된 날짜에만 `daily --exception-date YYYY-MM-DD --exception-reason "승인된 예외 사유"`로 실행한다. 날짜가 현재 KST 날짜와 다르면 거절된다. 결과 시각은 실제 수집 완료 시각이며 07:00으로 소급하지 않는다. `not_ready`는 종료 코드 2, 예약 작업은 30분 간격 최대 3회 재시도하되 09:00 이후에는 실행하지 않는다. [정책 설계 및 알려진 데이터 제한](02-design/features/daily-0700-operating-policy.design.md)을 참고한다.
 
 ```powershell
 ./scripts/install-forward-schedule.ps1
@@ -22,7 +24,7 @@ Get-ScheduledTask -TaskName SEC-Frozen-Forward-Daily
 Get-ScheduledTaskInfo -TaskName SEC-Frozen-Forward-Daily
 ```
 
-현재 환경은 Korea Standard Time이다. 다른 OS timezone으로 옮길 경우 예약시각을 KST에 맞춰 별도로 설치해야 한다. 오류 로그는 `logs/`, 원시 응답 및 subprocess 로그는 `attempts/`에 남는다. 비정상 종료로 `active.lock`이 남으면 실행 중인 작업이 없는지 확인한 뒤 정확한 해당 lock 파일만 정리하고 재실행한다. 봉인된 결과는 삭제하거나 덮어쓰지 않는다.
+현재 환경은 Korea Standard Time이다. 설치기는 다른 OS timezone을 거절하며 검증·CI 통과 후 설치한다. 오류 로그는 `logs/`, 원시 응답 및 subprocess 로그는 `attempts/`에 남는다. 비정상 종료로 `active.lock`이 남으면 실행 중인 작업이 없는지 확인한 뒤 정확한 해당 lock 파일만 정리하고 재실행한다. 봉인된 결과는 삭제하거나 덮어쓰지 않는다. Outcome의 만기와 P0, Journal hash는 각 예측 당시 계약을 유지하므로 새 예약이 기존 평가 만기를 바꾸지 않는다. Replay CLI는 기록된 운영 버전에 따라 이전 worker 또는 새 admission 경로를 선택한다.
 
 ## Market Positioning Shadow 입력
 
