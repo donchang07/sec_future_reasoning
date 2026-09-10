@@ -27,5 +27,7 @@ Use docs/01-plan, docs/02-design, docs/03-analysis, and docs/04-report for PDCA 
 ### Document publishing and autonomy
 Publish newly created or updated project documents to the configured GitHub origin as each document is completed, including PDCA status updates. Check the staged scope and exclude secrets and unrelated local changes. Complete the current PDCA phase without routine confirmation questions; resolve reversible design choices using the PRD and record assumptions. User authorization covers document commits and pushes. Required tool and environment approval controls still apply.
 
+Always publish completed public Prediction Journals and explainability results to GitHub, including automated Daily/Event runs. The separate `publication` task reconciles pending results every five minutes; retry publication without rerunning prediction. Keep raw captures, private holdings, human forecasts, manually supplied shadow records and credentials local. Preserve journal bytes and publish linked public Outcomes as separate immutable records. Never include unrelated staged/unpushed work or force-push to deliver results.
+
 ## Security
 Never commit API keys, Supabase service-role keys, Neo4j passwords, brokerage credentials, or private data. Use environment variables and example files with placeholders only.
