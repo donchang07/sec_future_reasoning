@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-09-10T03:29:31.980Z",
+  "lastUpdated": "2026-09-10T03:30:29.351Z",
   "activeFeatures": [
     "sec-future-reasoning-v1-1",
     "reasoning-foundation",
@@ -657,10 +657,16 @@
       }
     },
     "us-completed-bar-timing-fix": {
-      "phase": "act",
-      "matchRate": null,
+      "phase": "completed",
+      "matchRate": 100,
       "iterationCount": 1,
-      "documents": {},
+      "documents": {
+        "plan": "docs/01-plan/features/us-completed-bar-timing-fix.plan.md",
+        "design": "docs/02-design/features/us-completed-bar-timing-fix.design.md",
+        "analysis": "docs/03-analysis/us-completed-bar-timing-fix.analysis.md",
+        "report": "docs/04-report/us-completed-bar-timing-fix.report.md",
+        "audit": "docs/03-analysis/us-completed-bar-timing-fix.availability-audit.json"
+      },
       "taskChain": [
         {
           "phase": "plan",
@@ -688,13 +694,50 @@
         },
         {
           "phase": "report",
-          "status": "active",
-          "createdAt": "2026-09-10T03:22:06.146Z"
+          "status": "completed",
+          "createdAt": "2026-09-10T03:22:06.146Z",
+          "completedAt": "2026-09-10T03:30:29.351Z"
+        },
+        {
+          "phase": "act",
+          "status": "completed",
+          "completedAt": "2026-09-10T03:30:52.942929+00:00",
+          "description": "Timing-only bug-fix version deployed after CI; no new prediction or model tuning"
         }
       ],
       "timestamps": {
         "started": "2026-09-10T03:22:06.149Z",
-        "lastUpdated": "2026-09-10T03:29:31.980Z"
+        "lastUpdated": "2026-09-10T03:30:29.351Z"
+      },
+      "completedAt": "2026-09-10T03:30:29.342Z",
+      "status": "completed_with_source_availability_findings",
+      "completionCriteria": {
+        "matched": 9,
+        "total": 9
+      },
+      "findings": [
+        "UT-F01",
+        "UT-F02",
+        "UT-F03",
+        "UT-F04"
+      ],
+      "checkSummary": {
+        "testsPassed": 266,
+        "existingTestsPassed": 245,
+        "newTests": 21,
+        "ci": "34433429184",
+        "oldReplaysEqual": 5,
+        "oldJournalsChanged": false,
+        "modelChanged": false,
+        "newPredictionCreated": false,
+        "timingVersion": "source-timing-v1.0.1",
+        "operatingPolicy": "daily-preopen-v1.0.1",
+        "actualAuditSources": 11,
+        "availableNow": 8,
+        "unverifiedUnavailable": 3,
+        "historical0700Availability": "unknown",
+        "auditReplayEqual": true,
+        "nextDailyKST": "2026-09-11 07:00:00"
       }
     }
   },
@@ -706,7 +749,7 @@
   "session": {
     "startedAt": "2026-09-09T04:15:13.803Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-09-10T03:29:31.980Z"
+    "lastActivity": "2026-09-10T03:30:29.351Z"
   },
   "history": [
     {
@@ -1363,6 +1406,26 @@
       "phase": "check",
       "nextPhase": "act",
       "timestamp": "2026-09-10T03:29:31.976Z"
+    },
+    {
+      "feature": "us-completed-bar-timing-fix",
+      "from": "act",
+      "to": "report",
+      "timestamp": "2026-09-10T03:30:29.304Z"
+    },
+    {
+      "feature": "us-completed-bar-timing-fix",
+      "action": "phase_complete",
+      "phase": "act",
+      "nextPhase": "report",
+      "timestamp": "2026-09-10T03:30:29.306Z"
+    },
+    {
+      "feature": "us-completed-bar-timing-fix",
+      "action": "phase_complete",
+      "phase": "report",
+      "nextPhase": "completed",
+      "timestamp": "2026-09-10T03:30:29.343Z"
     }
   ]
 }
