@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-09-10T03:16:56.060Z",
+  "lastUpdated": "2026-09-10T03:17:57.962Z",
   "activeFeatures": [
     "sec-future-reasoning-v1-1",
     "reasoning-foundation",
@@ -575,10 +575,17 @@
       ]
     },
     "daily-0700-operating-policy": {
-      "phase": "act",
-      "matchRate": null,
+      "phase": "completed",
+      "matchRate": 100,
       "iterationCount": 1,
-      "documents": {},
+      "documents": {
+        "plan": "docs/01-plan/features/daily-0700-operating-policy.plan.md",
+        "design": "docs/02-design/features/daily-0700-operating-policy.design.md",
+        "analysis": "docs/03-analysis/daily-0700-operating-policy.analysis.md",
+        "report": "docs/04-report/daily-0700-operating-policy.report.md",
+        "sealedJournal": "docs/03-analysis/daily-0700-operating-policy.exception-journal.json",
+        "evidence": "docs/03-analysis/daily-0700-operating-policy.evidence.json"
+      },
       "taskChain": [
         {
           "phase": "plan",
@@ -606,13 +613,46 @@
         },
         {
           "phase": "report",
-          "status": "active",
-          "createdAt": "2026-09-10T03:09:12.083Z"
+          "status": "completed",
+          "createdAt": "2026-09-10T03:09:12.083Z",
+          "completedAt": "2026-09-10T03:17:57.962Z"
+        },
+        {
+          "phase": "act",
+          "status": "completed",
+          "completedAt": "2026-09-10T03:18:13.650162+00:00",
+          "description": "Activated after CI, sealed exception and preserved source-contract findings without tuning"
         }
       ],
       "timestamps": {
         "started": "2026-09-10T03:09:12.092Z",
-        "lastUpdated": "2026-09-10T03:16:56.060Z"
+        "lastUpdated": "2026-09-10T03:17:57.962Z"
+      },
+      "completedAt": "2026-09-10T03:17:57.957Z",
+      "status": "operational_with_findings",
+      "completionCriteria": {
+        "matched": 10,
+        "total": 10
+      },
+      "findings": [
+        "OP-F01",
+        "OP-F02",
+        "OP-F03"
+      ],
+      "checkSummary": {
+        "testsPassed": 245,
+        "existingTestsPassed": 221,
+        "newTests": 24,
+        "ci": "34432581517",
+        "runId": "2ce0e81e-6569-53de-8b7a-fc7ecd854d7a",
+        "allReplaysEqual": true,
+        "baselineUnchanged": true,
+        "journalImmutable": true,
+        "oldScheduleStopped": true,
+        "nextDailyKST": "2026-09-11 07:00:00",
+        "policyVersion": "daily-preopen-v1.0.0",
+        "pendingOutcomes": 12,
+        "fullOvernightSourceCoverage": false
       }
     }
   },
@@ -624,7 +664,7 @@
   "session": {
     "startedAt": "2026-09-09T04:15:13.803Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-09-10T03:16:56.060Z"
+    "lastActivity": "2026-09-10T03:17:57.962Z"
   },
   "history": [
     {
@@ -1203,6 +1243,26 @@
       "phase": "check",
       "nextPhase": "act",
       "timestamp": "2026-09-10T03:16:56.057Z"
+    },
+    {
+      "feature": "daily-0700-operating-policy",
+      "from": "act",
+      "to": "report",
+      "timestamp": "2026-09-10T03:17:57.924Z"
+    },
+    {
+      "feature": "daily-0700-operating-policy",
+      "action": "phase_complete",
+      "phase": "act",
+      "nextPhase": "report",
+      "timestamp": "2026-09-10T03:17:57.925Z"
+    },
+    {
+      "feature": "daily-0700-operating-policy",
+      "action": "phase_complete",
+      "phase": "report",
+      "nextPhase": "completed",
+      "timestamp": "2026-09-10T03:17:57.958Z"
     }
   ]
 }
