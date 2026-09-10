@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-09-10T03:17:57.962Z",
+  "lastUpdated": "2026-09-10T03:22:35.419Z",
   "activeFeatures": [
     "sec-future-reasoning-v1-1",
     "reasoning-foundation",
@@ -9,7 +9,8 @@
     "real-world-contract-refinement",
     "live-forward-v2",
     "forward-evaluation-and-liquidity-v1",
-    "daily-0700-operating-policy"
+    "daily-0700-operating-policy",
+    "us-completed-bar-timing-fix"
   ],
   "primaryFeature": "real-world-contract-refinement",
   "features": {
@@ -654,6 +655,44 @@
         "pendingOutcomes": 12,
         "fullOvernightSourceCoverage": false
       }
+    },
+    "us-completed-bar-timing-fix": {
+      "phase": "design",
+      "matchRate": null,
+      "iterationCount": 0,
+      "documents": {},
+      "taskChain": [
+        {
+          "phase": "plan",
+          "status": "completed",
+          "createdAt": "2026-09-10T03:22:06.146Z",
+          "completedAt": "2026-09-10T03:22:35.419Z"
+        },
+        {
+          "phase": "design",
+          "status": "active",
+          "createdAt": "2026-09-10T03:22:06.146Z"
+        },
+        {
+          "phase": "do",
+          "status": "pending",
+          "createdAt": "2026-09-10T03:22:06.146Z"
+        },
+        {
+          "phase": "check",
+          "status": "pending",
+          "createdAt": "2026-09-10T03:22:06.146Z"
+        },
+        {
+          "phase": "report",
+          "status": "pending",
+          "createdAt": "2026-09-10T03:22:06.146Z"
+        }
+      ],
+      "timestamps": {
+        "started": "2026-09-10T03:22:06.149Z",
+        "lastUpdated": "2026-09-10T03:22:35.419Z"
+      }
     }
   },
   "pipeline": {
@@ -664,7 +703,7 @@
   "session": {
     "startedAt": "2026-09-09T04:15:13.803Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-09-10T03:17:57.962Z"
+    "lastActivity": "2026-09-10T03:22:35.419Z"
   },
   "history": [
     {
@@ -1263,6 +1302,19 @@
       "phase": "report",
       "nextPhase": "completed",
       "timestamp": "2026-09-10T03:17:57.958Z"
+    },
+    {
+      "feature": "us-completed-bar-timing-fix",
+      "from": "plan",
+      "to": "design",
+      "timestamp": "2026-09-10T03:22:35.413Z"
+    },
+    {
+      "feature": "us-completed-bar-timing-fix",
+      "action": "phase_complete",
+      "phase": "plan",
+      "nextPhase": "design",
+      "timestamp": "2026-09-10T03:22:35.415Z"
     }
   ]
 }
