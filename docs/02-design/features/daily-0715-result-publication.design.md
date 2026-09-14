@@ -1,11 +1,11 @@
 # Daily 07:15 result publication — Design
 
-> Version: 1.0.0 | Date: 2026-09-14 | Status: Approved
+> Version: 1.1.0 | Date: 2026-09-14 | Status: Approved
 > Level: Enterprise | Plan: `docs/01-plan/features/daily-0715-result-publication.plan.md`
 
 ## 1. Design boundary
 
-This is an operations-trigger change around the existing `publication` package. The publisher, forecast pipeline, registered-run store, immutable Journal/Outcome contracts, Git allowlist, and the existing 07:00 prediction task remain unchanged.
+This is an operations-trigger and Windows process-presentation change around the existing `publication` package. Publisher result semantics, the forecast pipeline, registered-run store, immutable Journal/Outcome contracts, Git allowlist, and the existing 07:00 prediction task remain unchanged.
 
 ```text
 07:00 Daily prediction (unchanged)
@@ -56,29 +56,44 @@ This schedule intentionally trades near-real-time Event publication and rapid Gi
 | File | Change |
 |---|---|
 | `scripts/install-result-publication.ps1` | Replace five-minute repeating trigger and description with daily 07:15 scheduling. |
+| `publication/publisher.py` | Pass the platform-appropriate no-window flag to every publisher Git subprocess. |
+| `tests/test_publication.py` | Verify the Git wrapper's subprocess creation flags without launching Git. |
 | `tests/test_publication_schedule.py` | Add a portable source-contract regression test for the PowerShell task definition. |
 | `docs/RESULT_PUBLICATION.md` | Describe daily timing, manual publication, and next-day retry behavior. |
 | `AGENTS.md` | Replace the permanent five-minute reconciliation rule with daily 07:15. |
 | PDCA Plan/Design/Check/Report and status | Record design, evidence, and completion. |
 
-No schema, API, data migration, package version, or publisher code change is required.
+No schema, API, data migration, package version, or publication decision/transaction change is required.
 
-## 5. Security and Git safety
+## 5. Windows Git process creation
+
+All publisher Git operations pass through `publication.publisher.git`. Define one platform constant:
+
+```python
+GIT_CREATION_FLAGS = subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0
+```
+
+Pass it to `subprocess.run(..., creationflags=GIT_CREATION_FLAGS)`. The Windows flag prevents each console-subsystem `git.exe` child from creating a visible window even though the parent is `pythonw.exe`. A zero value preserves POSIX compatibility in CI. Do not apply the flag to unrelated prediction or replay code in this feature.
+
+The existing non-interactive environment, captured stdout/stderr, 90-second timeout, return-code handling, command sequence, and retry logic remain identical.
+
+## 6. Security and Git safety
 
 The schedule change grants no new permissions. `publication.publisher` continues to reject private fields and credential patterns, export only allowlisted public artifacts, require `main`, fetch `origin/main`, reject unrelated staged/unpushed/divergent work, commit only managed paths, and never force-push. Local raw captures and operational logs remain ignored.
 
 Task registration is an operating-system mutation and is performed only after source and test verification. Verification reads the installed task's action, start boundary, daily interval, repetition interval, safety settings, last result, and next run.
 
-## 6. Test and rollout plan
+## 7. Test and rollout plan
 
 1. Add a failing test that requires a daily trigger, 07:15 calculation, and absence of five-minute repetition while preserving action and safety settings.
-2. Change the installer and update current operating documentation and permanent instructions.
-3. Run the new test, all publication tests, and the full test suite.
-4. Record hashes of existing published Journals before task registration and confirm they are unchanged afterward.
-5. Re-run the installer to replace `SEC-Frozen-Forward-Publish`.
-6. Inspect the live task: one daily trigger, start time 07:15 local, no repetition, correct action, `Ready`, and next run at 07:15.
-7. Run design-to-implementation gap analysis. A six-of-six requirement match is 100% and clears the 90% report threshold.
+2. Add a mocked subprocess test that expects `CREATE_NO_WINDOW` on Windows and `0` elsewhere.
+3. Change the installer and Git wrapper, then update current operating documentation and permanent instructions.
+4. Run the new tests, all publication tests, and the full test suite.
+5. Record hashes of existing published Journals before task registration and confirm they are unchanged afterward.
+6. Re-run the installer to replace `SEC-Frozen-Forward-Publish`.
+7. Inspect the live task: one daily trigger, start time 07:15 local, no repetition, correct action, `Ready`, and next run at 07:15.
+8. Run design-to-implementation gap analysis. A seven-of-seven requirement match is 100% and clears the 90% report threshold.
 
-## 7. Rollback
+## 8. Rollback
 
 Rollback is limited to task configuration and the installer commit. If the new task definition is invalid, do not run prediction or modify publication artifacts; restore a reviewed scheduler definition and re-register the same task name. Existing published results and sealed local Journals require no rollback.

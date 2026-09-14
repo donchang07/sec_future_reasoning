@@ -1,6 +1,6 @@
 # Daily 07:15 result publication — Plan
 
-> Version: 1.0.0 | Date: 2026-09-14 | Status: Approved
+> Version: 1.1.0 | Date: 2026-09-14 | Status: Approved
 > Level: Enterprise
 
 ## 1. Purpose and background
@@ -18,6 +18,7 @@ The existing Daily prediction task remains at 07:00. A normally completed Daily 
 - Update the installer, permanent project rule, operating guide, and automated schedule-contract test.
 - Re-register the existing Windows task and verify its action, daily trigger, next run, and last result.
 - Preserve publisher behavior: verify and export registered public Journals and Outcomes, then safely commit/push only `docs/predictions/` changes.
+- Suppress console-window creation for every Git subprocess launched by the publisher on Windows, while retaining non-Windows test compatibility.
 
 ### Out of scope
 
@@ -33,10 +34,12 @@ The existing Daily prediction task remains at 07:00. A normally completed Daily 
 - `S715-F04`: Reinstalling the task is idempotent and replaces the old trigger without creating a second task.
 - `S715-F05`: No prediction is run by the publisher, and no sealed Journal or existing operations manifest is changed.
 - `S715-F06`: Documentation states the once-daily retry latency and the interaction with the existing 07:00 Daily prediction.
+- `S715-F07`: Publisher Git subprocesses use `subprocess.CREATE_NO_WINDOW` on Windows and creation flags `0` elsewhere; exit codes, captured output, timeout, and Git safety behavior remain unchanged.
 
 ## 4. Success criteria
 
 - A source-level test rejects the old repetition schedule and confirms `-Daily -At 07:15` plus preserved safety settings.
+- A unit test verifies that the publisher passes the platform-appropriate no-window creation flag to `subprocess.run`.
 - Publication tests and the full regression suite pass.
 - The live Windows task reports the expected action and a next run at 07:15, with no repetition interval.
 - No new prediction, publication commit, or modification to existing sealed result bytes is caused by task registration.
