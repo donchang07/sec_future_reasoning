@@ -14,6 +14,7 @@ FIELDS=set('bar_boundaries contract_version data_cutoff data_mode document_statu
 SOURCES=set('common_daily dram_spot dxy exports_10 exports_20 exports_month kospi preferred_daily samsung_bs samsung_cf samsung_soi treasury_10y usdkrw'.split())
 OUTCOME_FIELDS=set('run_id prediction_sha256 data_mode horizon due_at effective_at released_at collected_at source_ref price p0 return measurement_delay_hours policy_version'.split())
 PRIVATE_KEYS={'api_key','password','access_token','authorization','credentials','submitter','human','shadow','human_forecast'}
+GIT_CREATION_FLAGS=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0
 
 
 def check_public(value):
@@ -65,7 +66,7 @@ def export_record(record,root,store=None):
 
 def git(root,*args):
     env={**os.environ,'GIT_TERMINAL_PROMPT':'0','GCM_INTERACTIVE':'never'}
-    result=subprocess.run(['git',*args],cwd=root,env=env,capture_output=True,text=True,timeout=90)
+    result=subprocess.run(['git',*args],cwd=root,env=env,capture_output=True,text=True,timeout=90,creationflags=GIT_CREATION_FLAGS)
     if result.returncode:raise RuntimeError('git '+args[0]+' failed: '+result.stderr.strip())
     return result.stdout.strip()
 

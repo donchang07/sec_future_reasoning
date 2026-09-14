@@ -3,6 +3,7 @@ from pathlib import Path
 import pytest
 from forward_ops.store import seal,digest
 from publication.publisher import export_record,sync_git
+import publication.publisher as publisher
 
 
 def run_record(root):
@@ -48,6 +49,26 @@ def repo(tmp_path):
 
 def output(root):
     p=root/'docs/predictions/test.txt';p.parent.mkdir(parents=True);p.write_text('public output');return p
+
+
+def test_publisher_git_uses_platform_no_window_flag(monkeypatch,tmp_path):
+    captured={}
+
+    class Result:
+        returncode=0
+        stdout='ok\n'
+        stderr=''
+
+    def run(command,**kwargs):
+        captured.update(command=command,**kwargs)
+        return Result()
+
+    monkeypatch.setattr(publisher.subprocess,'run',run)
+    assert publisher.git(tmp_path,'status')=='ok'
+    expected=subprocess.CREATE_NO_WINDOW if hasattr(subprocess,'CREATE_NO_WINDOW') else 0
+    assert captured['creationflags']==expected
+    assert captured['command']==['git','status']
+    assert captured['capture_output'] is True and captured['timeout']==90
 
 
 def test_git_scope_idempotency_and_unstaged_preservation(tmp_path):
