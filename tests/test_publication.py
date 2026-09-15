@@ -20,7 +20,8 @@ def test_export_exact_journal_and_excludes_outer_private(tmp_path):
     p=next(p for p in paths if p.name=='journal.json')
     assert p.read_bytes()==(Path(r['raw_folder'])/'prediction-journal.json').read_bytes()
     assert all('DO NOT PUBLISH' not in p.read_text(encoding='utf-8') for p in paths)
-    assert len(paths)==2 and export_record(r,tmp_path)==paths
+    assert len(paths)==3 and export_record(r,tmp_path)==paths
+    assert next(p for p in paths if p.name=='briefing.md').read_text(encoding='utf-8').startswith('<p align="center">')
 
 
 @pytest.mark.parametrize('changes',[{'held':True},{'shadow':{}},{'api_key':'secret'},{'raw_observations':[{'source_id':'human_supplied'}]}])
@@ -121,3 +122,27 @@ def test_divergent_remote_never_forced(tmp_path):
     remote=git(bare,'rev-parse','main')
     with pytest.raises(ValueError,match='diverged'):sync_git(root,[p])
     assert git(bare,'rev-parse','main')==remote
+
+
+def test_publish_adds_navy_asset_and_briefing_first_index(tmp_path,monkeypatch):
+    r=run_record(tmp_path)
+
+    class Store:
+        def runs(self):return (r,)
+        def path(self,relative):return tmp_path/'artifacts/local/store'/relative
+
+    captured={}
+    def synced(root,paths):
+        captured['paths']=paths
+        return {'pushed':False,'commit':'test','files':len(paths)}
+
+    monkeypatch.setattr(publisher,'sync_git',synced)
+    result=publisher.publish(tmp_path,Store())
+    index=(tmp_path/'docs/predictions/README.md').read_text(encoding='utf-8')
+    asset=tmp_path/'docs/predictions/assets/daily-briefing-navy.svg'
+    assert asset.read_bytes().startswith(b'<svg')
+    assert '07:15 KST' in index and 'five minutes' not in index
+    assert '| Professional briefing | Full audit | Sealed Journal |' in index
+    assert '/briefing.md)' in index and '/explainability.md)' in index and '/journal.json)' in index
+    assert asset in captured['paths'] and result['files']==len(captured['paths'])
+    assert publisher.publish(tmp_path,Store())['files']==result['files']

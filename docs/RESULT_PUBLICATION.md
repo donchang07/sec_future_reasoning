@@ -1,6 +1,6 @@
 # 결과 자동 게시
 
-공개 Prediction Journal과 설명 보고서는 [결과 목록](predictions/README.md)에 자동 게시한다. 날짜는 Prediction timestamp의 KST 날짜이며, 각 run_id는 별도 디렉터리다. Journal은 봉인된 원본과 같은 바이트로 저장한다. 이후 공개 Outcome은 해당 디렉터리의 outcomes/에 별도 추가한다.
+공개 Prediction Journal과 설명 보고서는 [결과 목록](predictions/README.md)에 자동 게시한다. 날짜는 Prediction timestamp의 KST 날짜이며, 각 run_id는 별도 디렉터리다. 전문 한국어 `briefing.md`가 네이비 헤더, 오늘의 결론, 기간별 주요 예측, 방향·타이밍·정렬·유동성 해설과 데이터 한계를 먼저 보여준다. 전체 기여도 감사는 `explainability.md`, 봉인 원본은 `journal.json`에서 확인한다. Journal은 봉인된 원본과 같은 바이트로 저장하며, 이후 공개 Outcome은 해당 디렉터리의 outcomes/에 별도 추가한다.
 
 `SEC-Frozen-Forward-Publish` 작업이 매일 07:15 KST에 새 결과를 확인하고 origin/main으로 push한다. 정상적으로 완료된 07:00 Daily 결과는 약 15분 뒤 같은 날 게시된다. 07:15 이후 완료된 Daily/Event 결과는 수동 게시하지 않는 한 다음 날 07:15에 게시된다. 예측 실행과 분리되어 있으므로 게시 실패가 새 Prediction을 만들지 않는다. 기존 07:00 예측 작업·코드·Replay manifest를 변경하지 않는다. 현재 PC와 사용자 로그인 세션, GitHub 연결이 필요하다.
 

@@ -9,6 +9,7 @@ from pathlib import Path
 from uuid import UUID
 from zoneinfo import ZoneInfo
 from forward_ops.store import read_seal,digest
+from .briefing import HEADER_SVG,render_briefing
 
 FIELDS=set('bar_boundaries contract_version data_cutoff data_mode document_status executions findings held held_basis horizons lock mapping_version outcome_due p0 prediction_timestamp prior_provenance raw_bundle_hash raw_observations run_id sources versions market_cutoffs operating_policy availability_diagnostic availability_raw_hash data_timing_version'.split())
 SOURCES=set('common_daily dram_spot dxy exports_10 exports_20 exports_month kospi preferred_daily samsung_bs samsung_cf samsung_soi treasury_10y usdkrw'.split())
@@ -52,7 +53,8 @@ def export_record(record,root,store=None):
     destination=root/'docs/predictions'/day/rid;paths=[]
     from reasoning.live_v2 import report
     text='# Published frozen prediction\n\nThis is a copy of the sealed public system output. Unavailable reversal scores are not measured zero probabilities. Raw captures, human forecasts and outer shadow records are kept local.\n\n'+report(j)
-    for name,content in [('journal.json',original.read_bytes()),('explainability.md',text.encode())]:
+    briefing=render_briefing(j).encode('utf-8')
+    for name,content in [('journal.json',original.read_bytes()),('explainability.md',text.encode()),('briefing.md',briefing)]:
         path=destination/name;immutable(path,content);paths.append(path)
     if store:
         for original_outcome in sorted(store.path('outcomes/'+rid).glob('*.json')):
@@ -114,9 +116,10 @@ def publish(root,store):
     for record in store.runs():
         exported=export_record(record,root,store);paths.extend(exported)
         j=record['system'];relative=exported[0].parent.relative_to(root/'docs/predictions').as_posix()
-        links.append(f"| {j['prediction_timestamp']} | [{j['run_id']}]({relative}/explainability.md) | [Journal]({relative}/journal.json) |")
+        links.append(f"| {j['prediction_timestamp']} | [{j['run_id']}]({relative}/briefing.md) | [Full audit]({relative}/explainability.md) | [Journal]({relative}/journal.json) |")
     if not paths:return {'pushed':False,'reason':'No completed registered public runs'}
+    header=root/'docs/predictions/assets/daily-briefing-navy.svg';immutable(header,HEADER_SVG);paths.append(header)
     index=root/'docs/predictions/README.md'
-    index.write_text('# Published Prediction Results\n\nAutomatically published within approximately five minutes of local completion when GitHub is reachable. Original journals remain immutable; linked outcomes are separate.\n\n| Prediction timestamp | Explainability | Sealed record |\n|---|---|---|\n'+'\n'.join(reversed(links))+'\n',encoding='utf-8',newline='\n')
+    index.write_text('# 공개 예측 결과 | Published Prediction Results\n\n전문 브리핑은 매일 07:15 KST에 자동 게시한다. 봉인된 Journal과 전체 감사 보고서는 변경하지 않으며 Outcome은 별도 불변 기록으로 연결한다.\n\n| Prediction timestamp | Professional briefing | Full audit | Sealed Journal |\n|---|---|---|---|\n'+'\n'.join(reversed(links))+'\n',encoding='utf-8',newline='\n')
     attrs=root/'docs/predictions/.gitattributes';immutable(attrs,b'* -text\n')
     return sync_git(root,paths+[index,attrs])

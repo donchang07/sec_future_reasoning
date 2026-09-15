@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="260" viewBox="0 0 1400 260" role="img" aria-labelledby="title desc">
+  <title>SEC Future Reasoning Daily Market Briefing</title>
+  <desc>Navy professional briefing header for Samsung Electronics preferred-share forecasts</desc>
+  <rect width="1400" height="260" rx="18" fill="#081A33"/>
+  <rect x="0" y="0" width="18" height="260" rx="9" fill="#4DB6D0"/>
+  <rect x="82" y="62" width="58" height="4" fill="#C8A96A"/>
+  <text x="82" y="112" fill="#A9C2D9" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" letter-spacing="5">SEC FUTURE REASONING</text>
+  <text x="82" y="172" fill="#FFFFFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="1">DAILY MARKET BRIEFING</text>
+  <text x="84" y="218" fill="#D7E2EC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="23">Samsung Electronics Preferred · Explainable Forecast</text>
+  <circle cx="1284" cy="88" r="38" fill="none" stroke="#4DB6D0" stroke-width="3" opacity="0.9"/>
+  <circle cx="1284" cy="88" r="12" fill="#C8A96A"/>
+  <path d="M1190 190 H1320" stroke="#4DB6D0" stroke-width="4"/>
+  <path d="M1220 170 L1252 142 L1282 158 L1320 120" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
