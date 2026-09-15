@@ -190,7 +190,11 @@ def test_run_codex_is_bounded_windowless_and_validates_result(tmp_path, monkeypa
     assert str(schema.resolve()) in captured["command"]
     assert captured["timeout"] == 180 and captured["capture_output"] is True
     assert captured["creationflags"] == expected and captured["shell"] is False
-    assert "Gmail tools only" in captured["command"][-1]
+    assert captured["command"][-1] == "-"
+    assert "Gmail tools only" in captured["input"]
+    assert "<email_envelope_json>" in captured["input"]
+    assert "briefing@example.invalid" in captured["input"]
+    assert "briefing@example.invalid" not in " ".join(captured["command"])
 
 
 @pytest.mark.parametrize("mode", ["nonzero", "missing", "mismatch"])
@@ -274,4 +278,3 @@ def test_corrupt_ledger_fails_closed_without_calling_runner(tmp_path):
 
     with pytest.raises(DeliveryError, match="ledger"):
         deliver_pending(tmp_path, Store(), runner=lambda *_args: pytest.fail("must not send"))
-
