@@ -4,6 +4,7 @@
 
 | Prediction timestamp | Professional briefing | Full audit | Sealed Journal |
 |---|---|---|---|
+| 2026-09-20T22:00:10.610786+00:00 | [598366af-eca8-50e2-b741-d987460e6659](2026-09-21/598366af-eca8-50e2-b741-d987460e6659/briefing.md) | [Full audit](2026-09-21/598366af-eca8-50e2-b741-d987460e6659/explainability.md) | [Journal](2026-09-21/598366af-eca8-50e2-b741-d987460e6659/journal.json) |
 | 2026-09-19T22:00:09.667796+00:00 | [ef09898d-e70e-56e6-ad29-52ada01db174](2026-09-20/ef09898d-e70e-56e6-ad29-52ada01db174/briefing.md) | [Full audit](2026-09-20/ef09898d-e70e-56e6-ad29-52ada01db174/explainability.md) | [Journal](2026-09-20/ef09898d-e70e-56e6-ad29-52ada01db174/journal.json) |
 | 2026-09-18T22:00:11.916539+00:00 | [2385b632-a398-586d-b081-1e9b2bec0f78](2026-09-19/2385b632-a398-586d-b081-1e9b2bec0f78/briefing.md) | [Full audit](2026-09-19/2385b632-a398-586d-b081-1e9b2bec0f78/explainability.md) | [Journal](2026-09-19/2385b632-a398-586d-b081-1e9b2bec0f78/journal.json) |
 | 2026-09-17T22:00:13.196740+00:00 | [3465ce9a-5f5b-5385-9971-9c21993c94c4](2026-09-18/3465ce9a-5f5b-5385-9971-9c21993c94c4/briefing.md) | [Full audit](2026-09-18/3465ce9a-5f5b-5385-9971-9c21993c94c4/explainability.md) | [Journal](2026-09-18/3465ce9a-5f5b-5385-9971-9c21993c94c4/journal.json) |
