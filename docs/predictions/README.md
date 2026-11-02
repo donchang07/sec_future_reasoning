@@ -4,6 +4,7 @@
 
 | Prediction timestamp | Professional briefing | Full audit | Sealed Journal |
 |---|---|---|---|
+| 2026-11-02T22:00:14.798082+00:00 | [80caf973-64f3-5903-9e2b-788d6ac85022](2026-11-03/80caf973-64f3-5903-9e2b-788d6ac85022/briefing.md) | [Full audit](2026-11-03/80caf973-64f3-5903-9e2b-788d6ac85022/explainability.md) | [Journal](2026-11-03/80caf973-64f3-5903-9e2b-788d6ac85022/journal.json) |
 | 2026-11-01T22:00:16.528927+00:00 | [2b7e9525-9bbb-537a-844f-7af2a3e9a18a](2026-11-02/2b7e9525-9bbb-537a-844f-7af2a3e9a18a/briefing.md) | [Full audit](2026-11-02/2b7e9525-9bbb-537a-844f-7af2a3e9a18a/explainability.md) | [Journal](2026-11-02/2b7e9525-9bbb-537a-844f-7af2a3e9a18a/journal.json) |
 | 2026-10-31T22:00:18.054599+00:00 | [b2a45dec-1d7d-5993-8f7a-6b196ac033a6](2026-11-01/b2a45dec-1d7d-5993-8f7a-6b196ac033a6/briefing.md) | [Full audit](2026-11-01/b2a45dec-1d7d-5993-8f7a-6b196ac033a6/explainability.md) | [Journal](2026-11-01/b2a45dec-1d7d-5993-8f7a-6b196ac033a6/journal.json) |
 | 2026-10-30T22:00:17.121488+00:00 | [c0f18e09-592e-5b76-b12c-1f624647b64e](2026-10-31/c0f18e09-592e-5b76-b12c-1f624647b64e/briefing.md) | [Full audit](2026-10-31/c0f18e09-592e-5b76-b12c-1f624647b64e/explainability.md) | [Journal](2026-10-31/c0f18e09-592e-5b76-b12c-1f624647b64e/journal.json) |
